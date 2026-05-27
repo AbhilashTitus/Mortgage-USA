@@ -17,14 +17,14 @@ export function useAffordabilityEngine(): CalculationResults | null {
     try {
       // 1. Convert primitive store state to Decimal for the engine
       const inputs: UserInputs = {
-        downPaymentPercent: new Decimal(userInputs.downPaymentPercent),
-        interestRate: new Decimal(userInputs.interestRate),
+        downPaymentPercent: new Decimal(userInputs.downPaymentPercent).dividedBy(100),
+        interestRate: new Decimal(userInputs.interestRate).dividedBy(100),
         mortgageTermYears: userInputs.mortgageTermYears,
         propertyTaxRate: new Decimal(userInputs.propertyTaxRate),
         insuranceRate: new Decimal(userInputs.insuranceRate),
         mortgageInsuranceType: userInputs.mortgageInsuranceType,
         yearlyHOA: new Decimal(userInputs.yearlyHOA),
-        incomeTaxRate: new Decimal(userInputs.incomeTaxRate),
+        incomeTaxRate: new Decimal(userInputs.incomeTaxRate).dividedBy(100),
         yearlyGrossIncome: new Decimal(userInputs.yearlyGrossIncome),
         borrowerDebts: userInputs.borrowerDebts.map(d => new Decimal(d)),
         coBorrowerIncome: new Decimal(userInputs.coBorrowerIncome),

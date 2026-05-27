@@ -20,53 +20,22 @@ export function YourInfoForm() {
 
   const form = useForm<UserInputState>({
     resolver: zodResolver(UserInputSchema),
-    defaultValues: userInputs,
+    values: userInputs,
     mode: "onChange",
   });
 
   const { register, control, watch, formState: { errors }, reset } = form;
 
-  // Sync form state to store automatically on valid changes
+  const interestRateWatch = watch("interestRate");
+  const downPaymentPercentWatch = watch("downPaymentPercent");
+  const incomeTaxRateWatch = watch("incomeTaxRate");
+
+  // Sync valid form state to store automatically
   useEffect(() => {
     const subscription = watch((value) => {
       try {
-        // Preprocess to handle empty inputs / NaNs gracefully: fallback to sensible defaults
-        const processed = { ...value } as any;
-        const numericFields: (keyof UserInputState)[] = [
-          'downPaymentPercent',
-          'interestRate',
-          'mortgageTermYears',
-          'propertyTaxRate',
-          'insuranceRate',
-          'yearlyHOA',
-          'incomeTaxRate',
-          'yearlyGrossIncome',
-          'coBorrowerIncome',
-        ];
-
-        numericFields.forEach((field) => {
-          const val = processed[field];
-          if (val === undefined || val === null || (typeof val === 'number' && Number.isNaN(val))) {
-            if (field === 'mortgageTermYears') {
-              processed[field] = 30;
-            } else {
-              processed[field] = 0;
-            }
-          }
-        });
-
-        if (Array.isArray(processed.borrowerDebts)) {
-          processed.borrowerDebts = processed.borrowerDebts.map((d: any) => 
-            (d === undefined || d === null || Number.isNaN(d)) ? 0 : d
-          );
-        }
-        if (Array.isArray(processed.coBorrowerDebts)) {
-          processed.coBorrowerDebts = processed.coBorrowerDebts.map((d: any) => 
-            (d === undefined || d === null || Number.isNaN(d)) ? 0 : d
-          );
-        }
-
-        const parsed = UserInputSchema.parse(processed);
+        // Only parse if it's a valid complete state
+        const parsed = UserInputSchema.parse(value);
         
         // Deep-compare parsed value with current store state
         const currentStore = useAppStore.getState().userInputs;
@@ -87,22 +56,6 @@ export function YourInfoForm() {
     });
     return () => subscription.unsubscribe();
   }, [watch, updateUserInputs]);
-
-  // Sync store to form when store changes externally (e.g. reset)
-  useEffect(() => {
-    const currentValues = form.getValues();
-    const isSame = Object.keys(userInputs).every((key) => {
-      const k = key as keyof UserInputState;
-      if (Array.isArray(userInputs[k]) && Array.isArray(currentValues[k])) {
-        return JSON.stringify(userInputs[k]) === JSON.stringify(currentValues[k]);
-      }
-      return userInputs[k] === currentValues[k];
-    });
-
-    if (!isSame) {
-      reset(userInputs);
-    }
-  }, [userInputs, reset, form]);
 
   return (
     <Card className="w-full h-full shadow-sm">
@@ -127,8 +80,8 @@ export function YourInfoForm() {
                     id="interestRate" 
                     type="number" 
                     step="0.125" 
-                    {...register("interestRate", { valueAsNumber: true, setValueAs: v => Number(v) / 100 })} 
-                    value={watch("interestRate") * 100}
+                    {...register("interestRate", { valueAsNumber: true })} 
+                    value={Number.isNaN(interestRateWatch) || interestRateWatch === undefined ? "" : interestRateWatch}
                   />
                   {errors.interestRate && <p className="text-destructive text-sm">{errors.interestRate.message}</p>}
                 </div>
@@ -162,8 +115,8 @@ export function YourInfoForm() {
                     id="downPaymentPercent" 
                     type="number" 
                     step="1" 
-                    {...register("downPaymentPercent", { valueAsNumber: true, setValueAs: v => Number(v) / 100 })} 
-                    value={Math.round(watch("downPaymentPercent") * 100)}
+                    {...register("downPaymentPercent", { valueAsNumber: true })} 
+                    value={Number.isNaN(downPaymentPercentWatch) || downPaymentPercentWatch === undefined ? "" : downPaymentPercentWatch}
                   />
                 </div>
                 
@@ -236,8 +189,8 @@ export function YourInfoForm() {
                   id="incomeTaxRate" 
                   type="number" 
                   step="1"
-                  {...register("incomeTaxRate", { valueAsNumber: true, setValueAs: v => Number(v) / 100 })} 
-                  value={Math.round(watch("incomeTaxRate") * 100)}
+                  {...register("incomeTaxRate", { valueAsNumber: true })} 
+                  value={Number.isNaN(incomeTaxRateWatch) || incomeTaxRateWatch === undefined ? "" : incomeTaxRateWatch}
                 />
               </div>
 

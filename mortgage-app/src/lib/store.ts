@@ -19,14 +19,14 @@ interface AppState {
 }
 
 const defaultUserInputs: UserInputState = {
-  downPaymentPercent: 0.20,
-  interestRate: 0.065, // 6.5%
+  downPaymentPercent: 20,      // 20% (display value)
+  interestRate: 6.5,           // 6.5% (display value)
   mortgageTermYears: 30,
-  propertyTaxRate: 120, // 1.2% in bps
-  insuranceRate: 42, // 0.42% in bps
+  propertyTaxRate: 120,        // 1.2% in bps
+  insuranceRate: 42,           // 0.42% in bps
   mortgageInsuranceType: 'Conv - Good Credit',
   yearlyHOA: 0,
-  incomeTaxRate: 0.25, // 25% average tax rate assumption
+  incomeTaxRate: 25,           // 25% (display value)
   yearlyGrossIncome: 100000,
   borrowerDebts: [],
   coBorrowerIncome: 0,

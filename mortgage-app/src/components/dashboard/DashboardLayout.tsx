@@ -10,6 +10,7 @@ import { RiskTier } from "@/lib/engine/types";
 import { FaqSection } from "./FaqSection";
 import { CustomPriceCalculator } from "./CustomPriceCalculator";
 import { CLOSING_COST_OPTIONS } from "@/lib/engine/constants";
+import { AlertTriangle } from "lucide-react";
 
 import Decimal from "decimal.js";
 
@@ -39,7 +40,7 @@ function ChartSkeleton() {
 
 export function DashboardLayout() {
   const results = useAffordabilityEngine();
-  const { settings, updateSettings } = useAppStore();
+  const { settings, updateSettings, userInputs } = useAppStore();
 
   if (!results) {
     return (
@@ -55,6 +56,21 @@ export function DashboardLayout() {
   const cashToClose =
     activeTier.downPayment.toNumber() +
     activeTier.maxPurchasePrice.toNumber() * closingCostOptionDecimal.toNumber();
+
+  const grossMonthly = (userInputs.yearlyGrossIncome + userInputs.coBorrowerIncome) / 12;
+  const totalDebts = userInputs.borrowerDebts.reduce((a, b) => a + b, 0) + userInputs.coBorrowerDebts.reduce((a, b) => a + b, 0);
+
+  const isDebtOverLimit = activeTier.maxPurchasePrice.isZero() && grossMonthly > 0 && totalDebts > 0;
+  
+  // Calculate specific figures for warning banner
+  const backEndLimitPct = activeTier.backEndRatio.times(100).toNumber();
+  const maxAllowedDebts = grossMonthly * activeTier.backEndRatio.toNumber();
+  const excessDebts = totalDebts - maxAllowedDebts;
+  const requiredIncomeForDebts = (totalDebts / activeTier.backEndRatio.toNumber()) * 12;
+  const incomeShortfall = requiredIncomeForDebts - (userInputs.yearlyGrossIncome + userInputs.coBorrowerIncome);
+
+  // Check if any higher-risk tier could qualify
+  const alternativeTier = results.riskTiers.find(t => t.maxPurchasePrice.greaterThan(0));
 
   return (
     <div className="flex flex-col gap-6 h-full">
@@ -84,6 +100,40 @@ export function DashboardLayout() {
           </Select>
         </div>
       </div>
+
+      {/* ── Warning Alert (when debts exceed limits) ── */}
+      {isDebtOverLimit && (
+        <div className="p-5 border border-amber-500/20 bg-amber-500/5 text-amber-900 dark:text-amber-200 rounded-xl flex gap-4 items-start animate-in fade-in slide-in-from-top-4 duration-300">
+          <AlertTriangle className="w-6 h-6 shrink-0 text-amber-500 mt-0.5 animate-pulse" />
+          <div className="flex-1 space-y-2">
+            <h3 className="font-semibold text-lg leading-none">Monthly Debts Exceed DTI Limit</h3>
+            <p className="text-sm opacity-90 leading-relaxed">
+              Your monthly debts of <strong>${totalDebts.toLocaleString("en-US", { maximumFractionDigits: 0 })}</strong> exceed the maximum total debt allowed for your income level under the <strong>{settings.selectedRiskTier}</strong> risk tier. 
+              The maximum monthly debt allowed for this tier is <strong>{backEndLimitPct}%</strong> of your gross monthly income (which equals <strong>${maxAllowedDebts.toLocaleString("en-US", { maximumFractionDigits: 0 })}</strong>).
+            </p>
+            <div className="text-sm opacity-90 space-y-2 pt-1 border-t border-amber-500/10 mt-2">
+              <p className="font-semibold text-amber-950 dark:text-amber-100">To qualify for a mortgage, you would need to:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>
+                  <strong>Reduce monthly debts:</strong> Lower your minimum monthly payments by at least <strong>${excessDebts.toLocaleString("en-US", { maximumFractionDigits: 0 })}</strong> to bring them under the limit.
+                </li>
+                <li>
+                  <strong>Increase income:</strong> Increase your annual gross income to at least <strong>${requiredIncomeForDebts.toLocaleString("en-US", { maximumFractionDigits: 0 })}</strong> (an increase of <strong>${incomeShortfall.toLocaleString("en-US", { maximumFractionDigits: 0 })}</strong>).
+                </li>
+                {alternativeTier ? (
+                  <li>
+                    <strong>Try a higher risk tolerance:</strong> Choose the <strong>{alternativeTier.tier}</strong> risk tier at the top right, which allows a higher debt-to-income ratio.
+                  </li>
+                ) : (
+                  <li>
+                    <strong>Exceeds all limits:</strong> Your debts exceed the limit of even the most aggressive risk tier (Risky tier, 55% back-end DTI limit). You will need to reduce debts or increase income to qualify.
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Hero summary ── */}
       <Card className="bg-primary/5 border-primary/20">

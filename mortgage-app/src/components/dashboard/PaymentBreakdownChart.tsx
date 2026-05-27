@@ -18,6 +18,15 @@ export function PaymentBreakdownChart({ breakdown }: PaymentBreakdownChartProps)
     { name: 'HOA', value: breakdown.hoa.toNumber() },
   ].filter(item => item.value > 0);
 
+  if (data.length === 0) {
+    return (
+      <div className="w-full h-full min-h-[300px] flex flex-col items-center justify-center text-muted-foreground text-sm p-6 text-center">
+        <p className="font-semibold text-base mb-1 text-foreground">No breakdown available</p>
+        <p className="text-xs max-w-[250px]">Your monthly payment under this scenario is $0.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-full min-h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
