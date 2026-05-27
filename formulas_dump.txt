@@ -1,0 +1,738 @@
+﻿
+
+########## SHEET: 1. Start Here ##########
+Range: B2:B15
+Merges: [{"s":{"c":1,"r":2},"e":{"c":9,"r":6}},{"s":{"c":1,"r":14},"e":{"c":8,"r":18}}]
+
+Named Ranges:
+Cell B2: type=s, value="Start Here", formatted=Start Here
+Cell B3: type=s, value="Welcome to your Max Purchase Price Calcualtor! The main goal of this calculator is to help you understand the maximum purchase price for the home you buy. Smart home buyers figure out their budget BEFORE they start the process of buying a home so they don't get stuck in a mortgage payment that is uncomortable.\n\nMake sure to watch the tutorial below FIRST. And only edit numbers/text that are in blue.", formatted=Welcome to your Max Purchase Price Calcualtor! The main goal of this calculator is to help you understand the maximum purchase price for the home you buy. Smart home buyers figure out their budget BEFORE they start the process of buying a home so they don't get stuck in a mortgage payment that is uncomortable.
+
+Make sure to watch the tutorial below FIRST. And only edit numbers/text that are in blue.
+Cell B10: type=s, value="To edit: click \"File\" then \"Make a copy\"", formatted=To edit: click "File" then "Make a copy"
+Cell B11: type=s, value="≡ƒæï Watch the tutorial here first!", formatted=≡ƒæï Watch the tutorial here first!
+Cell B15: type=s, value="Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer", formatted=Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer
+
+
+########## SHEET: 2. Your Info ##########
+Range: B1:H75
+Merges: [{"s":{"c":1,"r":2},"e":{"c":7,"r":2}},{"s":{"c":4,"r":5},"e":{"c":8,"r":7}},{"s":{"c":5,"r":8},"e":{"c":6,"r":8}},{"s":{"c":5,"r":9},"e":{"c":6,"r":9}},{"s":{"c":5,"r":10},"e":{"c":6,"r":10}},{"s":{"c":5,"r":12},"e":{"c":6,"r":12}},{"s":{"c":5,"r":13},"e":{"c":6,"r":13}},{"s":{"c":4,"r":29},"e":{"c":8,"r":30}},{"s":{"c":5,"r":32},"e":{"c":6,"r":33}},{"s":{"c":4,"r":42},"e":{"c":8,"r":44}},{"s":{"c":5,"r":45},"e":{"c":6,"r":45}},{"s":{"c":5,"r":48},"e":{"c":6,"r":49}},{"s":{"c":4,"r":59},"e":{"c":8,"r":61}},{"s":{"c":4,"r":65},"e":{"c":7,"r":70}},{"s":{"c":5,"r":14},"e":{"c":6,"r":14}},{"s":{"c":5,"r":15},"e":{"c":6,"r":15}},{"s":{"c":5,"r":16},"e":{"c":6,"r":16}},{"s":{"c":4,"r":19},"e":{"c":8,"r":21}},{"s":{"c":5,"r":22},"e":{"c":6,"r":22}},{"s":{"c":4,"r":24},"e":{"c":8,"r":26}},{"s":{"c":4,"r":27},"e":{"c":8,"r":28}}]
+
+Named Ranges:
+Cell B2: type=s, value="Your Info", formatted=Your Info
+Cell B3: type=s, value="Follow the sections below to enter your information. This is what will determine your max purchase price. After you've finished this section, move to the last page called 3. Your Affordability Dashboard.", formatted=Follow the sections below to enter your information. This is what will determine your max purchase price. After you've finished this section, move to the last page called 3. Your Affordability Dashboard.
+Cell B6: type=s, value="1. Your Scenario", formatted=1. Your Scenario
+Cell E6: type=s, value="First, let's estimate some numbers. Don't worry, they don't have to be exact. If you're unsure, just use the default numbers.", formatted=First, let's estimate some numbers. Don't worry, they don't have to be exact. If you're unsure, just use the default numbers.
+Cell E9: type=s, value="Down payment", formatted=Down payment
+Cell F9: type=n, value=0, formatted=0.0%
+Cell E10: type=s, value="Interest rate", formatted=Interest rate
+Cell F10: type=n, value=0, formatted=0.00%
+Cell H10: type=s, value="View Today's Interest Rates", formatted=View Today's Interest Rates
+Cell E11: type=s, value="How long is your mortgage?", formatted=How long is your mortgage?
+Cell F11: type=n, value=30, formatted=30
+Cell H11: type=s, value="years", formatted=years
+Cell E13: type=s, value="Property tax rate %", formatted=Property tax rate %
+Cell F13: type=n, value=0, formatted=0
+Cell H13: type=s, value="Property Tax Map By State", formatted=Property Tax Map By State
+Cell E14: type=s, value="Insurance rate %", formatted=Insurance rate %
+Cell F14: type=n, value=0, formatted=0
+Cell E15: type=s, value="Mortgage insurance rate %", formatted=Mortgage insurance rate %
+Cell F15: type=s, value="Conv - Good Credit", formatted=Conv - Good Credit
+Cell E16: type=s, value="Yearly HOA fees", formatted=Yearly HOA fees
+Cell F16: type=n, value=0, formatted=$0
+Cell E17: type=s, value="Income tax rate:", formatted=Income tax rate:
+Cell F17: type=n, value=0, formatted=0%
+Cell H17: type=s, FORMULA="TEXT((F23+F46)*(1-F17),"$##,###") & " Net Income"", value="$ Net Income", formatted=$ Net Income
+Cell B20: type=s, value="2. Your Income & Debts", formatted=2. Your Income & Debts
+Cell E20: type=s, value="Next, enter your yearly gross income. A good rule of thumb is to average your past 2 years of income.", formatted=Next, enter your yearly gross income. A good rule of thumb is to average your past 2 years of income.
+Cell E23: type=s, value="Your Yearly Gross Income:", formatted=Your Yearly Gross Income:
+Cell F23: type=n, value=0, formatted=$0
+Cell E25: type=s, value="Now, enter your debts... lenders ONLY care about minimum monthly debt payments. Again, only the minimum required payment.", formatted=Now, enter your debts... lenders ONLY care about minimum monthly debt payments. Again, only the minimum required payment.
+Cell E28: type=s, value="What is a debt? car loans, student loans, credit cards, personal loans, rental property mortgages, alimony, child support", formatted=What is a debt? car loans, student loans, credit cards, personal loans, rental property mortgages, alimony, child support
+Cell E30: type=s, value="What isn't a debt? rent, groceries, utilities, phone bill, insurance, other expenses like gas, food, etc.", formatted=What isn't a debt? rent, groceries, utilities, phone bill, insurance, other expenses like gas, food, etc.
+Cell F33: type=s, value="Minimum Monthly Payment", formatted=Minimum Monthly Payment
+Cell E34: type=s, value="Name of Debt", formatted=Name of Debt
+Cell E35: type=s, value="Car", formatted=Car
+Cell F35: type=n, value=0, formatted=$0
+Cell E36: type=s, value="Credit card", formatted=Credit card
+Cell F36: type=n, value=0, formatted=$0
+Cell E37: type=s, value="-", formatted=-
+Cell F37: type=s, value="-", formatted=-
+Cell E38: type=s, value="-", formatted=-
+Cell F38: type=s, value="-", formatted=-
+Cell E39: type=s, value="-", formatted=-
+Cell F39: type=s, value="-", formatted=-
+Cell E40: type=s, value="-", formatted=-
+Cell F40: type=s, value="-", formatted=-
+Cell B43: type=s, value="3. Co-borrower's Info", formatted=3. Co-borrower's Info
+Cell E43: type=s, value="Finally, enter the same information for your co-borrower. If you don't have a co-borrower on the loan with you, you can ignore this section.", formatted=Finally, enter the same information for your co-borrower. If you don't have a co-borrower on the loan with you, you can ignore this section.
+Cell E46: type=s, value="Co-Borrower's Yearly Income:", formatted=Co-Borrower's Yearly Income:
+Cell F46: type=n, value=0, formatted=$0
+Cell F49: type=s, value="Minimum Monthly Payment", formatted=Minimum Monthly Payment
+Cell E50: type=s, value="Name of Debt", formatted=Name of Debt
+Cell E51: type=s, value="Student loans", formatted=Student loans
+Cell F51: type=n, value=0, formatted=$0
+Cell E52: type=s, value="-", formatted=-
+Cell F52: type=s, value="-", formatted=-
+Cell E53: type=s, value="-", formatted=-
+Cell F53: type=s, value="-", formatted=-
+Cell E54: type=s, value="-", formatted=-
+Cell F54: type=s, value="-", formatted=-
+Cell E55: type=s, value="-", formatted=-
+Cell F55: type=s, value="-", formatted=-
+Cell E56: type=s, value="-", formatted=-
+Cell F56: type=s, value="-", formatted=-
+Cell E60: type=s, value="Go to the page 3. Your Affordability Dashboard.", formatted=Go to the page 3. Your Affordability Dashboard.
+Cell E66: type=s, value="Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer", formatted=Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer
+
+
+########## SHEET: 3. Your Affordability Dashboard ##########
+Range: B1:M350
+Merges: [{"s":{"c":7,"r":145},"e":{"c":9,"r":145}},{"s":{"c":10,"r":145},"e":{"c":12,"r":145}},{"s":{"c":7,"r":146},"e":{"c":9,"r":146}},{"s":{"c":10,"r":146},"e":{"c":12,"r":146}},{"s":{"c":7,"r":147},"e":{"c":9,"r":147}},{"s":{"c":10,"r":147},"e":{"c":12,"r":147}},{"s":{"c":5,"r":149},"e":{"c":6,"r":149}},{"s":{"c":7,"r":149},"e":{"c":9,"r":149}},{"s":{"c":10,"r":149},"e":{"c":12,"r":149}},{"s":{"c":7,"r":150},"e":{"c":9,"r":150}},{"s":{"c":10,"r":150},"e":{"c":12,"r":150}},{"s":{"c":7,"r":151},"e":{"c":9,"r":151}},{"s":{"c":5,"r":153},"e":{"c":6,"r":153}},{"s":{"c":10,"r":153},"e":{"c":12,"r":153}},{"s":{"c":7,"r":153},"e":{"c":9,"r":153}},{"s":{"c":7,"r":154},"e":{"c":9,"r":154}},{"s":{"c":10,"r":154},"e":{"c":12,"r":154}},{"s":{"c":7,"r":155},"e":{"c":9,"r":155}},{"s":{"c":5,"r":157},"e":{"c":6,"r":157}},{"s":{"c":7,"r":157},"e":{"c":9,"r":157}},{"s":{"c":10,"r":157},"e":{"c":12,"r":157}},{"s":{"c":7,"r":162},"e":{"c":9,"r":162}},{"s":{"c":7,"r":163},"e":{"c":9,"r":163}},{"s":{"c":7,"r":158},"e":{"c":9,"r":158}},{"s":{"c":10,"r":158},"e":{"c":12,"r":158}},{"s":{"c":7,"r":159},"e":{"c":9,"r":159}},{"s":{"c":5,"r":161},"e":{"c":6,"r":161}},{"s":{"c":7,"r":161},"e":{"c":9,"r":161}},{"s":{"c":10,"r":161},"e":{"c":12,"r":161}},{"s":{"c":10,"r":162},"e":{"c":12,"r":162}},{"s":{"c":5,"r":168},"e":{"c":12,"r":170}},{"s":{"c":5,"r":173},"e":{"c":6,"r":173}},{"s":{"c":8,"r":173},"e":{"c":12,"r":173}},{"s":{"c":5,"r":178},"e":{"c":12,"r":178}},{"s":{"c":5,"r":181},"e":{"c":8,"r":182}},{"s":{"c":9,"r":181},"e":{"c":12,"r":182}},{"s":{"c":9,"r":183},"e":{"c":12,"r":183}},{"s":{"c":5,"r":224},"e":{"c":6,"r":224}},{"s":{"c":8,"r":224},"e":{"c":9,"r":224}},{"s":{"c":10,"r":224},"e":{"c":10,"r":225}},{"s":{"c":11,"r":224},"e":{"c":12,"r":224}},{"s":{"c":11,"r":225},"e":{"c":12,"r":226}},{"s":{"c":5,"r":214},"e":{"c":6,"r":214}},{"s":{"c":5,"r":215},"e":{"c":6,"r":215}},{"s":{"c":5,"r":216},"e":{"c":6,"r":216}},{"s":{"c":8,"r":216},"e":{"c":9,"r":216}},{"s":{"c":11,"r":216},"e":{"c":12,"r":216}},{"s":{"c":5,"r":219},"e":{"c":12,"r":220}},{"s":{"c":7,"r":224},"e":{"c":7,"r":225}},{"s":{"c":5,"r":225},"e":{"c":6,"r":225}},{"s":{"c":8,"r":225},"e":{"c":9,"r":225}},{"s":{"c":8,"r":226},"e":{"c":9,"r":226}},{"s":{"c":5,"r":229},"e":{"c":12,"r":229}},{"s":{"c":5,"r":230},"e":{"c":12,"r":231}},{"s":{"c":5,"r":234},"e":{"c":12,"r":236}},{"s":{"c":6,"r":237},"e":{"c":12,"r":238}},{"s":{"c":11,"r":245},"e":{"c":12,"r":245}},{"s":{"c":11,"r":246},"e":{"c":12,"r":247}},{"s":{"c":5,"r":240},"e":{"c":12,"r":242}},{"s":{"c":5,"r":245},"e":{"c":6,"r":245}},{"s":{"c":7,"r":245},"e":{"c":7,"r":246}},{"s":{"c":8,"r":245},"e":{"c":9,"r":245}},{"s":{"c":10,"r":245},"e":{"c":10,"r":246}},{"s":{"c":5,"r":246},"e":{"c":6,"r":246}},{"s":{"c":8,"r":246},"e":{"c":9,"r":246}},{"s":{"c":8,"r":247},"e":{"c":9,"r":247}},{"s":{"c":5,"r":251},"e":{"c":12,"r":252}},{"s":{"c":6,"r":255},"e":{"c":7,"r":255}},{"s":{"c":8,"r":255},"e":{"c":9,"r":255}},{"s":{"c":10,"r":255},"e":{"c":11,"r":255}},{"s":{"c":8,"r":257},"e":{"c":9,"r":257}},{"s":{"c":10,"r":257},"e":{"c":11,"r":257}},{"s":{"c":9,"r":258},"e":{"c":12,"r":258}},{"s":{"c":5,"r":302},"e":{"c":6,"r":302}},{"s":{"c":5,"r":304},"e":{"c":7,"r":307}},{"s":{"c":10,"r":304},"e":{"c":12,"r":308}},{"s":{"c":5,"r":299},"e":{"c":7,"r":299}},{"s":{"c":10,"r":299},"e":{"c":12,"r":299}},{"s":{"c":5,"r":300},"e":{"c":7,"r":300}},{"s":{"c":10,"r":300},"e":{"c":12,"r":300}},{"s":{"c":5,"r":301},"e":{"c":6,"r":301}},{"s":{"c":10,"r":301},"e":{"c":11,"r":301}},{"s":{"c":10,"r":302},"e":{"c":11,"r":302}},{"s":{"c":1,"r":10},"e":{"c":2,"r":10}},{"s":{"c":7,"r":10},"e":{"c":9,"r":10}},{"s":{"c":1,"r":12},"e":{"c":2,"r":12}},{"s":{"c":1,"r":14},"e":{"c":2,"r":14}},{"s":{"c":7,"r":14},"e":{"c":9,"r":14}},{"s":{"c":10,"r":10},"e":{"c":11,"r":10}},{"s":{"c":7,"r":11},"e":{"c":9,"r":11}},{"s":{"c":10,"r":11},"e":{"c":11,"r":11}},{"s":{"c":10,"r":12},"e":{"c":11,"r":12}},{"s":{"c":7,"r":13},"e":{"c":9,"r":13}},{"s":{"c":10,"r":13},"e":{"c":11,"r":13}},{"s":{"c":7,"r":5},"e":{"c":9,"r":6}},{"s":{"c":11,"r":5},"e":{"c":12,"r":6}},{"s":{"c":5,"r":6},"e":{"c":6,"r":6}},{"s":{"c":7,"r":7},"e":{"c":9,"r":7}},{"s":{"c":11,"r":7},"e":{"c":12,"r":7}},{"s":{"c":11,"r":8},"e":{"c":12,"r":8}},{"s":{"c":5,"r":9},"e":{"c":6,"r":15}},{"s":{"c":10,"r":14},"e":{"c":11,"r":14}},{"s":{"c":5,"r":18},"e":{"c":12,"r":21}},{"s":{"c":5,"r":25},"e":{"c":6,"r":25}},{"s":{"c":7,"r":25},"e":{"c":9,"r":25}},{"s":{"c":11,"r":25},"e":{"c":12,"r":25}},{"s":{"c":11,"r":27},"e":{"c":12,"r":27}},{"s":{"c":5,"r":29},"e":{"c":6,"r":29}},{"s":{"c":11,"r":32},"e":{"c":12,"r":32}},{"s":{"c":11,"r":33},"e":{"c":12,"r":33}},{"s":{"c":7,"r":29},"e":{"c":9,"r":29}},{"s":{"c":11,"r":29},"e":{"c":12,"r":29}},{"s":{"c":7,"r":30},"e":{"c":9,"r":30}},{"s":{"c":11,"r":30},"e":{"c":12,"r":30}},{"s":{"c":5,"r":32},"e":{"c":6,"r":32}},{"s":{"c":7,"r":32},"e":{"c":9,"r":32}},{"s":{"c":7,"r":33},"e":{"c":9,"r":33}},{"s":{"c":5,"r":103},"e":{"c":6,"r":103}},{"s":{"c":7,"r":103},"e":{"c":7,"r":104}},{"s":{"c":8,"r":103},"e":{"c":9,"r":103}},{"s":{"c":10,"r":103},"e":{"c":10,"r":104}},{"s":{"c":11,"r":103},"e":{"c":13,"r":103}},{"s":{"c":5,"r":104},"e":{"c":6,"r":104}},{"s":{"c":8,"r":104},"e":{"c":9,"r":104}},{"s":{"c":5,"r":128},"e":{"c":12,"r":131}},{"s":{"c":5,"r":136},"e":{"c":12,"r":136}},{"s":{"c":11,"r":104},"e":{"c":13,"r":105}},{"s":{"c":11,"r":106},"e":{"c":13,"r":107}},{"s":{"c":11,"r":108},"e":{"c":13,"r":110}},{"s":{"c":11,"r":111},"e":{"c":12,"r":111}},{"s":{"c":5,"r":113},"e":{"c":12,"r":118}},{"s":{"c":5,"r":123},"e":{"c":6,"r":123}},{"s":{"c":7,"r":123},"e":{"c":7,"r":124}},{"s":{"c":5,"r":35},"e":{"c":6,"r":35}},{"s":{"c":7,"r":35},"e":{"c":9,"r":35}},{"s":{"c":11,"r":35},"e":{"c":12,"r":35}},{"s":{"c":7,"r":36},"e":{"c":9,"r":36}},{"s":{"c":11,"r":36},"e":{"c":12,"r":36}},{"s":{"c":5,"r":38},"e":{"c":6,"r":38}},{"s":{"c":11,"r":38},"e":{"c":12,"r":38}},{"s":{"c":7,"r":38},"e":{"c":9,"r":38}},{"s":{"c":7,"r":39},"e":{"c":9,"r":39}},{"s":{"c":11,"r":39},"e":{"c":12,"r":39}},{"s":{"c":5,"r":41},"e":{"c":6,"r":41}},{"s":{"c":7,"r":41},"e":{"c":9,"r":41}},{"s":{"c":11,"r":41},"e":{"c":12,"r":41}},{"s":{"c":7,"r":42},"e":{"c":9,"r":42}},{"s":{"c":11,"r":42},"e":{"c":12,"r":42}},{"s":{"c":10,"r":55},"e":{"c":11,"r":55}},{"s":{"c":5,"r":58},"e":{"c":12,"r":60}},{"s":{"c":5,"r":61},"e":{"c":12,"r":68}},{"s":{"c":5,"r":70},"e":{"c":10,"r":70}},{"s":{"c":5,"r":72},"e":{"c":8,"r":72}},{"s":{"c":9,"r":72},"e":{"c":10,"r":72}},{"s":{"c":5,"r":77},"e":{"c":12,"r":78}},{"s":{"c":1,"r":78},"e":{"c":2,"r":78}},{"s":{"c":5,"r":79},"e":{"c":12,"r":82}},{"s":{"c":5,"r":84},"e":{"c":12,"r":91}},{"s":{"c":9,"r":95},"e":{"c":10,"r":95}},{"s":{"c":9,"r":96},"e":{"c":10,"r":96}},{"s":{"c":9,"r":97},"e":{"c":10,"r":97}},{"s":{"c":8,"r":123},"e":{"c":9,"r":123}},{"s":{"c":10,"r":123},"e":{"c":10,"r":124}},{"s":{"c":1,"r":124},"e":{"c":2,"r":124}},{"s":{"c":5,"r":124},"e":{"c":6,"r":124}},{"s":{"c":8,"r":124},"e":{"c":9,"r":124}},{"s":{"c":11,"r":123},"e":{"c":12,"r":123}},{"s":{"c":11,"r":124},"e":{"c":12,"r":125}},{"s":{"c":5,"r":125},"e":{"c":6,"r":125}},{"s":{"c":8,"r":125},"e":{"c":9,"r":125}},{"s":{"c":1,"r":137},"e":{"c":2,"r":137}},{"s":{"c":5,"r":137},"e":{"c":12,"r":140}},{"s":{"c":7,"r":143},"e":{"c":9,"r":143}},{"s":{"c":10,"r":143},"e":{"c":12,"r":143}},{"s":{"c":5,"r":145},"e":{"c":6,"r":145}},{"s":{"c":9,"r":184},"e":{"c":12,"r":184}},{"s":{"c":9,"r":185},"e":{"c":12,"r":185}},{"s":{"c":9,"r":187},"e":{"c":12,"r":188}},{"s":{"c":9,"r":189},"e":{"c":12,"r":189}},{"s":{"c":5,"r":183},"e":{"c":8,"r":183}},{"s":{"c":5,"r":184},"e":{"c":8,"r":184}},{"s":{"c":5,"r":185},"e":{"c":8,"r":185}},{"s":{"c":6,"r":186},"e":{"c":8,"r":186}},{"s":{"c":5,"r":187},"e":{"c":8,"r":188}},{"s":{"c":5,"r":189},"e":{"c":8,"r":189}},{"s":{"c":6,"r":190},"e":{"c":7,"r":191}},{"s":{"c":8,"r":214},"e":{"c":9,"r":214}},{"s":{"c":10,"r":214},"e":{"c":10,"r":215}},{"s":{"c":8,"r":215},"e":{"c":9,"r":215}},{"s":{"c":5,"r":201},"e":{"c":12,"r":201}},{"s":{"c":1,"r":202},"e":{"c":2,"r":202}},{"s":{"c":5,"r":203},"e":{"c":12,"r":209}},{"s":{"c":2,"r":205},"e":{"c":3,"r":212}},{"s":{"c":5,"r":211},"e":{"c":10,"r":211}},{"s":{"c":7,"r":214},"e":{"c":7,"r":215}},{"s":{"c":11,"r":214},"e":{"c":12,"r":214}},{"s":{"c":11,"r":215},"e":{"c":12,"r":215}},{"s":{"c":6,"r":257},"e":{"c":7,"r":257}},{"s":{"c":5,"r":258},"e":{"c":8,"r":258}},{"s":{"c":6,"r":260},"e":{"c":7,"r":264}},{"s":{"c":8,"r":260},"e":{"c":9,"r":264}},{"s":{"c":10,"r":260},"e":{"c":11,"r":264}},{"s":{"c":5,"r":277},"e":{"c":12,"r":279}},{"s":{"c":1,"r":278},"e":{"c":2,"r":278}},{"s":{"c":1,"r":280},"e":{"c":2,"r":284}},{"s":{"c":5,"r":282},"e":{"c":6,"r":282}},{"s":{"c":7,"r":282},"e":{"c":9,"r":282}},{"s":{"c":11,"r":282},"e":{"c":12,"r":282}},{"s":{"c":7,"r":283},"e":{"c":9,"r":283}},{"s":{"c":11,"r":283},"e":{"c":12,"r":283}},{"s":{"c":10,"r":287},"e":{"c":12,"r":287}},{"s":{"c":10,"r":290},"e":{"c":11,"r":290}},{"s":{"c":10,"r":292},"e":{"c":12,"r":295}},{"s":{"c":1,"r":313},"e":{"c":2,"r":313}},{"s":{"c":5,"r":313},"e":{"c":12,"r":318}},{"s":{"c":5,"r":321},"e":{"c":12,"r":324}},{"s":{"c":5,"r":327},"e":{"c":12,"r":333}},{"s":{"c":5,"r":336},"e":{"c":12,"r":338}},{"s":{"c":5,"r":339},"e":{"c":12,"r":339}},{"s":{"c":5,"r":343},"e":{"c":12,"r":347}},{"s":{"c":5,"r":287},"e":{"c":7,"r":287}},{"s":{"c":5,"r":288},"e":{"c":7,"r":288}},{"s":{"c":10,"r":288},"e":{"c":12,"r":288}},{"s":{"c":5,"r":289},"e":{"c":6,"r":289}},{"s":{"c":10,"r":289},"e":{"c":11,"r":289}},{"s":{"c":5,"r":290},"e":{"c":6,"r":290}},{"s":{"c":5,"r":292},"e":{"c":7,"r":295}}]
+
+Named Ranges:
+Cell B2: type=s, value="Your Affordability Dashboard", formatted=Your Affordability Dashboard
+Cell F6: type=s, value=" Γ¡É∩╕Å SUGGESTED MAXIMUM", formatted= Γ¡É∩╕Å SUGGESTED MAXIMUM
+Cell H6: type=n, FORMULA="H33", value=-0.0001588612451, formatted=-$0
+Cell L6: type=s, FORMULA="TEXT(L33,"$##,###") & "/mo"", value="$/mo", formatted=$/mo
+Cell F7: type=s, value="Conservative", formatted=Conservative
+Cell F8: type=s, value="Risk Level", formatted=Risk Level
+Cell H8: type=s, value="Estimated Max Purchase Price", formatted=Estimated Max Purchase Price
+Cell L8: type=s, value="Total Payment", formatted=Total Payment
+Cell L9: type=s, value="Breakdown Below Γåô ", formatted=Breakdown Below Γåô 
+Cell F10: type=s, value="DISCLAIMER: mortgage approvals involve layers of risk analysis that determine your max purchase price. This calculator cannot qualify you for a mortgage. It is only an educational exercise in learning about debt-to-income ratios. Win The House You Love LLC is not a lender.", formatted=DISCLAIMER: mortgage approvals involve layers of risk analysis that determine your max purchase price. This calculator cannot qualify you for a mortgage. It is only an educational exercise in learning about debt-to-income ratios. Win The House You Love LLC is not a lender.
+Cell B11: type=s, value="Website", formatted=Website
+Cell H11: type=n, FORMULA="H6*'2. Your Info'!F9", value=0, formatted=$0
+Cell K11: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell M11: type=n, FORMULA="Data!C16", value=7.943062254e-8, formatted=$0
+Cell H12: type=s, FORMULA=" '2. Your Info'!F9*100 & "% Down Payment"", value="0% Down Payment", formatted=0% Down Payment
+Cell K12: type=s, value="Property Taxes", formatted=Property Taxes
+Cell M12: type=n, FORMULA="Data!C17", value=0, formatted=$0
+Cell B13: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell K13: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell M13: type=n, FORMULA="Data!C19", value=0, formatted=$0
+Cell H14: type=n, value=67888, formatted=67888
+Cell K14: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell M14: type=n, FORMULA="Data!C18", value=-7.943062254e-8, formatted=-$0
+Cell B15: type=s, value="YouTube Channel", formatted=YouTube Channel
+Cell H15: type=s, value="Estimated Closing Costs", formatted=Estimated Closing Costs
+Cell K15: type=s, value="Home Owner's Association", formatted=Home Owner's Association
+Cell M15: type=n, FORMULA="Data!C20", value=0, formatted=$0
+Cell F19: type=s, value="We reccomend a more Conservative risk level for your max purchase price. However, you likely will be approved for more. Below is a chart that shows the estimated maximum purchase price and monthly payment based on risk level. Risk level just means how big your mortgage payment is compared to your income.", formatted=We reccomend a more Conservative risk level for your max purchase price. However, you likely will be approved for more. Below is a chart that shows the estimated maximum purchase price and monthly payment based on risk level. Risk level just means how big your mortgage payment is compared to your income.
+Cell H26: type=s, value="Purchase Price", formatted=Purchase Price
+Cell L26: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell I28: type=s, FORMULA=" '2. Your Info'!F9*100 & "% down payment"", value="0% down payment", formatted=0% down payment
+Cell L28: type=s, value="Includes Taxes, Insurance, etc", formatted=Includes Taxes, Insurance, etc
+Cell F30: type=s, value="Safe", formatted=Safe
+Cell H30: type=n, value=88989, formatted=$88,989
+Cell L30: type=n, FORMULA=" MIN(('2. Your Info'!F23+'2. Your Info'!F46)/12*0.25 ,('2. Your Info'!F23+'2. Your Info'!F46)/12*0.28-(SUM('2. Your Info'!F51:F56)+SUM('2. Your Info'!F35:F40)))", value=0, formatted=$0
+Cell F31: type=s, value="25%/28%", formatted=25%/28%
+Cell H31: type=s, FORMULA=" TEXT(H30*'2. Your Info'!F9, "$##,###")& " down payment"", value="$ down payment", formatted=$ down payment
+Cell L31: type=s, FORMULA=" ROUND(L30/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))*100,0) & "% of your net income"", value="#DIV/0!", formatted=#DIV/0!
+Cell F33: type=s, value="Conservative", formatted=Conservative
+Cell H33: type=n, FORMULA="Data!C14", value=-0.0001588612451, formatted=-$0
+Cell L33: type=n, FORMULA=" MIN(('2. Your Info'!F23+'2. Your Info'!F46)/12*0.28 ,('2. Your Info'!F23+'2. Your Info'!F46)/12*0.36-(SUM('2. Your Info'!F51:F56)+SUM('2. Your Info'!F35:F40)))", value=0, formatted=$0
+Cell F34: type=s, value="28%/36%", formatted=28%/36%
+Cell H34: type=s, FORMULA=" TEXT(H33*'2. Your Info'!F9, "$##,###")& " down payment"", value="$ down payment", formatted=$ down payment
+Cell L34: type=s, FORMULA=" ROUND(L33/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))*100,0) & "% of your net income"", value="#DIV/0!", formatted=#DIV/0!
+Cell F36: type=s, value="Moderate", formatted=Moderate
+Cell H36: type=n, FORMULA="Data!C23", value=-0.0002042501722, formatted=-$0
+Cell L36: type=n, FORMULA=" MIN(('2. Your Info'!F23+'2. Your Info'!F46)/12*0.36 ,('2. Your Info'!F23+'2. Your Info'!F46)/12*0.43-(SUM('2. Your Info'!F51:F56)+SUM('2. Your Info'!F35:F40)))", value=0, formatted=$0
+Cell F37: type=s, value="36%/43%", formatted=36%/43%
+Cell H37: type=s, FORMULA=" TEXT(H36*'2. Your Info'!F9, "$##,###")& " down payment"", value="$ down payment", formatted=$ down payment
+Cell L37: type=s, FORMULA=" ROUND(L36/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))*100,0) & "% of your net income"", value="#DIV/0!", formatted=#DIV/0!
+Cell F39: type=s, value="Aggressive", formatted=Aggressive
+Cell H39: type=n, FORMULA="Data!C32", value=-0.0002553127606, formatted=-$0
+Cell L39: type=n, FORMULA=" MIN(('2. Your Info'!F23+'2. Your Info'!F46)/12*0.45 ,('2. Your Info'!F23+'2. Your Info'!F46)/12*0.49-(SUM('2. Your Info'!F51:F56)+SUM('2. Your Info'!F35:F40)))", value=0, formatted=$0
+Cell F40: type=s, value="45%/49%", formatted=45%/49%
+Cell H40: type=s, FORMULA=" TEXT(H39*'2. Your Info'!F9, "$##,###")& " down payment"", value="$ down payment", formatted=$ down payment
+Cell L40: type=s, FORMULA=" ROUND(L39/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))*100,0) & "% of your net income"", value="#DIV/0!", formatted=#DIV/0!
+Cell F42: type=s, value="Risky", formatted=Risky
+Cell H42: type=n, FORMULA="Data!C41", value=-0.0002609863312, formatted=-$0
+Cell L42: type=n, FORMULA=" MIN(('2. Your Info'!F23+'2. Your Info'!F46)/12*0.46 ,('2. Your Info'!F23+'2. Your Info'!F46)/12*0.55-(SUM('2. Your Info'!F51:F56)+SUM('2. Your Info'!F35:F40)))", value=0, formatted=$0
+Cell F43: type=s, value="46%/55%", formatted=46%/55%
+Cell H43: type=s, FORMULA=" TEXT(H42*'2. Your Info'!F9, "$##,###")& " down payment"", value="$ down payment", formatted=$ down payment
+Cell L43: type=s, FORMULA=" ROUND(L42/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))*100,0) & "% of your net income"", value="#DIV/0!", formatted=#DIV/0!
+Cell F49: type=s, value="Different Loan Types Have Loan Limits... Here's Where To Find Them:", formatted=Different Loan Types Have Loan Limits... Here's Where To Find Them:
+Cell F51: type=s, value="Conventional Loan Limit Map", formatted=Conventional Loan Limit Map
+Cell J51: type=s, value="USDA Uses An Income Limit - Calculator Here", formatted=USDA Uses An Income Limit - Calculator Here
+Cell F53: type=s, value="FHA Loan Limit Lookup", formatted=FHA Loan Limit Lookup
+Cell J53: type=s, value="VA Does Not Have A Limit", formatted=VA Does Not Have A Limit
+Cell F59: type=s, value="Lenders will usually approve you for MORE than you should buy... understand how you can make sure you don't become house poor:", formatted=Lenders will usually approve you for MORE than you should buy... understand how you can make sure you don't become house poor:
+Cell F62: type=s, value="Lenders don't just guess at how much of a loan they'll approve you for. They base it off of a formula called the Debt-To-Income ratio. Most loans will allow a much higher Debt-To-Income ratio than you should take on. And some people are comfortable stretching their budget to the max, but that can make you \"house poor\" where most of your income goes towards paying a mortgage... not fun. We suggest you stick to the Conservative option as your maximum purchase price so you don't struggle to make a mortgage payment.", formatted=Lenders don't just guess at how much of a loan they'll approve you for. They base it off of a formula called the Debt-To-Income ratio. Most loans will allow a much higher Debt-To-Income ratio than you should take on. And some people are comfortable stretching their budget to the max, but that can make you "house poor" where most of your income goes towards paying a mortgage... not fun. We suggest you stick to the Conservative option as your maximum purchase price so you don't struggle to make a mortgage payment.
+Cell F71: type=s, value="Γ£ï The rest of this sheet will show you the math based on the risk level you choose below. You can come back here and change it at any time.", formatted=Γ£ï The rest of this sheet will show you the math based on the risk level you choose below. You can come back here and change it at any time.
+Cell F73: type=s, value="Choose the loan risk you want to look at:", formatted=Choose the loan risk you want to look at:
+Cell J73: type=s, value="Conservative", formatted=Conservative
+Cell B78: type=s, value="Other Monthly Costs", formatted=Other Monthly Costs
+Cell F78: type=s, value="Don't forget the other costs of buying a home!", formatted=Don't forget the other costs of buying a home!
+Cell B79: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell F80: type=s, FORMULA=" "A lender might approve you with a maximum purchase price of " &TEXT(F101,"$###,###") & ", but should you buy a home at that price? Just because you're approved for a home doesn't mean you can actually afford it. Lenders are ONLY worried about the statistical likelihood of you paying back a loan, not what is actually financially healthy for y"&"ou."", value="A lender might approve you with a maximum purchase price of $, but should you buy a home at that price? Just because you're approved for a home doesn't mean you can actually afford it. Lenders are ONLY worried about the statistical likelihood of you paying back a loan, not what is actually financially healthy for you.", formatted=A lender might approve you with a maximum purchase price of $, but should you buy a home at that price? Just because you're approved for a home doesn't mean you can actually afford it. Lenders are ONLY worried about the statistical likelihood of you paying back a loan, not what is actually financially healthy for you.
+Cell F85: type=s, FORMULA=" "Don't forget that when you own a home you're not just paying the mortgage payment. You're also paying utilities and it's suggested that you set aside money each month for maintenance and repairs. Let's take a look at the " &J73&" maximum purchase price to see what the monthly payment looks like. If you buy a home at a price of " & TEXT(F101, "$###,###")&", not only would you need to have a down payment of " & TEXT(Data!C101,"$##,###")&" (you can change this on 2. Your Info) but also be able to pay " &TEXT(Data!C103,"$##,###")&" to the lender each month. Not to mention utilities, repairs, etc.
+
+Here's a quick way to estimate the other costs."", value="Don't forget that when you own a home you're not just paying the mortgage payment. You're also paying utilities and it's suggested that you set aside money each month for maintenance and repairs. Let's take a look at the Conservative maximum purchase price to see what the monthly payment looks like. If you buy a home at a price of $, not only would you need to have a down payment of $ (you can change this on 2. Your Info) but also be able to pay $ to the lender each month. Not to mention utilities, repairs, etc.\n\nHere's a quick way to estimate the other costs.", formatted=Don't forget that when you own a home you're not just paying the mortgage payment. You're also paying utilities and it's suggested that you set aside money each month for maintenance and repairs. Let's take a look at the Conservative maximum purchase price to see what the monthly payment looks like. If you buy a home at a price of $, not only would you need to have a down payment of $ (you can change this on 2. Your Info) but also be able to pay $ to the lender each month. Not to mention utilities, repairs, etc.
+
+Here's a quick way to estimate the other costs.
+Cell F95: type=s, value="Other Costs Estimator", formatted=Other Costs Estimator
+Cell F96: type=s, value="Estimated Square Footage", formatted=Estimated Square Footage
+Cell I96: type=n, value=2400, formatted=2,400
+Cell F97: type=s, value="Utility Cost Per Square Foot", formatted=Utility Cost Per Square Foot
+Cell I97: type=s, value="Moderate", formatted=Moderate
+Cell J97: type=s, FORMULA=" IF(I97= "Low", "$0.06/SqFt",
+IF(I97= "Moderate", "$0.10/SqFt",
+IF(I97= "High", "$0.14/SqFt")))", value="$0.10/SqFt", formatted=$0.10/SqFt
+Cell F98: type=s, value="Maintainance Savings Per Year", formatted=Maintainance Savings Per Year
+Cell I98: type=s, value="Moderate", formatted=Moderate
+Cell J98: type=s, FORMULA=" IF(I98= "Low", "0.25% of Purchase Price/Yr",
+IF(I98= "Moderate", "0.5% of Purchase Price/Yr",
+IF(I98= "High", "1% of Purchase Price/Yr")))", value="0.5% of Purchase Price/Yr", formatted=0.5% of Purchase Price/Yr
+Cell F99: type=s, value="As a percentage of the purchase price", formatted=As a percentage of the purchase price
+Cell F101: type=n, FORMULA=" IF(J73="Safe",H30,
+IF(J73="Conservative", H33,
+IF(J73="Moderate",H36,
+IF(J73="Aggressive",H39,
+IF(J73="Risky",H42,)))))", value=-0.0001588612451, formatted=-$0
+Cell F104: type=n, FORMULA=" IF(J73="Safe",Data!C6,
+IF(J73="Conservative", Data!C15,
+IF(J73="Moderate",Data!C24,
+IF(J73="Aggressive",Data!C33,
+IF(J73="Risky",Data!C42,)))))", value=0, formatted=$0
+Cell H104: type=s, FORMULA=""+"", value="+", formatted=+
+Cell I104: type=n, FORMULA="J106+J107", value=239.9999999, formatted=$240
+Cell K104: type=s, FORMULA=""="", value="=", formatted==
+Cell L104: type=n, FORMULA="F104+I104", value=239.9999999, formatted=$240
+Cell F105: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell I105: type=s, value="Other Costs", formatted=Other Costs
+Cell L105: type=s, value="Estimated Total Monthly Cost", formatted=Estimated Total Monthly Cost
+Cell F106: type=s, value="P&I", formatted=P&I
+Cell G106: type=n, FORMULA=" IF(J73="Safe",Data!C7,
+IF(J73="Conservative", Data!C16,
+IF(J73="Moderate",Data!C25,
+IF(J73="Aggressive",Data!C34,
+IF(J73="Risky",Data!C43,)))))", value=7.943062254e-8, formatted=$0
+Cell I106: type=s, value="Utilities", formatted=Utilities
+Cell J106: type=n, FORMULA=" IF(I97= "Low", 0.06*I96,
+IF(I97= "Moderate", 0.1*I96,
+IF(I97= "High", 0.14*I96)))", value=240, formatted=$240
+Cell F107: type=s, value="Taxes", formatted=Taxes
+Cell G107: type=n, FORMULA=" IF(J73="Safe",Data!C8,
+IF(J73="Conservative", Data!C17,
+IF(J73="Moderate",Data!C26,
+IF(J73="Aggressive",Data!C35,
+IF(J73="Risky",Data!C44,)))))", value=0, formatted=$0
+Cell I107: type=s, value="Maintenance", formatted=Maintenance
+Cell J107: type=n, FORMULA=" IF(I98= "Low", 0.0025*F101/12,
+IF(I98= "Moderate", 0.005*F101/12,
+IF(I98= "High", 0.01*F101/12)))", value=-6.619218545e-8, formatted=-$0
+Cell L107: type=s, FORMULA=" IF(L104/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)) > 0.42, "ΓÜá∩╕Å", "Γ£à")", value="#DIV/0!", formatted=#DIV/0!
+Cell F108: type=s, value="HOI", formatted=HOI
+Cell G108: type=n, FORMULA=" IF(J73="Safe",Data!C10,
+IF(J73="Conservative", Data!C19,
+IF(J73="Moderate",Data!C28,
+IF(J73="Aggressive",Data!C37,
+IF(J73="Risky",Data!C46,)))))", value=0, formatted=$0
+Cell F109: type=s, value="MI", formatted=MI
+Cell G109: type=n, FORMULA=" IF(J73="Safe",Data!C9,
+IF(J73="Conservative", Data!C18,
+IF(J73="Moderate",Data!C27,
+IF(J73="Aggressive",Data!C36,
+IF(J73="Risky",Data!C45,)))))", value=-7.943062254e-8, formatted=-$0
+Cell L109: type=s, FORMULA=" "This is "  & TEXT(L104/(('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)),"##%") & " of your take home pay of " & TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)),"$##,###") & "/mo"", value="#DIV/0!", formatted=#DIV/0!
+Cell F110: type=s, value="HOA", formatted=HOA
+Cell G110: type=n, FORMULA=" IF(J73="Safe",Data!C11,
+IF(J73="Conservative", Data!C20,
+IF(J73="Moderate",Data!C29,
+IF(J73="Aggressive",Data!C38,
+IF(J73="Risky",Data!C47,)))))", value=0, formatted=$0
+Cell F111: type=s, value="Utilities", formatted=Utilities
+Cell G111: type=n, FORMULA="J106", value=240, formatted=$240
+Cell F112: type=s, value="Maintainnce", formatted=Maintainnce
+Cell G112: type=n, FORMULA="J107", value=-6.619218545e-8, formatted=-$0
+Cell L112: type=s, FORMULA="L104/((('2. Your Info'!F23+'2. Your Info'!F46)/12)*(1-'2. Your Info'!F17))", value="#DIV/0!", formatted=#DIV/0!
+Cell F114: type=s, FORMULA=" "Can you afford to spend "& TEXT(L104,"$##,###")  &"/mo on a home? Keep in mind that your take home pay after taxes is around " & TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)),"$##,###") & "/mo. So, after taxes and paying your mortgage + other costs you'd have " & TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17))-L104,"$#,###") & " left over for ALL your other expenses (e.g. groceries, gas, bills, etc.). ItΓÇÖs ok if that doesnΓÇÖt work for you. Only YOU can decide what youΓÇÖre comfortable spending on a home. Rules of thumb for affordability can only get you so far. Having a strong gras"&"p on your budget is the best way to actually know what you can afford."", value="Can you afford to spend $240/mo on a home? Keep in mind that your take home pay after taxes is around $/mo. So, after taxes and paying your mortgage + other costs you'd have -$240 left over for ALL your other expenses (e.g. groceries, gas, bills, etc.). ItΓÇÖs ok if that doesnΓÇÖt work for you. Only YOU can decide what youΓÇÖre comfortable spending on a home. Rules of thumb for affordability can only get you so far. Having a strong grasp on your budget is the best way to actually know what you can afford.", formatted=Can you afford to spend $240/mo on a home? Keep in mind that your take home pay after taxes is around $/mo. So, after taxes and paying your mortgage + other costs you'd have -$240 left over for ALL your other expenses (e.g. groceries, gas, bills, etc.). ItΓÇÖs ok if that doesnΓÇÖt work for you. Only YOU can decide what youΓÇÖre comfortable spending on a home. Rules of thumb for affordability can only get you so far. Having a strong grasp on your budget is the best way to actually know what you can afford.
+Cell B124: type=s, value="Down Payment & Closing Costs", formatted=Down Payment & Closing Costs
+Cell F124: type=n, FORMULA="F101*'2. Your Info'!F9", value=0, formatted=$0
+Cell H124: type=s, FORMULA=""+"", value="+", formatted=+
+Cell I124: type=n, value=888, formatted=$888
+Cell K124: type=s, FORMULA=""="", value="=", formatted==
+Cell L124: type=n, FORMULA="F124+I124", value=888, formatted=$888
+Cell B125: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell F125: type=s, value="Down Payment", formatted=Down Payment
+Cell I125: type=s, value="Closing Costs", formatted=Closing Costs
+Cell L125: type=s, value="Cash To Close", formatted=Cash To Close
+Cell F126: type=s, FORMULA=" '2. Your Info'!F9*100 & "% Down Payment"", value="0% Down Payment", formatted=0% Down Payment
+Cell I126: type=s, value="2.5% of Price (Typical)", formatted=2.5% of Price (Typical)
+Cell F129: type=s, FORMULA=" "Based on the risk level you chose near the top of this sheet (" &J73  & ") the maximum purchase price of " & TEXT(F101,"$###,###") & " will have a down payment of " &TEXT(F124,"$###,###") & " This is based on the down payment percentage you chose in the Your Info section. Cash To Close in the mortgage world means the total amount of money that you will need to bring to the closing table."", value="Based on the risk level you chose near the top of this sheet (Conservative) the maximum purchase price of $ will have a down payment of $ This is based on the down payment percentage you chose in the Your Info section. Cash To Close in the mortgage world means the total amount of money that you will need to bring to the closing table.", formatted=Based on the risk level you chose near the top of this sheet (Conservative) the maximum purchase price of $ will have a down payment of $ This is based on the down payment percentage you chose in the Your Info section. Cash To Close in the mortgage world means the total amount of money that you will need to bring to the closing table.
+Cell B137: type=s, value="Comparing Home Offers", formatted=Comparing Home Offers
+Cell F137: type=s, value="How do different prices affect your monthly payment?", formatted=How do different prices affect your monthly payment?
+Cell B138: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell F138: type=s, FORMULA=" "Shopping for a home can be stressful when you're unsure of how your monthly payment will be impacted by different price points. Here's an example of a few different price points that are close to the maximum of the risk level you select. Remember, you can"&" always change this near the top of this sheet if you want to explore different risk levels."", value="Shopping for a home can be stressful when you're unsure of how your monthly payment will be impacted by different price points. Here's an example of a few different price points that are close to the maximum of the risk level you select. Remember, you can always change this near the top of this sheet if you want to explore different risk levels.", formatted=Shopping for a home can be stressful when you're unsure of how your monthly payment will be impacted by different price points. Here's an example of a few different price points that are close to the maximum of the risk level you select. Remember, you can always change this near the top of this sheet if you want to explore different risk levels.
+Cell H144: type=s, value="Purchase Price", formatted=Purchase Price
+Cell K144: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell F146: type=s, value="- 10% lower price", formatted=- 10% lower price
+Cell H146: type=n, FORMULA="Data!C86", value=-0.0001429751206, formatted=-$0
+Cell K146: type=s, FORMULA="TEXT(Data!C89,"$##,###") & " (" & TEXT(Data!C103-Data!C89, "$##,###") &" lower)"", value="$ ($ lower)", formatted=$ ($ lower)
+Cell H147: type=s, FORMULA=" TEXT(H146*'2. Your Info'!$F$9,"$###,###") & " Down Payment"", value="$ Down Payment", formatted=$ Down Payment
+Cell K147: type=s, FORMULA=" "+ " & TEXT($J$106+Data!C90,"$##,###")& "/mo of Other Costs"", value="+ $240/mo of Other Costs", formatted=+ $240/mo of Other Costs
+Cell H148: type=s, FORMULA=" TEXT( Data!C88,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell F150: type=s, value="- 5% lower price", formatted=- 5% lower price
+Cell H150: type=n, FORMULA="Data!C93", value=-0.0001509181828, formatted=-$0
+Cell K150: type=s, FORMULA="TEXT(Data!C96,"$##,###") & " (" & TEXT(Data!C103-Data!C96, "$##,###") &" lower)"", value="$ ($ lower)", formatted=$ ($ lower)
+Cell H151: type=s, FORMULA=" TEXT(H150*'2. Your Info'!$F$9,"$###,###") & " Down Payment"", value="$ Down Payment", formatted=$ Down Payment
+Cell K151: type=s, FORMULA=" "+ " & TEXT($J$106+Data!C97,"$##,###")& "/mo of Other Costs"", value="+ $240/mo of Other Costs", formatted=+ $240/mo of Other Costs
+Cell H152: type=s, FORMULA=" TEXT( Data!C95,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell F154: type=s, value="Baseline Price", formatted=Baseline Price
+Cell H154: type=n, FORMULA="Data!C100", value=-0.0001588612451, formatted=-$0
+Cell K154: type=n, FORMULA="Data!C103", value=0, formatted=$0
+Cell H155: type=s, FORMULA=" TEXT(H154*'2. Your Info'!$F$9,"$###,###") & " Down Payment"", value="$ Down Payment", formatted=$ Down Payment
+Cell K155: type=s, FORMULA=" "+ " & TEXT($J$106+Data!C104,"$##,###")& "/mo of Other Costs"", value="+ $240/mo of Other Costs", formatted=+ $240/mo of Other Costs
+Cell H156: type=s, FORMULA=" TEXT( Data!C102,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell F158: type=s, FORMULA=" "+ 5% higher price"", value="+ 5% higher price", formatted=+ 5% higher price
+Cell H158: type=n, FORMULA="Data!C107", value=-0.0001668043073, formatted=-$0
+Cell K158: type=s, FORMULA="TEXT(Data!C110,"$##,###") & " (" & TEXT(Data!C110-Data!$C$103, "$##,###") &" higher)"", value="$ ($ higher)", formatted=$ ($ higher)
+Cell H159: type=s, FORMULA=" TEXT( Data!C108,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell K159: type=s, FORMULA=" "+ " & TEXT($J$106+Data!C111,"$##,###")& "/mo of Other Costs"", value="+ $240/mo of Other Costs", formatted=+ $240/mo of Other Costs
+Cell H160: type=s, FORMULA=" TEXT( Data!C109,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell F162: type=s, FORMULA=" "+ 10% higher price"", value="+ 10% higher price", formatted=+ 10% higher price
+Cell H162: type=n, FORMULA="Data!C114", value=-0.0001747473696, formatted=-$0
+Cell K162: type=s, FORMULA="TEXT(Data!C117,"$##,###") & " (" & TEXT(Data!C117-Data!$C$103, "$##,###") &" higher)"", value="$ ($ higher)", formatted=$ ($ higher)
+Cell H163: type=s, FORMULA=" TEXT(H162*'2. Your Info'!$F$9,"$###,###") & " Down Payment"", value="$ Down Payment", formatted=$ Down Payment
+Cell K163: type=s, FORMULA=" "+ " & TEXT($J$106+Data!C118,"$##,###")& "/mo of Other Costs"", value="+ $240/mo of Other Costs", formatted=+ $240/mo of Other Costs
+Cell H164: type=s, FORMULA=" TEXT( Data!C116,"$###,###") & " Closing Costs"", value="$ Closing Costs", formatted=$ Closing Costs
+Cell F169: type=s, FORMULA=" "When you're looking at writing an offer on a home you like, you might need a quick estimate of how much your mortgage payment will change with different purchase prices. Based on your info, your mortgage payment will change by about " & TEXT(F174,"$###") & " per $10,000 change in purchase price."", value="When you're looking at writing an offer on a home you like, you might need a quick estimate of how much your mortgage payment will change with different purchase prices. Based on your info, your mortgage payment will change by about $33/mo per $10,000 change in purchase price.", formatted=When you're looking at writing an offer on a home you like, you might need a quick estimate of how much your mortgage payment will change with different purchase prices. Based on your info, your mortgage payment will change by about $33/mo per $10,000 change in purchase price.
+Cell F174: type=s, FORMULA=" TEXT(Data!C122,"$##") & "/mo"", value="$33/mo", formatted=$33/mo
+Cell H174: type=s, value="ΓåÉ ", formatted=ΓåÉ 
+Cell I174: type=s, value="Estimated Change In Mortgage Payment Per $10,000 Change In Purchase Price", formatted=Estimated Change In Mortgage Payment Per $10,000 Change In Purchase Price
+Cell F179: type=s, value="Try it out! Enter your own price to see how it impacts your monthly payment:", formatted=Try it out! Enter your own price to see how it impacts your monthly payment:
+Cell F182: type=n, value=295000, formatted=$295,000
+Cell J182: type=n, FORMULA="F101", value=-0.0001588612451, formatted=-$0
+Cell F184: type=s, value="Enter Your Price", formatted=Enter Your Price
+Cell J184: type=s, FORMULA=" J73 & " Max Price"", value="Conservative Max Price", formatted=Conservative Max Price
+Cell F185: type=s, FORMULA="TEXT(F182*'2. Your Info'!F9,"$##,###") & " Down Payment (" & '2. Your Info'!F9*100 & "%)"", value="$ Down Payment (0%)", formatted=$ Down Payment (0%)
+Cell J185: type=s, FORMULA="TEXT(J182*'2. Your Info'!F9,"$##,###") & " Down Payment (" & '2. Your Info'!F9*100 & "%)"", value="$ Down Payment (0%)", formatted=$ Down Payment (0%)
+Cell F186: type=s, FORMULA=" TEXT(F182*0.025,"$##,###") & " Estimated Closing Costs"", value="$7,375 Estimated Closing Costs", formatted=$7,375 Estimated Closing Costs
+Cell J186: type=s, FORMULA=" TEXT(J182*0.025,"$##,###") & " Estimated Closing Costs"", value="$ Estimated Closing Costs", formatted=$ Estimated Closing Costs
+Cell F188: type=n, FORMULA="ROUND(SUM(H193:H197),0)", value=967, formatted=$967
+Cell J188: type=n, FORMULA="ROUND(F104,0)", value=0, formatted=$0
+Cell F190: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell J190: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell G191: type=s, FORMULA=" IF(F188=J188, "Equal Payment", TEXT(ABS(J188-F188),"$#,###") & "/mo " & IF(F188<J188, "lower", "higher"))", value="$967/mo higher", formatted=$967/mo higher
+Cell G193: type=s, value="P&I", formatted=P&I
+Cell H193: type=n, FORMULA="-PMT('2. Your Info'!F10/12,'2. Your Info'!F11*12,F182*(1-'2. Your Info'!F9))", value=819.4444444, formatted=$819
+Cell K193: type=s, value="P&I", formatted=P&I
+Cell L193: type=n, FORMULA="G106", value=7.943062254e-8, formatted=$0
+Cell G194: type=s, value="Taxes", formatted=Taxes
+Cell H194: type=n, FORMULA="F182*Data!G5*0.0001/12", value=0, formatted=$0
+Cell K194: type=s, value="Taxes", formatted=Taxes
+Cell L194: type=n, FORMULA="G107", value=0, formatted=$0
+Cell G195: type=s, value="HOI", formatted=HOI
+Cell H195: type=n, FORMULA="F182*Data!G6*0.0001/12", value=0, formatted=$0
+Cell K195: type=s, value="HOI", formatted=HOI
+Cell L195: type=n, FORMULA="G108", value=0, formatted=$0
+Cell G196: type=s, value="MI", formatted=MI
+Cell H196: type=n, FORMULA="F182*(1-'2. Your Info'!F9)*Data!G7*0.0001/12", value=147.5, formatted=$148
+Cell K196: type=s, value="MI", formatted=MI
+Cell L196: type=n, FORMULA="G109", value=-7.943062254e-8, formatted=-$0
+Cell G197: type=s, value="HOA", formatted=HOA
+Cell H197: type=n, FORMULA="Data!C11", value=0, formatted=$0
+Cell K197: type=s, value="HOA", formatted=HOA
+Cell L197: type=n, FORMULA="G110", value=0, formatted=$0
+Cell B202: type=s, value="How The Math Works", formatted=How The Math Works
+Cell F202: type=s, value="How Do Lenders Look At Your Debt-To-Income?", formatted=How Do Lenders Look At Your Debt-To-Income?
+Cell B203: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell F204: type=s, FORMULA=" "Your total yearly (gross) income is " & TEXT(('2. Your Info'!F23+'2. Your Info'!F46),"$##,###") & ". ThatΓÇÖs " & TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12),"$##,###") & "/mo before taxes and around " & TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)),"$##,###") & "/mo after taxes. Lenders use a debt-to-income ratio to determine your maximum monthly payment.
+
+They multiply your monthly gross income and a debt-to-income limit. The actual debt-to-income limit for your situation will depend on the lender you choose, lo"&"an you choose, your credit score, and other risk factors for a loan. Since this is just an example of how DTI works, weΓÇÖll use the risk level you choose as an example:"", value="Your total yearly (gross) income is $. ThatΓÇÖs $/mo before taxes and around $/mo after taxes. Lenders use a debt-to-income ratio to determine your maximum monthly payment.\n\nThey multiply your monthly gross income and a debt-to-income limit. The actual debt-to-income limit for your situation will depend on the lender you choose, loan you choose, your credit score, and other risk factors for a loan. Since this is just an example of how DTI works, weΓÇÖll use the risk level you choose as an example:", formatted=Your total yearly (gross) income is $. ThatΓÇÖs $/mo before taxes and around $/mo after taxes. Lenders use a debt-to-income ratio to determine your maximum monthly payment.
+
+They multiply your monthly gross income and a debt-to-income limit. The actual debt-to-income limit for your situation will depend on the lender you choose, loan you choose, your credit score, and other risk factors for a loan. Since this is just an example of how DTI works, weΓÇÖll use the risk level you choose as an example:
+Cell F212: type=s, FORMULA=" "Debt-To-Income Math with a " & J73 & " risk level:"", value="Debt-To-Income Math with a Conservative risk level:", formatted=Debt-To-Income Math with a Conservative risk level:
+Cell F215: type=s, FORMULA=" TEXT(('2. Your Info'!F23+'2. Your Info'!F46)/12,"$##,###") & "/mo"", value="$/mo", formatted=$/mo
+Cell H215: type=s, FORMULA=""*"", value="*", formatted=*
+Cell I215: type=n, FORMULA="IF(J73="Safe", 0.28,
+IF(J73="Conservative", 0.36,
+IF(J73="Moderate", 0.43,
+IF(J73="Aggressive", 0.49,
+IF(J73="Risky", 0.55)))))", value=0.36, formatted=36%
+Cell K215: type=s, FORMULA=""="", value="=", formatted==
+Cell L215: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*I215", value=0, formatted=$0
+Cell F216: type=s, value="Your Gross Income", formatted=Your Gross Income
+Cell I216: type=s, value="Back-End DTI", formatted=Back-End DTI
+Cell L216: type=s, value="Max Debt Allowed", formatted=Max Debt Allowed
+Cell F217: type=s, FORMULA="IF('2. Your Info'!F46=0, "" , "Combined")", value=""
+Cell I217: type=s, FORMULA="J212 & " Limit"", value=" Limit", formatted= Limit
+Cell F220: type=s, value="Next, they subtract your minimum monthly debt payments to find the maximum housing payment you can have.", formatted=Next, they subtract your minimum monthly debt payments to find the maximum housing payment you can have.
+Cell F225: type=s, FORMULA=" TEXT(L215, "$##,###") & "/mo"", value="$/mo", formatted=$/mo
+Cell H225: type=s, FORMULA=""-"", value="-", formatted=-
+Cell I225: type=n, FORMULA="SUM('2. Your Info'!F35:F40)+SUM('2. Your Info'!F51:F56)", value=0, formatted=$0
+Cell K225: type=s, FORMULA=""="", value="=", formatted==
+Cell L225: type=n, FORMULA="L215-I225", value=0, formatted=$0
+Cell F226: type=s, value="Max Debt Allowed", formatted=Max Debt Allowed
+Cell I226: type=s, value="Debt Payments", formatted=Debt Payments
+Cell L226: type=s, value="Back-End DTI Number", formatted=Back-End DTI Number
+Cell I227: type=s, value="Minimum Monthly Payments", formatted=Minimum Monthly Payments
+Cell F231: type=s, value="The Front-End Debt-To-Income Ratio (also called the housing ratio) is the maximum housing payment you can have.", formatted=The Front-End Debt-To-Income Ratio (also called the housing ratio) is the maximum housing payment you can have.
+Cell G233: type=s, FORMULA=" "For a " &J73& " risk level we'll use " & IF(J73="Safe", 25,
+IF(J73="Conservative", 28,
+IF(J73="Moderate", 36,
+IF(J73="Aggressive", 45,
+IF(J73="Risky", 46))))) & "% as the front-end ratio."", value="For a Conservative risk level we'll use 28% as the front-end ratio.", formatted=For a Conservative risk level we'll use 28% as the front-end ratio.
+Cell F235: type=s, value="The Back-End Debt-To-Income Ratio is the maximum total debt you can have. This includes your future housing payment + your monthly minimum debt payments. We actually already figured out this number above as the Back-End DTI Number.", formatted=The Back-End Debt-To-Income Ratio is the maximum total debt you can have. This includes your future housing payment + your monthly minimum debt payments. We actually already figured out this number above as the Back-End DTI Number.
+Cell G238: type=s, FORMULA=" "For a " &J73& " risk level we'll use " & IF(J73="Safe", 28,
+IF(J73="Conservative", 36,
+IF(J73="Moderate", 43,
+IF(J73="Aggressive", 49,
+IF(J73="Risky", 55))))) & "% as the back-end ratio." & IF(J73="Risky", " A DTI this high is usually only allowed on FHA loans.", "")", value="For a Conservative risk level we'll use 36% as the back-end ratio.", formatted=For a Conservative risk level we'll use 36% as the back-end ratio.
+Cell F241: type=s, value="Lenders will look at your Front-End DTI and your Back-End DTI and choose the lowest one. We already figured out your Back-End DTI above, now we need to find Front-End DTI.", formatted=Lenders will look at your Front-End DTI and your Back-End DTI and choose the lowest one. We already figured out your Back-End DTI above, now we need to find Front-End DTI.
+Cell F246: type=s, FORMULA=" TEXT((('2. Your Info'!F23+'2. Your Info'!F46)/12),"$##,###") & "/mo"", value="$/mo", formatted=$/mo
+Cell H246: type=s, FORMULA=""*"", value="*", formatted=*
+Cell I246: type=n, FORMULA="IF(J73="Safe", 0.25,
+IF(J73="Conservative", 0.28,
+IF(J73="Moderate", 0.36,
+IF(J73="Aggressive", 0.45,
+IF(J73="Risky", 0.46)))))", value=0.28, formatted=28%
+Cell K246: type=s, FORMULA=""="", value="=", formatted==
+Cell L246: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*I246", value=0, formatted=$0
+Cell F247: type=s, value="Your Gross Income", formatted=Your Gross Income
+Cell I247: type=s, value="Front-End DTI", formatted=Front-End DTI
+Cell L247: type=s, value="Front-End DTI Number", formatted=Front-End DTI Number
+Cell I248: type=s, FORMULA="J212 & " Limit"", value=" Limit", formatted= Limit
+Cell F252: type=s, value="We just need to find the lowest number and that will be your maximum monthly mortgage payment:", formatted=We just need to find the lowest number and that will be your maximum monthly mortgage payment:
+Cell G256: type=s, value="LOWEST", formatted=LOWEST
+Cell I256: type=s, value="EQUAL", formatted=EQUAL
+Cell K256: type=s, value="LOWEST", formatted=LOWEST
+Cell G258: type=n, FORMULA="L225", value=0, formatted=$0
+Cell I258: type=s, FORMULA="IF(G258>K258,">",
+IF(G258=K258, "=", "<"))", value="=", formatted==
+Cell K258: type=n, FORMULA="L246", value=0, formatted=$0
+Cell F259: type=s, value="Back-End DTI Number", formatted=Back-End DTI Number
+Cell J259: type=s, value="Front-End DTI Number", formatted=Front-End DTI Number
+Cell G261: type=s, FORMULA="IF(G258=K258, "", 
+IF(G258<K258, "Γä╣∩╕Å Since this number is the lowest, it will be used as your maximum housing payment.", ""))", value=""
+Cell I261: type=s, FORMULA=" IF(G258=K258, "Since the ratios are equal, " & TEXT(G258,"$##,###")& " will be used as your maximum housing payment.", "")", value="Since the ratios are equal, $ will be used as your maximum housing payment.", formatted=Since the ratios are equal, $ will be used as your maximum housing payment.
+Cell K261: type=s, FORMULA=" IF(K258<G258, "Γä╣∩╕Å Since this number is the lowest, it will be used as your maximum housing payment.",
+IF(K258>G258, "", ""))", value=""
+Cell F269: type=s, FORMULA=" "The " & TEXT(MIN(G258,K258),"$##,###") & "/mo maximum housing payment from above must include:"", value="The $/mo maximum housing payment from above must include:", formatted=The $/mo maximum housing payment from above must include:
+Cell F271: type=s, value="Γ£ö Principal", formatted=Γ£ö Principal
+Cell I271: type=s, value="Γ£ö Interest", formatted=Γ£ö Interest
+Cell L271: type=s, value="Γ£ö Property Taxes", formatted=Γ£ö Property Taxes
+Cell F273: type=s, value="Γ£ö Mortgage Insurance", formatted=Γ£ö Mortgage Insurance
+Cell I273: type=s, value="Γ£ö Homeowner's Insurance", formatted=Γ£ö Homeowner's Insurance
+Cell L273: type=s, value="Γ£ö HOA Fees", formatted=Γ£ö HOA Fees
+Cell B278: type=s, value="Popular Affordability Theories", formatted=Popular Affordability Theories
+Cell F278: type=s, value="Different finanical experts will give their \"rules of thumb\" for your maximum mortgage payment. Here are a few popular theories so you can see how they stack up to our reccomended maximum:", formatted=Different finanical experts will give their "rules of thumb" for your maximum mortgage payment. Here are a few popular theories so you can see how they stack up to our reccomended maximum:
+Cell B279: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell B281: type=s, value="DISCLAIMER: mortgage approvals involve layers of risk analysis that determine your max purchase price. This calculator cannot qualify you for a mortgage. It is only an educational exercise in learning about debt-to-income ratios. Win The House You Love LLC is not a lender.", formatted=DISCLAIMER: mortgage approvals involve layers of risk analysis that determine your max purchase price. This calculator cannot qualify you for a mortgage. It is only an educational exercise in learning about debt-to-income ratios. Win The House You Love LLC is not a lender.
+Cell F282: type=s, value=" Γ¡É∩╕Å SUGGESTED MAXIMUM", formatted= Γ¡É∩╕Å SUGGESTED MAXIMUM
+Cell F283: type=s, value="Conservative", formatted=Conservative
+Cell H283: type=n, FORMULA="H33", value=-0.0001588612451, formatted=-$0
+Cell L283: type=n, FORMULA="L33", value=0, formatted=$0
+Cell F284: type=s, value="28%/36%", formatted=28%/36%
+Cell H284: type=s, FORMULA="H34", value="$ down payment", formatted=$ down payment
+Cell L284: type=s, FORMULA="L34", value="#DIV/0!", formatted=#DIV/0!
+Cell F288: type=n, FORMULA="Data!C50", value=-0.000001104612938, formatted=-$0
+Cell K288: type=n, FORMULA="Data!C59", value=-2.948260307e-7, formatted=-$0
+Cell F289: type=s, value="Dave Ramsey", formatted=Dave Ramsey
+Cell K289: type=s, value="Qualified Mortgage", formatted=Qualified Mortgage
+Cell F290: type=s, value="Monthly Payment:", formatted=Monthly Payment:
+Cell H290: type=n, FORMULA="Data!C51", value=0, formatted=$0
+Cell K290: type=s, value="Monthly Payment:", formatted=Monthly Payment:
+Cell M290: type=n, FORMULA="Data!C60", value=0, formatted=$0
+Cell F291: type=s, value="Down Payment:", formatted=Down Payment:
+Cell H291: type=n, FORMULA="F288*0.1", value=-1.104612938e-7, formatted=-$0
+Cell K291: type=s, value="Down Payment:", formatted=Down Payment:
+Cell M291: type=n, FORMULA="H303", value=0, formatted=$0
+Cell F292: type=s, value="Theory:", formatted=Theory:
+Cell K292: type=s, value="Theory:", formatted=Theory:
+Cell F293: type=s, value="Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.", formatted=Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.
+Cell K293: type=s, value="Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.", formatted=Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.
+Cell F300: type=n, FORMULA="Data!C68", value=0, formatted=$0
+Cell K300: type=n, FORMULA="Data!C77", value=-0.00001703248068, formatted=-$0
+Cell F301: type=s, value="2.6 Ratio", formatted=2.6 Ratio
+Cell K301: type=s, value="30-30-3", formatted=30-30-3
+Cell F302: type=s, value="Monthly Payment:", formatted=Monthly Payment:
+Cell H302: type=n, FORMULA="Data!C69", value=0, formatted=$0
+Cell K302: type=s, value="Monthly Payment:", formatted=Monthly Payment:
+Cell M302: type=n, FORMULA="Data!C78", value=0, formatted=$0
+Cell F303: type=s, value="Down Payment:", formatted=Down Payment:
+Cell H303: type=n, FORMULA="F300*'2. Your Info'!F9", value=0, formatted=$0
+Cell K303: type=s, value="Down Payment:", formatted=Down Payment:
+Cell M303: type=n, FORMULA="K300*0.2", value=-0.000003406496136, formatted=-$0
+Cell F304: type=s, value="Theory:", formatted=Theory:
+Cell K304: type=s, value="Theory:", formatted=Theory:
+Cell F305: type=s, value="Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.", formatted=Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.
+Cell K305: type=s, value="Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.", formatted=Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.
+Cell B313: type=s, value="FAQ", formatted=FAQ
+Cell F313: type=s, value="What should I decide is my maximum purchase price?", formatted=What should I decide is my maximum purchase price?
+Cell B314: type=s, value="Talk To A Loan Officer", formatted=Talk To A Loan Officer
+Cell F314: type=s, value="The best way to find your maximum purchase price is to look at your budget. We reccommend using the Conservative risk as your maximum, but this calculator can only help you understand how lenders find your maximum purchase price and understanding a bit more about what a comfortable payment looks like according to different theories. Use a budget to find out what you're comfortable spending each month, only you can actually understand what works for you. Don't rely on someone's opinion of what you should spend if you're uncomfortable with the payment.", formatted=The best way to find your maximum purchase price is to look at your budget. We reccommend using the Conservative risk as your maximum, but this calculator can only help you understand how lenders find your maximum purchase price and understanding a bit more about what a comfortable payment looks like according to different theories. Use a budget to find out what you're comfortable spending each month, only you can actually understand what works for you. Don't rely on someone's opinion of what you should spend if you're uncomfortable with the payment.
+Cell F321: type=s, value="What if there are no homes in my area below my max purchase price?", formatted=What if there are no homes in my area below my max purchase price?
+Cell F322: type=s, value="That's always frustrating! There is no magic button that will make home prices come down. Sometimes we have to be brutally honest with ourself about what we can afford and what we will practically do about it. If you can't afford a home in the area you want, you either need to find a way to increase your income or add someone on the loan with you OR look into lower cost areas.", formatted=That's always frustrating! There is no magic button that will make home prices come down. Sometimes we have to be brutally honest with ourself about what we can afford and what we will practically do about it. If you can't afford a home in the area you want, you either need to find a way to increase your income or add someone on the loan with you OR look into lower cost areas.
+Cell F327: type=s, value="What does being house poor mean?", formatted=What does being house poor mean?
+Cell F328: type=s, value="\"House poor\" is a phrase that doens't have a technical definintion. But rather it just means that your budget is a slave to your house payment... You can afford your mortgage payment but don't have money for much else. You don't want that. No one wants their life to revolve around a house payment. You can avoid becoming house poor by making sure you understand the costs of buying a home and refuse to go above a house payment that makes you uncomfortable. Remember, you know the mortgage payment before you buy a home. If the payment is too high, don't buy the home.", formatted="House poor" is a phrase that doens't have a technical definintion. But rather it just means that your budget is a slave to your house payment... You can afford your mortgage payment but don't have money for much else. You don't want that. No one wants their life to revolve around a house payment. You can avoid becoming house poor by making sure you understand the costs of buying a home and refuse to go above a house payment that makes you uncomfortable. Remember, you know the mortgage payment before you buy a home. If the payment is too high, don't buy the home.
+Cell F336: type=s, value="What happens if I buy a home and eventually cannot make the monthly payment?", formatted=What happens if I buy a home and eventually cannot make the monthly payment?
+Cell F337: type=s, value="The CFPB has great resources on understanding what to do if you cannot make your monthly payment. The worst thing you can do is to stop paying and not let anyone know. There are programs that help millions of people stay out of foreclosure.", formatted=The CFPB has great resources on understanding what to do if you cannot make your monthly payment. The worst thing you can do is to stop paying and not let anyone know. There are programs that help millions of people stay out of foreclosure.
+Cell F340: type=s, value="If I can't pay my mortgage loan, what are my options?", formatted=If I can't pay my mortgage loan, what are my options?
+Cell F344: type=s, value="Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer", formatted=Only for educational usage. All calculations should be verified independently. Win The House You Love LLC is not a lender, does not issue loan qualifications, and does not extend credit of any kind. This is not an offer to lend and should not be used to make decisions on home offers, purchasing decisions, nor loan selections. Not guaranteed to provide accurate results, imply lending terms, qualification amounts, nor real estate advice. Seek counsel from a licensed real estate agent, loan originator, financial planner, accountant, and/or attorney for real estate and/or financial advice. Read the full disclaimer here: https://www.winthehouseyoulove.com/disclaimer
+
+
+########## SHEET: Data ##########
+Range: B1:G1001
+Merges: []
+
+Named Ranges:
+Cell B2: type=s, value="Data", formatted=Data
+Cell B4: type=s, value="Safe", formatted=Safe
+Cell F4: type=s, value="Lookups", formatted=Lookups
+Cell B5: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C5: type=n, FORMULA="-PV('2. Your Info'!F10/12,'2. Your Info'!F11*12,C7)/(1-'2. Your Info'!F9)", value=-0.0001418404654, formatted=-$0
+Cell F5: type=s, value="Property Tax Rate", formatted=Property Tax Rate
+Cell G5: type=n, FORMULA="'2. Your Info'!F13", value=0, formatted=0
+Cell B6: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C6: type=n, FORMULA="'3. Your Affordability Dashboard'!L30", value=0, formatted=$0
+Cell F6: type=s, value="Home Owner's Insurance Rate", formatted=Home Owner's Insurance Rate
+Cell G6: type=n, FORMULA="'2. Your Info'!F14", value=0, formatted=0
+Cell B7: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C7: type=n, FORMULA="C6-C8-C9-C10-C11", value=4.127597442e-8, formatted=$0
+Cell F7: type=s, value="Mortgage Insurance Rate", formatted=Mortgage Insurance Rate
+Cell G7: type=n, FORMULA=" IF( AND('2. Your Info'!F9 >= 0.2 , OR('2. Your Info'!F15 = "Conv - Good Credit" , '2. Your Info'!F15 = "Conv - Fair Credit")), 0,
+IF('2. Your Info'!F15 = "Conv - Good Credit" , 60,
+IF('2. Your Info'!F15 = "Conv - Fair Credit" , 80,
+IF('2. Your Info'!F15 = "FHA" , 85,
+IF('2. Your Info'!F15 = "USDA" , 35, 0)))))", value=60, formatted=60
+Cell B8: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C8: type=n, FORMULA="C5*G5/12*0.0001", value=0, formatted=$0
+Cell F8: type=s, value="Utilities", formatted=Utilities
+Cell G8: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I97= "Low", 0.06, IF('3. Your Affordability Dashboard'!I97= "Moderate", 0.1, IF('3. Your Affordability Dashboard'!I97= "High", 0.14)))", value=0.1, formatted=$0.10
+Cell B9: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C9: type=n, FORMULA="C5*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-7.092023269e-8, formatted=-$0
+Cell F9: type=s, value="Maintenance", formatted=Maintenance
+Cell G9: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01)))", value=0.005, formatted=0.50%
+Cell B10: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C10: type=n, FORMULA="C5*G6*0.0001/12", value=0, formatted=$0
+Cell F10: type=s, value="Net Monthly Income", formatted=Net Monthly Income
+Cell G10: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)", value=0, formatted=$0
+Cell B11: type=s, value="HOA", formatted=HOA
+Cell C11: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B13: type=s, value="Conservative", formatted=Conservative
+Cell B14: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C14: type=n, FORMULA="-PV('2. Your Info'!F10/12,'2. Your Info'!F11*12,C16)/(1-'2. Your Info'!F9)", value=-0.0001588612451, formatted=-$0
+Cell B15: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C15: type=n, FORMULA="'3. Your Affordability Dashboard'!L33", value=0, formatted=$0
+Cell B16: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C16: type=n, FORMULA="C15-C17-C18-C19-C20", value=7.943062254e-8, formatted=$0
+Cell B17: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C17: type=n, FORMULA="C14*G5/12*0.0001", value=0, formatted=$0
+Cell B18: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C18: type=n, FORMULA="C14*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-7.943062254e-8, formatted=-$0
+Cell B19: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C19: type=n, FORMULA="C14*G6*0.0001/12", value=0, formatted=$0
+Cell B20: type=s, value="HOA", formatted=HOA
+Cell C20: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B22: type=s, value="Moderate", formatted=Moderate
+Cell B23: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C23: type=n, FORMULA="-PV('2. Your Info'!F10/12,'2. Your Info'!F11*12,C25/(1-'2. Your Info'!F9))", value=-0.0002042501722, formatted=-$0
+Cell B24: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C24: type=n, FORMULA="'3. Your Affordability Dashboard'!L36", value=0, formatted=$0
+Cell B25: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C25: type=n, FORMULA="C24-C26-C27-C28-C29", value=1.021250861e-7, formatted=$0
+Cell B26: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C26: type=n, FORMULA="C23*G5/12*0.0001", value=0, formatted=$0
+Cell B27: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C27: type=n, FORMULA="C23*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-1.021250861e-7, formatted=-$0
+Cell B28: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C28: type=n, FORMULA="C23*G6*0.0001/12", value=0, formatted=$0
+Cell B29: type=s, value="HOA", formatted=HOA
+Cell C29: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B31: type=s, value="Aggressive", formatted=Aggressive
+Cell B32: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C32: type=n, FORMULA="-PV('2. Your Info'!F10/12,'2. Your Info'!F11*12,C34)/(1-'2. Your Info'!F9)", value=-0.0002553127606, formatted=-$0
+Cell B33: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C33: type=n, FORMULA="'3. Your Affordability Dashboard'!L39", value=0, formatted=$0
+Cell B34: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C34: type=n, FORMULA="C33-C35-C36-C37-C38", value=7.429682337e-8, formatted=$0
+Cell B35: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C35: type=n, FORMULA="C32*G5/12*0.0001", value=0, formatted=$0
+Cell B36: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C36: type=n, FORMULA="C32*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-1.276563803e-7, formatted=-$0
+Cell B37: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C37: type=n, FORMULA="C32*G6*0.0001/12", value=0, formatted=$0
+Cell B38: type=s, value="HOA", formatted=HOA
+Cell C38: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B40: type=s, value="Risky", formatted=Risky
+Cell B41: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C41: type=n, FORMULA="-PV('2. Your Info'!F10/12,'2. Your Info'!F11*12,C43)/(1-'2. Your Info'!F9)", value=-0.0002609863312, formatted=-$0
+Cell B42: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C42: type=n, FORMULA="'3. Your Affordability Dashboard'!L42", value=0, formatted=$0
+Cell B43: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C43: type=n, FORMULA="C42-C44-C45-C46-C47", value=1.304931656e-7, formatted=$0
+Cell B44: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C44: type=n, FORMULA="C41*G5/12*0.0001", value=0, formatted=$0
+Cell B45: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C45: type=n, FORMULA="C41*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-1.304931656e-7, formatted=-$0
+Cell B46: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C46: type=n, FORMULA="C41*G6*0.0001/12", value=0, formatted=$0
+Cell B47: type=s, value="HOA", formatted=HOA
+Cell C47: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B49: type=s, value="Dave Ramsey", formatted=Dave Ramsey
+Cell B50: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C50: type=n, FORMULA="-PV('2. Your Info'!F10/12,180,C52)/(1-0.1)", value=-0.000001104612938, formatted=-$0
+Cell B51: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C51: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*(1-'2. Your Info'!F17)*0.25", value=0, formatted=$0
+Cell B52: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C52: type=n, FORMULA="C51-C53-C54-C55-C56", value=5.523064688e-10, formatted=$0
+Cell B53: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C53: type=n, FORMULA="C50*G5/12*0.0001", value=0, formatted=$0
+Cell B54: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C54: type=n, FORMULA="C50*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-5.523064688e-10, formatted=-$0
+Cell B55: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C55: type=n, FORMULA="C50*G6*0.0001/12", value=0, formatted=$0
+Cell B56: type=s, value="HOA", formatted=HOA
+Cell C56: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B58: type=s, value="Qualified Mortgage", formatted=Qualified Mortgage
+Cell B59: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C59: type=n, FORMULA="-PV('2. Your Info'!F10/12,180,C61/(1-'2. Your Info'!F9))", value=-2.948260307e-7, formatted=-$0
+Cell B60: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C60: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*0.43", value=0, formatted=$0
+Cell B61: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C61: type=n, FORMULA="C60-C62-C63-C64-C65", value=1.474130153e-10, formatted=$0
+Cell B62: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C62: type=n, FORMULA="C59*G5/12*0.0001", value=0, formatted=$0
+Cell B63: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C63: type=n, FORMULA="C59*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-1.474130153e-10, formatted=-$0
+Cell B64: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C64: type=n, FORMULA="C59*G6*0.0001/12", value=0, formatted=$0
+Cell B65: type=s, value="HOA", formatted=HOA
+Cell C65: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B67: type=s, value="2.6 Ratio", formatted=2.6 Ratio
+Cell B68: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C68: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)*2.6", value=0, formatted=$0
+Cell B69: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C69: type=n, FORMULA="SUM(C70:C74)", value=0, formatted=$0
+Cell B70: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C70: type=n, FORMULA="-PMT('2. Your Info'!F10/12,'2. Your Info'!F11*12,C68*(1-'2. Your Info'!F9))", value=0, formatted=$0
+Cell B71: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C71: type=n, FORMULA="C68*G5/12*0.0001", value=0, formatted=$0
+Cell B72: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C72: type=n, FORMULA="C68*(1-'2. Your Info'!F9)*G7*0.0001/12", value=0, formatted=$0
+Cell B73: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C73: type=n, FORMULA="C68*G6*0.0001/12", value=0, formatted=$0
+Cell B74: type=s, value="HOA", formatted=HOA
+Cell C74: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B76: type=s, value="30-30-3", formatted=30-30-3
+Cell B77: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C77: type=n, FORMULA="-PV('2. Your Info'!F10/12,180,C79/(1-0.2))", value=-0.00001703248068, formatted=-$0
+Cell B78: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C78: type=n, FORMULA="('2. Your Info'!F23+'2. Your Info'!F46)/12*0.3", value=0, formatted=$0
+Cell B79: type=s, value="Principal and Interest", formatted=Principal and Interest
+Cell C79: type=n, FORMULA="C78-C80-C81-C82-C83", value=8.516240341e-9, formatted=$0
+Cell B80: type=s, value="Property Taxes", formatted=Property Taxes
+Cell C80: type=n, FORMULA="C77*G5/12*0.0001", value=0, formatted=$0
+Cell B81: type=s, value="Mortgage Insurance", formatted=Mortgage Insurance
+Cell C81: type=n, FORMULA="C77*(1-'2. Your Info'!F9)*G7*0.0001/12", value=-8.516240341e-9, formatted=-$0
+Cell B82: type=s, value="Home Owner's Insurance", formatted=Home Owner's Insurance
+Cell C82: type=n, FORMULA="C77*G6*0.0001/12", value=0, formatted=$0
+Cell B83: type=s, value="HOA", formatted=HOA
+Cell C83: type=n, FORMULA="'2. Your Info'!F16/12", value=0, formatted=$0
+Cell B85: type=s, value="- 10% lower", formatted=- 10% lower
+Cell B86: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C86: type=n, FORMULA="C100*0.9", value=-0.0001429751206, formatted=-$0
+Cell B87: type=s, value="Down Payment", formatted=Down Payment
+Cell C87: type=n, FORMULA="C86*'2. Your Info'!F9", value=0, formatted=$0
+Cell B88: type=s, value="Closing Costs", formatted=Closing Costs
+Cell C88: type=n, FORMULA="IF('3. Your Affordability Dashboard'!I126="2% of Price", 0.02*C86,
+IF('3. Your Affordability Dashboard'!I126="2.5% of Price (Typical)", 0.025*C86,
+IF('3. Your Affordability Dashboard'!I126="3% of Price", 0.03*C86,)))", value=-0.000003574378014, formatted=-$0
+Cell B89: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell C89: type=n, FORMULA="C103*0.9", value=0, formatted=$0
+Cell B90: type=s, value="Maintenance Cost", formatted=Maintenance Cost
+Cell C90: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025*C86/12,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005*C86/12,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01*C86/12)))", value=-5.95729669e-8, formatted=-$0
+Cell B92: type=s, value="- 5% lower", formatted=- 5% lower
+Cell B93: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C93: type=n, FORMULA="C100*0.95", value=-0.0001509181828, formatted=-$0
+Cell B94: type=s, value="Down Payment", formatted=Down Payment
+Cell C94: type=n, FORMULA="C93*'2. Your Info'!F9", value=0, formatted=$0
+Cell B95: type=s, value="Closing Costs", formatted=Closing Costs
+Cell C95: type=n, FORMULA="IF('3. Your Affordability Dashboard'!I126="2% of Price", 0.02*C93,
+IF('3. Your Affordability Dashboard'!I126="2.5% of Price (Typical)", 0.025*C93,
+IF('3. Your Affordability Dashboard'!I126="3% of Price", 0.03*C93,)))", value=-0.000003772954571, formatted=-$0
+Cell B96: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell C96: type=n, FORMULA="C103*0.95", value=0, formatted=$0
+Cell B97: type=s, value="Maintenance Cost", formatted=Maintenance Cost
+Cell C97: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025*C93/12,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005*C93/12,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01*C93/12)))", value=-6.288257618e-8, formatted=-$0
+Cell B99: type=s, value="Asking Price", formatted=Asking Price
+Cell B100: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C100: type=n, FORMULA="'3. Your Affordability Dashboard'!F101", value=-0.0001588612451, formatted=-$0
+Cell B101: type=s, value="Down Payment", formatted=Down Payment
+Cell C101: type=n, FORMULA="C100*'2. Your Info'!F9", value=0, formatted=$0
+Cell B102: type=s, value="Closing Costs", formatted=Closing Costs
+Cell C102: type=n, FORMULA="IF('3. Your Affordability Dashboard'!I126="2% of Price", 0.02*C100,
+IF('3. Your Affordability Dashboard'!I126="2.5% of Price (Typical)", 0.025*C100,
+IF('3. Your Affordability Dashboard'!I126="3% of Price", 0.03*C100,)))", value=-0.000003971531127, formatted=-$0
+Cell B103: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell C103: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!J73="Safe",'3. Your Affordability Dashboard'!L30,
+IF('3. Your Affordability Dashboard'!J73="Conservative", '3. Your Affordability Dashboard'!L33,
+IF('3. Your Affordability Dashboard'!J73="Moderate",'3. Your Affordability Dashboard'!L36,
+IF('3. Your Affordability Dashboard'!J73="Aggressive",'3. Your Affordability Dashboard'!L39,
+IF('3. Your Affordability Dashboard'!J73="Risky",'3. Your Affordability Dashboard'!L42,)))))", value=0, formatted=$0
+Cell B104: type=s, value="Maintenance Cost", formatted=Maintenance Cost
+Cell C104: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025*C100/12,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005*C100/12,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01*C100/12)))", value=-6.619218545e-8, formatted=-$0
+Cell B106: type=s, FORMULA=""+ 5% higher"", value="+ 5% higher", formatted=+ 5% higher
+Cell B107: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C107: type=n, FORMULA="C100*1.05", value=-0.0001668043073, formatted=-$0
+Cell B108: type=s, value="Down Payment", formatted=Down Payment
+Cell C108: type=n, FORMULA="C107*'2. Your Info'!F9", value=0, formatted=$0
+Cell B109: type=s, value="Closing Costs", formatted=Closing Costs
+Cell C109: type=n, FORMULA="IF('3. Your Affordability Dashboard'!I126="2% of Price", 0.02*C107,
+IF('3. Your Affordability Dashboard'!I126="2.5% of Price (Typical)", 0.025*C107,
+IF('3. Your Affordability Dashboard'!I126="3% of Price", 0.03*C107,)))", value=-0.000004170107683, formatted=-$0
+Cell B110: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell C110: type=n, FORMULA="C103*1.05", value=0, formatted=$0
+Cell B111: type=s, value="Maintenance Cost", formatted=Maintenance Cost
+Cell C111: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025*C107/12,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005*C107/12,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01*C107/12)))", value=-6.950179472e-8, formatted=-$0
+Cell B113: type=s, FORMULA=""+ 10% higher"", value="+ 10% higher", formatted=+ 10% higher
+Cell B114: type=s, value="Purchase Price", formatted=Purchase Price
+Cell C114: type=n, FORMULA="C100*1.1", value=-0.0001747473696, formatted=-$0
+Cell B115: type=s, value="Down Payment", formatted=Down Payment
+Cell C115: type=n, FORMULA="C114*'2. Your Info'!F9", value=0, formatted=$0
+Cell B116: type=s, value="Closing Costs", formatted=Closing Costs
+Cell C116: type=n, FORMULA="IF('3. Your Affordability Dashboard'!I126="2% of Price", 0.02*C114,
+IF('3. Your Affordability Dashboard'!I126="2.5% of Price (Typical)", 0.025*C114,
+IF('3. Your Affordability Dashboard'!I126="3% of Price", 0.03*C114,)))", value=-0.00000436868424, formatted=-$0
+Cell B117: type=s, value="Mortgage Payment", formatted=Mortgage Payment
+Cell C117: type=n, FORMULA="C103*1.1", value=0, formatted=$0
+Cell B118: type=s, value="Maintenance Cost", formatted=Maintenance Cost
+Cell C118: type=n, FORMULA=" IF('3. Your Affordability Dashboard'!I98= "Low", 0.0025*C114/12,
+IF('3. Your Affordability Dashboard'!I98= "Moderate", 0.005*C114/12,
+IF('3. Your Affordability Dashboard'!I98= "High", 0.01*C114/12)))", value=-7.281140399e-8, formatted=-$0
+Cell B120: type=s, value="$10,000 Difference", formatted=$10,000 Difference
+Cell B121: type=s, value="Price Difference", formatted=Price Difference
+Cell C121: type=n, value=10000, formatted=$10,000
+Cell B122: type=s, value="Monthly Payment Total", formatted=Monthly Payment Total
+Cell C122: type=n, FORMULA="SUM(C123:C126)", value=32.77777778, formatted=$33
+Cell B123: type=s, value="P&I", formatted=P&I
+Cell C123: type=n, FORMULA="-PMT('2. Your Info'!F9/12,'2. Your Info'!F11*12,C121)", value=27.77777778, formatted=$28
+Cell B124: type=s, value="Taxes", formatted=Taxes
+Cell C124: type=n, FORMULA="C121*G5/12*0.0001", value=0, formatted=$0
+Cell B125: type=s, value="HOI", formatted=HOI
+Cell C125: type=n, FORMULA="C121*G6*0.0001/12", value=0, formatted=$0
+Cell B126: type=s, value="MI", formatted=MI
+Cell C126: type=n, FORMULA="C121*(1-'2. Your Info'!F9)*G7*0.0001/12", value=5, formatted=$5
+
+
+########## WORKBOOK METADATA ##########
+Defined Names:
+
+Sheet metadata:
+  Sheet 0: {"name":"1. Start Here","sheetId":"1","sheetid":"1","id":"rId5","Hidden":0}
+  Sheet 1: {"name":"2. Your Info","sheetId":"2","sheetid":"2","id":"rId6","Hidden":0}
+  Sheet 2: {"name":"3. Your Affordability Dashboard","sheetId":"3","sheetid":"3","id":"rId7","Hidden":0}
+  Sheet 3: {"name":"Data","sheetId":"4","sheetid":"4","id":"rId8","Hidden":0}
