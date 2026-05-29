@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js';
 import { UserInputs, PriceComparison, ClosingCostOption, DashboardSettings } from './types';
-import { CLOSING_COST_OPTIONS, MAINTENANCE_RATES } from './constants';
+import { CLOSING_COST_OPTIONS, MAINTENANCE_RATES, UTILITY_COSTS_PER_SQFT } from './constants';
 import { calculatePMT } from './mortgage';
 import { getMortgageInsuranceRate } from './risk-tiers';
 
@@ -22,14 +22,16 @@ export function calculatePriceComparisons(
   settings: DashboardSettings
 ): PriceComparison[] {
   const multipliers = [
-    { name: '- 10% lower', multiplier: new Decimal('0.9') },
-    { name: '- 5% lower', multiplier: new Decimal('0.95') },
-    { name: 'Asking Price', multiplier: new Decimal('1.0') },
-    { name: '+ 5% higher', multiplier: new Decimal('1.05') },
-    { name: '+ 10% higher', multiplier: new Decimal('1.10') },
+    { name: '- 10% lower price', multiplier: new Decimal('0.9') },
+    { name: '- 5% lower price', multiplier: new Decimal('0.95') },
+    { name: 'Baseline Price', multiplier: new Decimal('1.0') },
+    { name: '+ 5% higher price', multiplier: new Decimal('1.05') },
+    { name: '+ 10% higher price', multiplier: new Decimal('1.10') },
   ];
 
   const maintenanceRate = MAINTENANCE_RATES[settings.maintenanceLevel];
+  const utilityRate = UTILITY_COSTS_PER_SQFT[settings.utilityLevel] || UTILITY_COSTS_PER_SQFT.Moderate;
+  const monthlyUtilities = utilityRate.times(settings.estimatedSqFt);
 
   return multipliers.map(({ name, multiplier }) => {
     const price = basePrice.times(multiplier);
@@ -37,6 +39,9 @@ export function calculatePriceComparisons(
     const closingCosts = calculateClosingCosts(price, settings.closingCostOption);
     const mortgagePayment = basePayment.times(multiplier);
     const maintenanceCost = price.times(maintenanceRate).dividedBy(12);
+    const utilityCost = monthlyUtilities;
+    const otherMonthlyCosts = maintenanceCost.plus(utilityCost);
+    const paymentDifference = mortgagePayment.minus(basePayment);
 
     return {
       scenarioName: name,
@@ -46,6 +51,9 @@ export function calculatePriceComparisons(
       closingCosts,
       mortgagePayment,
       maintenanceCost,
+      utilityCost,
+      otherMonthlyCosts,
+      paymentDifference,
     };
   });
 }

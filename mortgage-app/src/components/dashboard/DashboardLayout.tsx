@@ -4,13 +4,16 @@ import dynamic from "next/dynamic";
 import { useAffordabilityEngine } from "@/hooks/useAffordabilityEngine";
 import { useAppStore } from "@/lib/store";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RiskTier } from "@/lib/engine/types";
 import { FaqSection } from "./FaqSection";
 import { CustomPriceCalculator } from "./CustomPriceCalculator";
+import { DtiExplanation } from "./DtiExplanation";
+import { DownPaymentClosingCosts } from "./DownPaymentClosingCosts";
+import { PriceComparisonTable } from "./PriceComparisonTable";
+import { OtherMonthlyCosts } from "./OtherMonthlyCosts";
 import { CLOSING_COST_OPTIONS } from "@/lib/engine/constants";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Star } from "lucide-react";
 
 import Decimal from "decimal.js";
 
@@ -36,6 +39,10 @@ function ChartSkeleton() {
       <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
     </div>
   );
+}
+
+function fmt(val: Decimal, decimals = 0): string {
+  return "$" + val.toNumber().toLocaleString("en-US", { maximumFractionDigits: decimals });
 }
 
 export function DashboardLayout() {
@@ -72,12 +79,15 @@ export function DashboardLayout() {
   // Check if any higher-risk tier could qualify
   const alternativeTier = results.riskTiers.find(t => t.maxPurchasePrice.greaterThan(0));
 
+  // Find the conservative tier for theory "suggested maximum"
+  const conservativeTier = results.riskTiers.find(t => t.tier === "Conservative");
+
   return (
     <div className="flex flex-col gap-6 h-full">
       {/* ── Header row ── */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Your Affordability</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Your Affordability Dashboard</h1>
           <p className="text-muted-foreground">Based on your inputs and current market rates.</p>
         </div>
 
@@ -99,6 +109,21 @@ export function DashboardLayout() {
             </SelectContent>
           </Select>
         </div>
+      </div>
+
+      {/* ── Intro Paragraph ── */}
+      <div className="p-5 bg-muted/30 rounded-xl border">
+        <h2 className="text-lg font-bold mb-2">
+          Lenders will usually approve you for MORE than you should buy... understand how you can make sure you don&apos;t become house poor:
+        </h2>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Lenders don&apos;t just guess at how much of a loan they&apos;ll approve you for. They base it off of a formula
+          called the Debt-To-Income ratio. Most loans will allow a much higher Debt-To-Income ratio than you
+          should take on. And some people are comfortable stretching their budget to the max, but that can
+          make you &quot;house poor&quot; where most of your income goes towards paying a mortgage... not fun. We
+          suggest you stick to the Conservative option as your maximum purchase price so you don&apos;t struggle
+          to make a mortgage payment.
+        </p>
       </div>
 
       {/* ── Warning Alert (when debts exceed limits) ── */}
@@ -161,98 +186,186 @@ export function DashboardLayout() {
         </CardContent>
       </Card>
 
-      {/* ── Tabs ── */}
-      <Tabs defaultValue="breakdown" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-6">
-          <TabsTrigger value="breakdown">Breakdown</TabsTrigger>
-          <TabsTrigger value="risk">Risk Analysis</TabsTrigger>
-          <TabsTrigger value="theories">Theories</TabsTrigger>
-          <TabsTrigger value="custom">Custom Price</TabsTrigger>
-        </TabsList>
+      <div className="h-px bg-border my-6" />
 
-        {/* Payment + Cash-to-Close charts */}
-        <TabsContent value="breakdown" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Payment Breakdown</CardTitle>
-              </CardHeader>
-              <CardContent className="h-[350px]">
-                <PaymentBreakdownChart breakdown={activeTier.monthlyPayment} />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Cash to Close</CardTitle>
-              </CardHeader>
-              <CardContent className="h-[350px]">
-                <CashToCloseChart
-                  downPayment={activeTier.downPayment}
-                  closingCosts={activeTier.maxPurchasePrice.times(
-                    CLOSING_COST_OPTIONS[settings.closingCostOption] ?? new Decimal('0.025')
-                  )}
-                />
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
-
-        {/* Risk tier bar chart */}
-        <TabsContent value="risk" className="space-y-6">
+      {/* ── Section 1: Payment Breakdown & Cash to Close ── */}
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Risk Tiers</CardTitle>
-              <CardDescription>
-                Compare how much you can afford across different risk levels.
-              </CardDescription>
+              <CardTitle>Payment Breakdown</CardTitle>
             </CardHeader>
-            <CardContent className="h-[400px]">
-              <RiskTierComparison tiers={results.riskTiers} activeTier={activeTier.tier} />
+            <CardContent className="h-[350px]">
+              <PaymentBreakdownChart breakdown={activeTier.monthlyPayment} />
             </CardContent>
           </Card>
-        </TabsContent>
-
-        {/* Theories */}
-        <TabsContent value="theories" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Affordability Theories</CardTitle>
-              <CardDescription>
-                See how your numbers stack up against popular personal finance rules.
-              </CardDescription>
+              <CardTitle>Cash to Close</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {results.theories.map((theory, idx) => (
-                  <div key={idx} className="p-4 border rounded-lg bg-card hover:bg-muted/50 transition-colors flex flex-col">
-                    <h3 className="font-bold text-lg mb-2">{theory.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">{theory.description}</p>
-                    <div className="flex justify-between items-center border-t pt-4">
-                      <span className="font-medium text-sm text-muted-foreground">Max Purchase Price</span>
-                      <span className="font-bold text-xl text-primary">
-                        ${theory.purchasePrice.toNumber().toLocaleString("en-US", { maximumFractionDigits: 0 })}
-                      </span>
+            <CardContent className="h-[350px]">
+              <CashToCloseChart
+                downPayment={activeTier.downPayment}
+                closingCosts={activeTier.maxPurchasePrice.times(
+                  CLOSING_COST_OPTIONS[settings.closingCostOption] ?? new Decimal('0.025')
+                )}
+              />
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card>
+          <CardContent className="p-6">
+            <DownPaymentClosingCosts activeTier={activeTier} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Risk Tiers</CardTitle>
+            <CardDescription>
+              Compare how much you can afford across different risk levels.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="h-[400px]">
+            <RiskTierComparison tiers={results.riskTiers} activeTier={activeTier.tier} />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="h-px bg-border my-6" />
+
+      {/* ── Section 2: How The Math Works ── */}
+      <div className="space-y-6">
+        <Card>
+          <CardContent className="p-6">
+            <DtiExplanation activeTier={activeTier} />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="h-px bg-border my-6" />
+
+      {/* ── Section 3: Other Monthly Costs ── */}
+      <div className="space-y-6">
+        <Card>
+          <CardContent className="p-6">
+            <OtherMonthlyCosts activeTier={activeTier} otherCosts={results.otherCosts} />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="h-px bg-border my-6" />
+
+      {/* ── Section 4: Compare Prices ── */}
+      <div className="space-y-6">
+        <Card>
+          <CardContent className="p-6">
+            <PriceComparisonTable
+              comparisons={results.priceComparisons}
+              tenKDifference={results.tenKDifference}
+            />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="h-px bg-border my-6" />
+
+      {/* ── Section 5: Theories ── */}
+      <div className="space-y-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Popular Affordability Theories</CardTitle>
+            <CardDescription className="space-y-2 text-sm leading-relaxed">
+              <span>
+                Different financial experts give their &quot;rules of thumb&quot; for your maximum mortgage payment.
+                Here are a few popular theories so you can see how they stack up to our recommended maximum:
+              </span>
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {/* Suggested Maximum Banner */}
+            {conservativeTier && (
+              <div className="mb-6 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    <Star className="w-3 h-3" /> SUGGESTED MAXIMUM
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-bold">Conservative</h3>
+                    <p className="text-xs text-muted-foreground">
+                      {conservativeTier.frontEndRatio.times(100).toNumber()}%/{conservativeTier.backEndRatio.times(100).toNumber()}%
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-primary">{fmt(conservativeTier.maxPurchasePrice)}</p>
+                    <p className="text-xs text-muted-foreground">{fmt(conservativeTier.downPayment)} down payment</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold">{fmt(conservativeTier.monthlyPayment.total)}</p>
+                    <p className="text-xs text-muted-foreground">{conservativeTier.percentOfNetIncome.toNumber()}% of your net income</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* DISCLAIMER */}
+            <div className="mb-6 text-xs text-muted-foreground italic border-l-2 border-muted-foreground/20 pl-3">
+              <strong>DISCLAIMER:</strong> mortgage approvals involve layers of risk analysis that determine your
+              max purchase price. This calculator cannot qualify you for a mortgage. It is only an
+              educational exercise in learning about debt-to-income ratios.
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {results.theories.map((theory, idx) => (
+                <div key={idx} className="p-5 border rounded-xl bg-card hover:bg-muted/50 transition-colors flex flex-col">
+                  <div className="text-center mb-3">
+                    <p className="text-2xl font-bold text-primary">{fmt(theory.purchasePrice)}</p>
+                    <h3 className="font-bold text-lg mt-1">{theory.name}</h3>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 text-sm mb-3">
+                    <div>
+                      <span className="text-muted-foreground">Monthly Payment:</span>{" "}
+                      <span className="font-semibold">{fmt(theory.monthlyPayment)}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">Down Payment:</span>{" "}
+                      <span className="font-semibold">{fmt(theory.downPayment)}</span>
                     </div>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+                  <div className="border-t pt-3 flex-1">
+                    <p className="text-sm font-semibold mb-1">Theory:</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{theory.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
-        {/* Custom price */}
-        <TabsContent value="custom" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Test a Price</CardTitle>
-              <CardDescription>See how a specific home price fits into your budget.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <CustomPriceCalculator key={settings.customPrice} comparison={results.customPriceComparison} />
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+      <div className="h-px bg-border my-6" />
+
+      {/* ── Section 6: Custom Price ── */}
+      <div className="space-y-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Test a Price</CardTitle>
+            <CardDescription>See how a specific home price fits into your budget.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <CustomPriceCalculator
+              key={settings.customPrice}
+              comparison={results.customPriceComparison}
+              tenKDifference={results.tenKDifference}
+            />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="h-px bg-border my-6" />
 
       <FaqSection />
     </div>

@@ -46,7 +46,7 @@ export function useAffordabilityEngine(): CalculationResults | null {
       // Select the active tier based on settings
       const activeTierResult = riskTiers.find(t => t.tier === settings.selectedRiskTier) || riskTiers[2];
 
-      const otherCosts = calculateOtherCosts(inputs, dashSettings, activeTierResult.monthlyPayment.total);
+      const otherCosts = calculateOtherCosts(inputs, dashSettings, activeTierResult.maxPurchasePrice, activeTierResult.monthlyPayment.total);
       const tenKDifference = calculateTenKDifference(inputs);
 
       const priceComparisons = calculatePriceComparisons(

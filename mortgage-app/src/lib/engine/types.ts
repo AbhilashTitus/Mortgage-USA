@@ -74,6 +74,9 @@ export interface PriceComparison {
   closingCosts: Decimal;
   mortgagePayment: Decimal;
   maintenanceCost: Decimal;
+  utilityCost: Decimal;
+  otherMonthlyCosts: Decimal; // utilities + maintenance
+  paymentDifference: Decimal; // difference from baseline mortgage payment
 }
 
 export interface OtherCosts {
@@ -82,6 +85,8 @@ export interface OtherCosts {
   totalMonthlyCost: Decimal;
   warning: boolean; // totalMonthlyCost / netMonthlyIncome > 0.42
   remainingIncome: Decimal;
+  percentOfTakeHome: Decimal; // (totalMonthlyCost / netMonthlyIncome) * 100
+  netMonthlyIncome: Decimal;
 }
 
 export interface CustomPriceComparison {

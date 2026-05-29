@@ -10,8 +10,13 @@ describe('DTI Calculations', () => {
     borrowerDebts: [new Decimal(500), new Decimal(200)], // $700
     coBorrowerDebts: [new Decimal(300)],                // $300 -> Total $1000
     incomeTaxRate: new Decimal(0.30),       // 30%
-    availableFunds: new Decimal(100000),
-    creditScore: 750,
+    downPaymentPercent: new Decimal(0.20),
+    interestRate: new Decimal(0.065),
+    mortgageTermYears: 30,
+    propertyTaxRate: new Decimal(120),
+    insuranceRate: new Decimal(42),
+    mortgageInsuranceType: 'Conv - Good Credit',
+    yearlyHOA: new Decimal(0),
   };
 
   it('calculates gross monthly income correctly', () => {
