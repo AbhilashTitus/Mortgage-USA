@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronRight, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search } from "lucide-react";
+import { ChevronRight, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search, Calculator } from "lucide-react";
 import { useState } from "react";
 import { DashboardTab } from "@/app/page";
 import { useAppStore } from "@/lib/store";
@@ -14,15 +14,17 @@ interface AppSidebarProps {
   onStepChange: (step: AppStep) => void;
   dashboardTab: DashboardTab;
   onDashboardTabChange: (tab: DashboardTab) => void;
+  isExpanded: boolean;
+  onExpandedChange: (expanded: boolean) => void;
+  glowIntensity?: number;
 }
 
-export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboardTabChange }: AppSidebarProps) {
-  const [isExpanded, setIsExpanded] = useState(true);
+export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboardTabChange, isExpanded, onExpandedChange, glowIntensity = 0 }: AppSidebarProps) {
   const { userInputs, updateUserInputs } = useAppStore();
 
   const handleStepClick = (step: AppStep) => {
     onStepChange(step);
-    if (!isExpanded) setIsExpanded(true);
+    if (!isExpanded) onExpandedChange(true);
   };
 
   const dashboardSubTabs = [
@@ -32,28 +34,26 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
   ];
 
   return (
-    <div 
+    <aside 
       className={cn(
-        "h-full bg-white border-r border-slate-200 transition-all duration-300 ease-in-out shrink-0 flex flex-col relative",
-        isExpanded ? "w-80" : "w-[72px]"
+        "sticky top-20 h-[calc(100vh-5rem)] bg-white border-r transition-all duration-300 ease-in-out shrink-0 flex flex-col z-20",
+        isExpanded ? "w-80" : "w-[72px]",
+        glowIntensity === 0 && "border-slate-200"
       )}
+      style={{
+        boxShadow: glowIntensity > 0 ? `0 0 ${glowIntensity * 50}px ${glowIntensity * 10}px rgba(119, 188, 31, ${glowIntensity * 0.5})` : undefined,
+        borderColor: glowIntensity > 0 ? `rgba(119, 188, 31, ${glowIntensity * 0.8})` : undefined,
+      }}
     >
-      <div className="p-5 flex items-center justify-between border-b border-slate-100 min-h-[72px]">
-        <h2 className={cn("font-bold text-xl text-primary truncate transition-opacity duration-300", 
-          isExpanded ? "opacity-100" : "opacity-0 w-0 hidden"
-        )}>
-          Mortgage Pro
-        </h2>
-      </div>
-
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="absolute -right-3 top-6 bg-white border border-slate-200 rounded-full p-1 text-slate-400 hover:text-primary hover:border-primary shadow-sm z-10"
+        onClick={() => onExpandedChange(!isExpanded)}
+        className="absolute -right-6 top-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#003087] border-2 border-white text-white hover:bg-[#0072C6] shadow-lg shadow-[#003087]/20 transition-all duration-300 z-50 group"
       >
-        <ChevronRight className={cn("w-4 h-4 transition-transform duration-300", isExpanded && "rotate-180")} />
+        <ChevronRight className={cn("w-8 h-8 transition-transform duration-500 ease-in-out group-hover:scale-110", isExpanded && "rotate-180")} />
       </button>
 
-      <div className="flex-1 py-6 px-3 space-y-4 overflow-y-auto overflow-x-hidden styled-scrollbar">
+      {/* Nav items — scrollable if content overflows */}
+      <div className="flex-1 pt-24 pb-8 px-3 space-y-6 overflow-y-auto overflow-x-hidden styled-scrollbar min-h-0">
         {/* 1. Start Here */}
         <div>
           <button
@@ -94,7 +94,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
           </button>
 
           {/* Quick Edit Sub-Panel */}
-          {isExpanded && currentStep !== "info" && (
+          {isExpanded && currentStep === "dashboard" && (
             <div className="mt-1 ml-4 pl-4 border-l-2 border-slate-100 space-y-1 py-1 animate-in fade-in slide-in-from-top-2">
               <CompactLivePreview />
             </div>
@@ -146,7 +146,9 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
           )}
         </div>
       </div>
-    </div>
+
+
+    </aside>
   );
 }
 

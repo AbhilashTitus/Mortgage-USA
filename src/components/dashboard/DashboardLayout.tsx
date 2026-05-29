@@ -176,18 +176,6 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
       <Tabs value={activeTab} className="w-full">
         {/* Horizontal TabsList removed; Navigation is now handled by the sidebar */}
         <TabsContent value="overview" className="space-y-6 animate-in fade-in duration-500 mt-0">
-          <div className="p-5 bg-muted/30 rounded-xl border mb-6">
-            <h2 className="text-lg font-bold mb-2">
-              Lenders will usually approve you for MORE than you should buy...
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Lenders don&apos;t just guess at how much of a loan they&apos;ll approve you for. They base it off of a formula
-              called the Debt-To-Income ratio. Most loans will allow a much higher Debt-To-Income ratio than you
-              should take on. We suggest you stick to the Conservative option as your maximum purchase price so you don&apos;t struggle
-              to make a mortgage payment.
-            </p>
-          </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
@@ -214,6 +202,18 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
                 </ClientOnly>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="p-5 bg-muted/30 rounded-xl border">
+            <h2 className="text-lg font-bold mb-2">
+              Lenders will usually approve you for MORE than you should buy...
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Lenders don&apos;t just guess at how much of a loan they&apos;ll approve you for. They base it off of a formula
+              called the Debt-To-Income ratio. Most loans will allow a much higher Debt-To-Income ratio than you
+              should take on. We suggest you stick to the Conservative option as your maximum purchase price so you don&apos;t struggle
+              to make a mortgage payment.
+            </p>
           </div>
 
           <Card>

@@ -23,14 +23,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lexend.variable} h-full antialiased scroll-smooth`}
+      className={`${lexend.variable} antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
+      <body className="min-h-screen font-sans bg-slate-50" suppressHydrationWarning>
         <Header />
-        <main className="flex-1 flex flex-col bg-slate-50 overflow-hidden">
+        <div className="flex flex-col min-h-[calc(100vh-5rem)]">
           {children}
-        </main>
+        </div>
         <Footer />
       </body>
     </html>

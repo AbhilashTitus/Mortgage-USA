@@ -151,7 +151,6 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
 
         <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 shadow-sm flex flex-col justify-between relative overflow-hidden">
           <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/5 rounded-bl-full -mr-4 -mt-4"></div>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 sm:-ml-4 hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-400 font-bold z-10 shadow-sm">+</div>
           <div>
             <p className="text-sm font-semibold text-slate-500 mb-1">Other Costs</p>
             <p className="text-3xl font-bold text-[#77BC1F]">{fmt(otherCostsTotal)}</p>
@@ -164,7 +163,6 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
 
         <div className="bg-primary border border-primary/20 rounded-2xl p-5 shadow-md flex flex-col justify-center relative overflow-hidden text-white">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-4 -mt-4"></div>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 sm:-ml-4 hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-400 font-bold z-10 shadow-sm">=</div>
           <div className="relative z-10">
             <p className="text-sm font-medium text-white/80 mb-1">Estimated Total</p>
             <p className="text-4xl font-bold text-white mb-1">{fmt(otherCosts.totalMonthlyCost)}</p>
