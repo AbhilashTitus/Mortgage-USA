@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronRight, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search, Calculator } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search, Calculator, Pencil } from "lucide-react";
 import { useState } from "react";
 import { DashboardTab } from "@/app/page";
 import { useAppStore } from "@/lib/store";
@@ -48,9 +48,18 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
     >
       <button
         onClick={() => onExpandedChange(!isExpanded)}
-        className="absolute -right-6 top-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#003087] border-2 border-white text-white hover:bg-[#0072C6] shadow-lg shadow-[#003087]/20 transition-all duration-300 z-50 group"
+        className={cn(
+          "absolute flex items-center justify-center transition-all duration-300 z-50 group border border-slate-200/80 bg-white hover:bg-slate-100 text-[#003087] shadow-sm",
+          isExpanded 
+            ? "right-4 top-4 w-8 h-8 rounded-lg" // Inside retracting bar
+            : "-right-4 top-6 w-8 h-10 rounded-r-xl border-l-transparent" // Outside pull tab
+        )}
       >
-        <ChevronRight className={cn("w-8 h-8 transition-transform duration-500 ease-in-out group-hover:scale-110", isExpanded && "rotate-180")} />
+        {isExpanded ? (
+          <ChevronLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+        ) : (
+          <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+        )}
       </button>
 
       {/* Nav items — scrollable if content overflows */}
@@ -60,15 +69,15 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
           <button
             onClick={() => handleStepClick("start")}
             className={cn(
-              "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors group relative",
+              "w-full flex items-center px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden",
               currentStep === "start" 
-                ? "bg-primary/10 text-primary font-bold" 
+                ? "bg-primary/10 text-primary font-bold shadow-sm" 
                 : "text-slate-600 hover:bg-slate-100"
             )}
           >
-            <PlayCircle className={cn("w-5 h-5 shrink-0", currentStep === "start" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
-            <span className={cn("text-[15px] whitespace-nowrap transition-opacity duration-300 text-left", 
-              isExpanded ? "opacity-100" : "opacity-0 w-0 hidden"
+            <PlayCircle className={cn("w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110", currentStep === "start" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
+            <span className={cn("text-[15px] whitespace-nowrap overflow-hidden transition-all duration-500 ease-out text-left", 
+              isExpanded ? "max-w-[200px] opacity-100 ml-3 translate-x-0" : "max-w-0 opacity-0 ml-0 -translate-x-4"
             )}>
               1. Start Here
             </span>
@@ -80,15 +89,15 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
           <button
             onClick={() => handleStepClick("info")}
             className={cn(
-              "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors group relative",
+              "w-full flex items-center px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden",
               currentStep === "info" 
-                ? "bg-primary/10 text-primary font-bold" 
+                ? "bg-primary/10 text-primary font-bold shadow-sm" 
                 : "text-slate-600 hover:bg-slate-100"
             )}
           >
-            <FileText className={cn("w-5 h-5 shrink-0", currentStep === "info" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
-            <span className={cn("text-[15px] whitespace-nowrap transition-opacity duration-300 text-left", 
-              isExpanded ? "opacity-100" : "opacity-0 w-0 hidden"
+            <FileText className={cn("w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110", currentStep === "info" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
+            <span className={cn("text-[15px] whitespace-nowrap overflow-hidden transition-all duration-500 ease-out text-left", 
+              isExpanded ? "max-w-[200px] opacity-100 ml-3 translate-x-0" : "max-w-0 opacity-0 ml-0 -translate-x-4"
             )}>
               2. Your Info
             </span>
@@ -96,7 +105,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
 
           {/* Quick Edit Sub-Panel */}
           {isExpanded && currentStep === "dashboard" && (
-            <div className="mt-1 ml-4 pl-4 border-l-2 border-slate-100 space-y-1 py-1 animate-in fade-in slide-in-from-top-2">
+            <div className="mt-1 ml-4 pl-4 border-l-2 border-slate-100 space-y-1 py-1 animate-in fade-in slide-in-from-top-4 duration-500 ease-out">
               <CompactLivePreview />
             </div>
           )}
@@ -107,15 +116,15 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
           <button
             onClick={() => handleStepClick("dashboard")}
             className={cn(
-              "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors group relative",
+              "w-full flex items-center px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden",
               currentStep === "dashboard" 
-                ? "bg-primary/10 text-primary font-bold" 
+                ? "bg-primary/10 text-primary font-bold shadow-sm" 
                 : "text-slate-600 hover:bg-slate-100"
             )}
           >
-            <LayoutDashboard className={cn("w-5 h-5 shrink-0", currentStep === "dashboard" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
-            <span className={cn("text-[15px] whitespace-nowrap transition-opacity duration-300 text-left", 
-              isExpanded ? "opacity-100" : "opacity-0 w-0 hidden"
+            <LayoutDashboard className={cn("w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110", currentStep === "dashboard" ? "text-primary" : "text-slate-400 group-hover:text-slate-600")} />
+            <span className={cn("text-[15px] whitespace-nowrap overflow-hidden transition-all duration-500 ease-out text-left", 
+              isExpanded ? "max-w-[200px] opacity-100 ml-3 translate-x-0" : "max-w-0 opacity-0 ml-0 -translate-x-4"
             )}>
               3. Affordability Dashboard
             </span>
@@ -123,7 +132,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
 
           {/* Sub-Tabs Navigation */}
           {isExpanded && currentStep === "dashboard" && (
-            <div className="mt-2 ml-4 pl-6 border-l-2 border-primary/20 space-y-1 py-2 animate-in fade-in slide-in-from-top-2">
+            <div className="mt-2 ml-4 pl-6 border-l-2 border-primary/20 space-y-1 py-2 animate-in fade-in slide-in-from-top-4 duration-500 ease-out">
               {dashboardSubTabs.map((tab) => {
                 const TabIcon = tab.icon;
                 const isActive = dashboardTab === tab.id;
@@ -135,13 +144,13 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                     className={cn(
-                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors group",
+                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-300 group",
                       isActive 
-                        ? "bg-primary/5 text-primary font-semibold" 
-                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                        ? "bg-primary/5 text-primary font-semibold translate-x-1" 
+                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-700 hover:translate-x-1"
                     )}
                   >
-                    <TabIcon className={cn("w-4 h-4 shrink-0", isActive ? "text-primary" : "text-slate-400")} />
+                    <TabIcon className={cn("w-4 h-4 shrink-0 transition-transform duration-300", isActive ? "text-primary" : "text-slate-400 group-hover:text-slate-500")} />
                     <span className="text-sm">{tab.label}</span>
                   </button>
                 );
@@ -161,12 +170,12 @@ export function CompactLivePreview() {
   
   return (
     <div className="space-y-2 pb-2 pr-2">
-      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Key Info</p>
+      <p className="text-[10px] font-bold text-[#003087] uppercase tracking-wider mb-2">Key Info</p>
       
       <CompactInput
         label="Gross Income"
         value={userInputs?.yearlyGrossIncome || 0}
-        min={0} max={1000000}
+        min={0} max={100000000}
         onChange={(v) => updateUserInputs({ yearlyGrossIncome: v })}
         prefix="$" suffix="/yr"
       />
@@ -180,7 +189,7 @@ export function CompactLivePreview() {
       <CompactInput
         label="Interest Rate"
         value={userInputs?.interestRate || 0}
-        min={1} max={15}
+        min={1} max={25}
         onChange={(v) => updateUserInputs({ interestRate: v })}
         suffix="%"
       />
@@ -251,7 +260,7 @@ function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = 
           {prefix && <span className="text-slate-400 mr-0.5 text-xs">{prefix}</span>}
           <input
             type="number"
-            className="w-16 text-right bg-white border border-primary/30 rounded text-slate-700 font-semibold focus:outline-none focus:border-primary px-1 py-0.5 text-xs"
+            className="w-24 text-right bg-white border border-primary/30 rounded text-slate-700 font-semibold focus:outline-none focus:border-primary px-1 py-0.5 text-xs"
             value={localVal}
             onChange={(e) => setLocalVal(e.target.value)}
             onBlur={handleBlur}
@@ -262,10 +271,11 @@ function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = 
         </div>
       ) : (
         <span 
-          className="font-semibold text-slate-700 cursor-text hover:text-primary transition-colors px-1 rounded hover:bg-slate-100"
+          className="font-semibold text-slate-700 cursor-text hover:text-primary transition-colors px-1 rounded hover:bg-slate-100 flex items-center gap-1.5"
           onClick={() => setIsFocused(true)}
         >
           {formattedValue}
+          <Pencil className="w-3 h-3 text-slate-300 group-hover:text-primary transition-colors" />
         </span>
       )}
     </div>

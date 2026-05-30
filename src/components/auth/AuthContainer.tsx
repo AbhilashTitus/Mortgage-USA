@@ -23,7 +23,7 @@ export function AuthContainer() {
       {/* ═══════════════════════════════════════════════════════════════
           DESKTOP LAYOUT (≥768px): Side-by-side with sliding overlay
           ═══════════════════════════════════════════════════════════════ */}
-      <div className="hidden md:block relative z-10 w-full max-w-5xl min-h-[650px] -mt-8 sm:-mt-16">
+      <div className="hidden md:block relative z-10 w-full max-w-5xl min-h-[650px] -mt-8 sm:-mt-16 animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
         <div className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-row min-h-[650px] relative">
         
           {/* ─── SIGN UP FORM (Right Side) ─── */}
@@ -166,7 +166,7 @@ export function AuthContainer() {
       {/* ═══════════════════════════════════════════════════════════════
           MOBILE LAYOUT (<768px): Sliding Forms
           ═══════════════════════════════════════════════════════════════ */}
-      <div className="md:hidden w-full max-w-md mx-auto mt-12 relative overflow-hidden pb-12">
+      <div className="md:hidden w-full max-w-md mx-auto mt-12 relative overflow-hidden pb-12 animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
         {/* Toggle Pill */}
         <div className="flex justify-center mb-6">
           <div className="bg-white rounded-full p-1 shadow-sm border border-slate-200 inline-flex relative w-64">

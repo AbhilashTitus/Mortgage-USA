@@ -9,10 +9,14 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { PlusCircle, Trash2, Banknote, Users, Home, Percent, Calculator } from "lucide-react";
+import { PlusCircle, Trash2, Banknote, Users, Home, Percent, Calculator, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 
-export function YourInfoForm() {
+interface YourInfoFormProps {
+  onNext?: () => void;
+}
+
+export function YourInfoForm({ onNext }: YourInfoFormProps) {
   const { userInputs, updateUserInputs } = useAppStore();
 
   const form = useForm<UserInputState>({
@@ -476,6 +480,21 @@ export function YourInfoForm() {
         </div>
 
       </form>
+
+      {/* Next Step CTA */}
+      <div className="mt-16 flex justify-center pb-24">
+        <button
+          type="button"
+          onClick={() => {
+            onNext?.();
+          }}
+          className="group relative px-8 py-4 bg-[#003087] hover:bg-[#002266] text-white rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 overflow-hidden outline-none ring-4 ring-[#003087]/20 hover:ring-[#003087]/40"
+        >
+          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+          <span className="relative z-10 font-bold text-lg tracking-wide">View My Dashboard</span>
+          <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </div>
     </div>
   );
 }

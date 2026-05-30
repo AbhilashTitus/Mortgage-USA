@@ -14,7 +14,8 @@ import {
   Menu,
   LogIn,
   UserCircle,
-  ChevronDown
+  ChevronDown,
+  Minus
 } from "lucide-react";
 import { AppStep, CompactLivePreview } from "./AppSidebar";
 import { DashboardTab } from "@/app/page";
@@ -49,7 +50,6 @@ export function MobileNav({
   const [isTopNavVisible, setIsTopNavVisible] = useState(true);
   const [isBottomNavMinimized, setIsBottomNavMinimized] = useState(false);
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
-  const [isUserInfoClosing, setIsUserInfoClosing] = useState(false);
   const [isDashboardMenuOpen, setIsDashboardMenuOpen] = useState(false);
   
   const lastScrollY = useRef(0);
@@ -89,13 +89,7 @@ export function MobileNav({
     }, 280);
   }, []);
 
-  const closeUserInfo = useCallback(() => {
-    setIsUserInfoClosing(true);
-    setTimeout(() => {
-      setIsUserInfoOpen(false);
-      setIsUserInfoClosing(false);
-    }, 280);
-  }, []);
+
 
   const handleStepClick = (step: AppStep) => {
     onStepChange(step);
@@ -104,19 +98,14 @@ export function MobileNav({
   };
 
   const handleTabBarClick = (step: AppStep) => {
-    if (step === "dashboard") {
-      if (currentStep === "dashboard") {
-        setIsDashboardMenuOpen(prev => !prev);
-      } else {
-        onStepChange(step);
-        setIsDashboardMenuOpen(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    } else {
-      onStepChange(step);
-      setIsDashboardMenuOpen(false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (step === "dashboard" && currentStep === "dashboard") {
+      setIsDashboardMenuOpen(prev => !prev);
+      return;
     }
+    
+    onStepChange(step);
+    setIsDashboardMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSubTabClick = (tab: DashboardTab) => {
@@ -164,11 +153,14 @@ export function MobileNav({
         </button>
       )}
 
-      {/* Invisible Backdrop to close Dashboard Menu */}
-      {isDashboardMenuOpen && currentStep === "dashboard" && (
+      {/* Invisible Backdrop to close Menus */}
+      {((isDashboardMenuOpen && currentStep === "dashboard") || isUserInfoOpen) && (
         <div 
           className="fixed inset-0 z-40 lg:hidden" 
-          onClick={() => setIsDashboardMenuOpen(false)} 
+          onClick={() => {
+            setIsDashboardMenuOpen(false);
+            setIsUserInfoOpen(false);
+          }} 
         />
       )}
 
@@ -179,50 +171,49 @@ export function MobileNav({
           isBottomNavMinimized ? "translate-y-32 opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         )}
       >
-        {/* Dashboard Sub-Menu Popover */}
-        <div className={cn(
-          "absolute bottom-[calc(100%+16px)] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 origin-bottom",
-          isDashboardMenuOpen && currentStep === "dashboard" ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"
-        )}>
-          {dashboardSubTabs.map((tab) => {
-            const TabIcon = tab.icon;
-            const isActive = dashboardTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  onDashboardTabChange(tab.id);
-                  setIsDashboardMenuOpen(false);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className={cn(
-                  "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors min-w-[180px]",
-                  isActive 
-                    ? "bg-[#003087]/10 text-[#003087]" 
-                    : "text-slate-600 hover:bg-slate-100"
-                )}
-              >
-                <TabIcon className={cn("w-5 h-5 shrink-0", isActive ? "text-[#003087]" : "text-slate-400")} />
-                {tab.label}
-                {isActive && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#003087]" />}
-              </button>
-            );
-          })}
-          {/* Triangle pointer */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-b border-r border-slate-200/60 rotate-45 shadow-sm"></div>
-        </div>
+
 
         {/* Glassmorphism floating pill */}
         <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl rounded-full px-2 py-1.5 flex items-center gap-1 relative">
           
           {/* Quick Info Tab */}
-          <button
-            onClick={() => setIsUserInfoOpen(true)}
-            className="flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-full transition-all duration-300 min-w-[72px] text-slate-400 hover:text-slate-600"
-          >
-            <UserCircle className="w-5 h-5 transition-all duration-300" />
-            <span className="text-[10px] font-semibold mt-0.5">Key Info</span>
-          </button>
+          <div className="relative">
+            <button
+              onClick={() => setIsUserInfoOpen(!isUserInfoOpen)}
+              className="flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-full transition-all duration-300 min-w-[72px] text-slate-400 hover:text-slate-600"
+            >
+              <UserCircle className="w-5 h-5 transition-all duration-300" />
+              <span className="text-[10px] font-semibold mt-0.5">Info</span>
+            </button>
+            
+            {/* Info Popover */}
+            <div className={cn(
+              "absolute bottom-[calc(100%+16px)] left-0 bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-2xl p-4 w-[280px] flex flex-col gap-1 transition-all duration-300 origin-bottom-left",
+              isUserInfoOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"
+            )}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsUserInfoOpen(false);
+                }}
+                className="absolute -top-2 -right-2 w-6 h-6 bg-white hover:bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center shadow-md transition-colors group z-50"
+              >
+                <X className="w-3.5 h-3.5 text-red-500" strokeWidth={3} />
+              </button>
+              <CompactLivePreview />
+              <button 
+                onClick={() => {
+                  handleTabBarClick("info");
+                  setIsUserInfoOpen(false);
+                }}
+                className="w-full mt-4 py-2.5 rounded-xl bg-slate-100 text-[#003087] font-bold text-sm hover:bg-slate-200 transition-colors"
+              >
+                Go to Full Edit Form
+              </button>
+              {/* Triangle pointer */}
+              <div className="absolute -bottom-2 left-8 w-4 h-4 bg-white border-b border-r border-slate-200/60 rotate-45 shadow-sm"></div>
+            </div>
+          </div>
 
           {/* Your Info Tab */}
           <button
@@ -245,45 +236,89 @@ export function MobileNav({
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#003087]" />
               )}
             </div>
-            <span className="text-[10px] font-semibold mt-0.5">Edit Info</span>
+            <span className="text-[10px] font-semibold mt-0.5">Edit</span>
           </button>
 
           {/* Dashboard Tab */}
-          <button
-            onClick={() => handleTabBarClick("dashboard")}
-            className={cn(
-              "flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-full transition-all duration-300 min-w-[72px]",
-              currentStep === "dashboard"
-                ? "bg-[#003087]/5 text-[#003087]"
-                : "text-slate-400 hover:text-slate-600"
-            )}
-          >
-            <div className="relative">
-              <LayoutDashboard
-                className={cn(
-                  "w-5 h-5 transition-all duration-300",
-                  currentStep === "dashboard" && "scale-110"
+          <div className="relative">
+            <button
+              onClick={() => handleTabBarClick("dashboard")}
+              className={cn(
+                "flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-full transition-all duration-300 min-w-[72px]",
+                currentStep === "dashboard"
+                  ? "bg-[#003087]/5 text-[#003087]"
+                  : "text-slate-400 hover:text-slate-600"
+              )}
+            >
+              <div className="relative">
+                <LayoutDashboard
+                  className={cn(
+                    "w-5 h-5 transition-all duration-300",
+                    currentStep === "dashboard" && "scale-110"
+                  )}
+                />
+                {currentStep === "dashboard" && !isDashboardMenuOpen && (
+                  <div className="absolute -top-1 -right-1 w-2.5 h-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500 border-2 border-white shadow-sm"></span>
+                  </div>
                 )}
-              />
-              {currentStep === "dashboard" && !isDashboardMenuOpen && (
-                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-red-500 border-2 border-white animate-pulse shadow-sm" />
-              )}
-              {currentStep === "dashboard" && (
-                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#003087]" />
-              )}
+                {currentStep === "dashboard" && (
+                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#003087]" />
+                )}
+              </div>
+              <span className="text-[10px] font-semibold mt-0.5">Dashboard</span>
+            </button>
+
+            {/* Dashboard Sub-Menu Popover */}
+            <div className={cn(
+              "absolute bottom-[calc(100%+16px)] right-0 bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-2xl p-2 flex flex-col gap-1 transition-all duration-300 origin-bottom-right z-50",
+              isDashboardMenuOpen && currentStep === "dashboard" ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"
+            )}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsDashboardMenuOpen(false);
+                }}
+                className="absolute -top-2 -right-2 w-6 h-6 bg-white hover:bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center shadow-md transition-colors group z-50"
+              >
+                <X className="w-3.5 h-3.5 text-red-500" strokeWidth={3} />
+              </button>
+              {dashboardSubTabs.map((tab) => {
+                const TabIcon = tab.icon;
+                const isActive = dashboardTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      onDashboardTabChange(tab.id);
+                      setIsDashboardMenuOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap min-w-[180px]",
+                      isActive 
+                        ? "bg-[#003087]/10 text-[#003087]" 
+                        : "text-slate-600 hover:bg-slate-100"
+                    )}
+                  >
+                    <TabIcon className={cn("w-5 h-5 shrink-0", isActive ? "text-[#003087]" : "text-slate-400")} />
+                    {tab.label}
+                    {isActive && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#003087]" />}
+                  </button>
+                );
+              })}
+              {/* Triangle pointer aligned to point directly at Dashboard tab */}
+              <div className="absolute -bottom-2 right-[28px] w-4 h-4 bg-white border-b border-r border-slate-200/60 rotate-45 shadow-sm"></div>
             </div>
-            <span className="text-[10px] font-semibold mt-0.5">Dashboard</span>
-          </button>
+          </div>
 
-          {/* Minimize Divider */}
-          <div className="w-[1px] h-8 bg-slate-200 mx-1"></div>
-
-          {/* Minimize Button */}
+          {/* Top-Right Minimize Button */}
           <button
             onClick={() => setIsBottomNavMinimized(true)}
-            className="flex items-center justify-center p-2 rounded-full text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors mr-1"
+            className="absolute -top-2 -right-2 w-6 h-6 bg-white hover:bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center shadow-md transition-colors group z-50"
           >
-            <ChevronDown className="w-5 h-5" />
+            <X className="w-3.5 h-3.5 text-red-500" strokeWidth={3} />
           </button>
         </div>
       </nav>
@@ -464,49 +499,7 @@ export function MobileNav({
         </div>
       )}
 
-      {/* ── Key Info Overlay Drawer ── */}
-      {isUserInfoOpen && (
-        <div className="fixed inset-0 z-[100] lg:hidden">
-          <div
-            className={cn(
-              "absolute inset-0 bg-black/30 backdrop-blur-sm",
-              isUserInfoClosing ? "mobile-overlay-exit" : "mobile-overlay-enter"
-            )}
-            onClick={closeUserInfo}
-          />
-          <div
-            className={cn(
-              "absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl flex flex-col max-h-[85vh]",
-              isUserInfoClosing ? "slideDown" : "slideUp"
-            )}
-            style={{ animationDuration: '0.3s' }}
-          >
-            <div className="flex items-center justify-between px-6 h-16 border-b border-slate-100">
-              <span className="text-lg font-bold text-[#003087] tracking-tight">
-                Your Key Info
-              </span>
-              <button
-                onClick={closeUserInfo}
-                className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-500"
-              >
-                <ChevronDown className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="overflow-y-auto p-6">
-              <CompactLivePreview />
-              <button 
-                onClick={() => {
-                  handleTabBarClick("info");
-                  closeUserInfo();
-                }}
-                className="w-full mt-6 py-3 rounded-xl bg-slate-100 text-[#003087] font-bold text-sm hover:bg-slate-200 transition-colors"
-              >
-                Go to Full Edit Form
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+
     </>
   );
 }

@@ -55,14 +55,18 @@ export default function Home() {
             {currentStep === "start" && <StartHere onNext={() => setCurrentStep("info")} onProgressComplete={() => setIsSidebarExpanded(true)} onGlowChange={setSidebarGlow} />}
             
             {currentStep === "info" && (
-              <div className="max-w-3xl mx-auto animate-in fade-in duration-500">
-                <YourInfoForm />
+              <div className="max-w-3xl mx-auto animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
+                <YourInfoForm onNext={() => { setCurrentStep("dashboard"); setDashboardTab("overview"); }} />
               </div>
             )}
             
             {currentStep === "dashboard" && (
-              <div className="animate-in fade-in duration-500">
-                <DashboardLayout activeTab={dashboardTab} />
+              <div className="animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
+                <DashboardLayout 
+                  activeTab={dashboardTab} 
+                  onTabChange={setDashboardTab} 
+                  onReturnToOverview={() => setDashboardTab("overview")}
+                />
               </div>
             )}
           </div>

@@ -18,7 +18,7 @@ import { PriceComparisonTable } from "./PriceComparisonTable";
 import { OtherMonthlyCosts } from "./OtherMonthlyCosts";
 import { AmortizationTable } from "./AmortizationTable";
 import { CLOSING_COST_OPTIONS } from "@/lib/engine/constants";
-import { AlertTriangle, Star } from "lucide-react";
+import { AlertTriangle, Star, ArrowRight, RotateCcw } from "lucide-react";
 import Decimal from "decimal.js";
 
 if (typeof window !== "undefined") {
@@ -45,9 +45,11 @@ import { DashboardTab } from "@/app/page";
 
 interface DashboardLayoutProps {
   activeTab: DashboardTab;
+  onTabChange?: (tab: DashboardTab) => void;
+  onReturnToOverview?: () => void;
 }
 
-export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
+export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: DashboardLayoutProps) {
   const results = useAffordabilityEngine();
   const { settings, updateSettings, userInputs } = useAppStore();
 
@@ -223,6 +225,20 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
           </Card>
 
           <AmortizationTable />
+
+          {/* Next Step CTA */}
+          <div className="mt-12 flex justify-center pb-24">
+            <button
+              onClick={() => {
+                onTabChange?.("scenarios");
+              }}
+              className="group relative px-8 py-4 bg-[#003087] hover:bg-[#002266] text-white rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 overflow-hidden outline-none ring-4 ring-[#003087]/20 hover:ring-[#003087]/40"
+            >
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+              <span className="relative z-10 font-bold text-lg tracking-wide">Explore Scenarios</span>
+              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
         </TabsContent>
         
         <TabsContent value="scenarios" className="space-y-6 animate-in fade-in duration-500">
@@ -262,6 +278,20 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
               />
             </CardContent>
           </Card>
+
+          {/* Next Step CTA */}
+          <div className="mt-12 flex justify-center pb-24">
+            <button
+              onClick={() => {
+                onTabChange?.("deep-dive");
+              }}
+              className="group relative px-8 py-4 bg-[#003087] hover:bg-[#002266] text-white rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 overflow-hidden outline-none ring-4 ring-[#003087]/20 hover:ring-[#003087]/40"
+            >
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+              <span className="relative z-10 font-bold text-lg tracking-wide">Deep Dive Details</span>
+              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
         </TabsContent>
         
         <TabsContent value="deep-dive" className="space-y-6 animate-in fade-in duration-500">
@@ -272,38 +302,38 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
           </Card>
 
           <Card>
-            <CardHeader>
-              <CardTitle>Popular Affordability Theories</CardTitle>
-              <CardDescription className="space-y-2 text-sm leading-relaxed">
+            <CardHeader className="px-4 sm:px-6 pt-5 sm:pt-6 pb-2 sm:pb-4">
+              <CardTitle className="text-lg sm:text-xl font-semibold tracking-tight">Popular Affordability Theories</CardTitle>
+              <CardDescription className="space-y-2 text-[13px] sm:text-sm leading-normal sm:leading-relaxed text-slate-500 max-w-2xl">
                 <span>
                   Different financial experts give their &quot;rules of thumb&quot; for your maximum mortgage payment.
                   Here are a few popular theories so you can see how they stack up to our recommended maximum:
                 </span>
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="px-4 sm:px-6 pb-5 sm:pb-6">
               {/* Suggested Maximum Banner */}
               {conservativeTier && (
-                <div className="mb-6 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
+                <div className="mb-6 p-4 sm:p-5 bg-primary/5 border-2 border-primary/20 rounded-xl">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="flex items-center gap-1.5 bg-primary text-primary-foreground text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
                       <Star className="w-3 h-3" /> SUGGESTED MAXIMUM
                     </span>
                   </div>
-                  <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
                     <div>
-                      <h3 className="text-xl font-bold">Conservative</h3>
-                      <p className="text-xs text-muted-foreground">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-800">Conservative</h3>
+                      <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5">
                         {conservativeTier.frontEndRatio.times(100).toNumber()}%/{conservativeTier.backEndRatio.times(100).toNumber()}%
                       </p>
                     </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-primary">{fmt(conservativeTier.maxPurchasePrice)}</p>
-                      <p className="text-xs text-muted-foreground">{fmt(conservativeTier.downPayment)} down payment</p>
+                    <div className="text-right sm:text-center">
+                      <p className="text-xl sm:text-2xl font-black text-primary tracking-tight">{fmt(conservativeTier.maxPurchasePrice)}</p>
+                      <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5">{fmt(conservativeTier.downPayment)} down</p>
                     </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold">{fmt(conservativeTier.monthlyPayment.total)}</p>
-                      <p className="text-xs text-muted-foreground">{conservativeTier.percentOfNetIncome.toNumber()}% of your net income</p>
+                    <div className="text-right">
+                      <p className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight">{fmt(conservativeTier.monthlyPayment.total)}</p>
+                      <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5">{conservativeTier.percentOfNetIncome.toNumber()}% of net income</p>
                     </div>
                   </div>
                 </div>
@@ -316,26 +346,26 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
                 educational exercise in learning about debt-to-income ratios.
               </div>
 
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:gap-6">
                 {results.theories.map((theory, idx) => (
-                  <div key={idx} className="p-5 border rounded-xl bg-card hover:bg-muted/50 transition-colors flex flex-col">
-                    <div className="text-center mb-3">
-                      <p className="text-2xl font-bold text-primary">{fmt(theory.purchasePrice)}</p>
-                      <h3 className="font-bold text-lg mt-1">{theory.name}</h3>
+                  <div key={idx} className="p-5 sm:p-6 border border-slate-200 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                    <div className="text-center mb-5">
+                      <h3 className="font-bold text-lg sm:text-xl text-slate-800 mb-1">{theory.name}</h3>
+                      <p className="text-3xl sm:text-4xl font-black text-primary tracking-tight">{fmt(theory.purchasePrice)}</p>
                     </div>
-                    <div className="grid grid-cols-2 gap-3 text-sm mb-3">
-                      <div>
-                        <span className="text-muted-foreground">Monthly Payment:</span>{" "}
-                        <span className="font-semibold">{fmt(theory.monthlyPayment)}</span>
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 bg-slate-50 rounded-lg p-3 sm:p-4 border border-slate-100">
+                      <div className="flex flex-col">
+                        <span className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wide">Monthly Payment</span>
+                        <span className="text-sm sm:text-base font-bold text-slate-800 mt-0.5">{fmt(theory.monthlyPayment)}</span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground">Down Payment:</span>{" "}
-                        <span className="font-semibold">{fmt(theory.downPayment)}</span>
+                      <div className="flex flex-col text-right">
+                        <span className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wide">Down Payment</span>
+                        <span className="text-sm sm:text-base font-bold text-slate-800 mt-0.5">{fmt(theory.downPayment)}</span>
                       </div>
                     </div>
-                    <div className="border-t pt-3 flex-1">
-                      <p className="text-sm font-semibold mb-1">Theory:</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{theory.description}</p>
+                    <div className="border-t border-slate-100 pt-4 flex-1">
+                      <p className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Theory Background</p>
+                      <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed sm:leading-relaxed">{theory.description}</p>
                     </div>
                   </div>
                 ))}
@@ -348,6 +378,19 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
               <OtherMonthlyCosts activeTier={activeTier} otherCosts={results.otherCosts} />
             </CardContent>
           </Card>
+
+          {/* Next Step CTA */}
+          <div className="mt-12 flex justify-center pb-24">
+            <button
+              onClick={() => {
+                onReturnToOverview?.();
+              }}
+              className="group relative px-8 py-4 bg-white hover:bg-slate-50 border-2 border-[#003087] text-[#003087] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 overflow-hidden outline-none"
+            >
+              <RotateCcw className="relative z-10 w-5 h-5 group-hover:-rotate-90 transition-transform duration-500" />
+              <span className="relative z-10 font-bold text-lg tracking-wide">Back to Overview</span>
+            </button>
+          </div>
         </TabsContent>
       </Tabs>
 

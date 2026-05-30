@@ -225,11 +225,11 @@ export function DtiExplanation({ activeTier }: DtiExplanationProps) {
       </div>
 
       {/* Max Housing Payment Must Include */}
-      <div className="border-2 border-dashed border-muted-foreground/20 rounded-xl p-6 text-center space-y-4">
-        <p className="font-bold text-lg">
+      <div className="border-2 border-dashed border-muted-foreground/20 rounded-xl p-5 sm:p-6 text-center space-y-4">
+        <p className="font-semibold text-base sm:text-lg text-slate-800 leading-snug max-w-lg mx-auto">
           The {fmt(activeTier.maxHousingPayment)}/mo maximum housing payment from above must include:
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-2 sm:gap-4 text-[13px] sm:text-sm text-left mx-auto max-w-fit">
           {[
             "Principal",
             "Interest",
@@ -238,9 +238,9 @@ export function DtiExplanation({ activeTier }: DtiExplanationProps) {
             "Homeowner's Insurance",
             "HOA Fees",
           ].map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-primary shrink-0" />
-              <span>{item}</span>
+            <div key={item} className="flex items-start sm:items-center gap-2">
+              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5 sm:mt-0" />
+              <span className="font-medium leading-tight text-slate-700 tracking-tight sm:tracking-normal">{item}</span>
             </div>
           ))}
         </div>
