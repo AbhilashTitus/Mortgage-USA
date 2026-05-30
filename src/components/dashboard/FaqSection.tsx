@@ -23,7 +23,7 @@ export function FaqSection() {
           </div>
         </div>
 
-        <Accordion type="single" className="w-full space-y-4">
+        <Accordion className="w-full space-y-4">
           <AccordionItem value="item-1" className="border border-slate-100 bg-slate-50/50 rounded-2xl px-6 data-[state=open]:bg-white shadow-sm data-[state=open]:shadow-md transition-all duration-300">
             <AccordionTrigger className="text-left font-bold text-[15px] sm:text-base text-slate-700 hover:text-[#003087] hover:no-underline py-5">
               What should I decide is my maximum purchase price?
