@@ -37,8 +37,8 @@ export function OtherCostsChart({ breakdown, otherCosts }: OtherCostsChartProps)
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={80}
-            outerRadius={110}
+            innerRadius="50%"
+            outerRadius="75%"
             paddingAngle={2}
             dataKey="value"
             isAnimationActive={true}
@@ -56,7 +56,7 @@ export function OtherCostsChart({ breakdown, otherCosts }: OtherCostsChartProps)
               `$${Number(value ?? 0).toLocaleString("en-US", { maximumFractionDigits: 0 })}`
             }
           />
-          <Legend layout="vertical" verticalAlign="middle" align="right" />
+          <Legend layout="horizontal" verticalAlign="bottom" align="center" wrapperStyle={{ paddingTop: '20px' }} />
         </PieChart>
       </ResponsiveContainer>
     </div>

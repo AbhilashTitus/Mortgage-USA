@@ -26,9 +26,9 @@ export default function RootLayout({
       className={`${lexend.variable} antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen font-sans bg-slate-50" suppressHydrationWarning>
+      <body className="min-h-screen font-sans bg-slate-50 touch-manipulation" suppressHydrationWarning>
         <Header />
-        <div className="flex flex-col min-h-[calc(100vh-5rem)]">
+        <div className="flex flex-col min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
           {children}
         </div>
         <Footer />

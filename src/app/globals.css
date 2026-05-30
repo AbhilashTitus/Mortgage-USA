@@ -67,6 +67,14 @@
   }
 }
 
+/* Prevent horizontal scroll on mobile */
+/* Removed overflow-x: hidden on body because it breaks position: sticky for sidebar and CTA */
+
+/* Mobile bottom nav safe padding */
+.pb-mobile-nav {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none;
@@ -76,4 +84,44 @@
 * {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* ── Mobile Nav Animations ── */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.mobile-overlay-enter {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+.mobile-overlay-exit {
+  animation: fadeOut 0.25s ease-in forwards;
+}
+.mobile-drawer-enter {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.mobile-drawer-exit {
+  animation: slideDown 0.3s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+/* Login slider animation */
+@keyframes loginSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.login-slide-in {
+  animation: loginSlideIn 0.5s ease-out forwards;
 }

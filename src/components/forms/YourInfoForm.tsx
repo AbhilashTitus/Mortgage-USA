@@ -50,16 +50,16 @@ export function YourInfoForm() {
   }, [watch, updateUserInputs]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-10 pb-20 animate-in fade-in duration-700 slide-in-from-bottom-8">
+    <div className="w-full max-w-4xl mx-auto space-y-6 sm:space-y-10 pb-28 lg:pb-20 animate-in fade-in duration-700 slide-in-from-bottom-8">
       {/* Hero Header */}
-      <div className="text-center space-y-4 mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-50 mb-4 shadow-inner">
-          <Calculator className="w-10 h-10 text-blue-600" />
+      <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+        <div className="inline-flex items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-blue-50 mb-3 sm:mb-4 shadow-inner">
+          <Calculator className="w-7 h-7 sm:w-10 sm:h-10 text-blue-600" />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#003087]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#003087]">
           Your Information
         </h1>
-        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed px-2">
           Enter your financial details below to generate your personalized affordability dashboard.
         </p>
       </div>

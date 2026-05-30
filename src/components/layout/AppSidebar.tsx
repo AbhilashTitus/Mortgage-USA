@@ -25,6 +25,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
   const handleStepClick = (step: AppStep) => {
     onStepChange(step);
     if (!isExpanded) onExpandedChange(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const dashboardSubTabs = [
@@ -36,7 +37,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
   return (
     <aside 
       className={cn(
-        "sticky top-20 h-[calc(100vh-5rem)] bg-white border-r transition-all duration-300 ease-in-out shrink-0 flex flex-col z-20",
+        "hidden lg:flex sticky top-20 h-[calc(100vh-5rem)] bg-white border-r transition-all duration-300 ease-in-out shrink-0 flex-col z-20",
         isExpanded ? "w-80" : "w-[72px]",
         glowIntensity === 0 && "border-slate-200"
       )}
@@ -129,7 +130,10 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
                 return (
                   <button
                     key={tab.id}
-                    onClick={() => onDashboardTabChange(tab.id)}
+                    onClick={() => {
+                      onDashboardTabChange(tab.id);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                     className={cn(
                       "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors group",
                       isActive 
@@ -152,7 +156,7 @@ export function AppSidebar({ currentStep, onStepChange, dashboardTab, onDashboar
   );
 }
 
-function CompactLivePreview() {
+export function CompactLivePreview() {
   const { userInputs, updateUserInputs } = useAppStore();
   
   return (

@@ -4,8 +4,8 @@ import { Calculator } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-200 mt-auto">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <footer className="bg-white border-t border-slate-200 mt-auto pb-20 lg:pb-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -14,7 +14,7 @@ export function Footer() {
                 alt="The Mortgage Calculator App" 
                 width={400} 
                 height={120} 
-                className="h-24 w-auto object-contain"
+                className="h-16 sm:h-24 w-auto object-contain"
               />
             </Link>
             <p className="text-[15px] text-slate-500 max-w-sm leading-relaxed">

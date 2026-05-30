@@ -85,21 +85,21 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
   const conservativeTier = results.riskTiers.find(t => t.tier === "Conservative");
 
   return (
-    <div className="flex flex-col gap-6 h-full pb-8">
+    <div className="flex flex-col gap-4 sm:gap-6 h-full pb-24 lg:pb-8">
       {/* ── Header row ── */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col gap-3 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Your Affordability Dashboard</h1>
-          <p className="text-muted-foreground">Based on your inputs and current market rates.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Your Affordability Dashboard</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Based on your inputs and current market rates.</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium">Risk Tolerance:</span>
+          <span className="text-sm font-medium whitespace-nowrap">Risk Tolerance:</span>
           <Select
             value={settings.selectedRiskTier}
             onValueChange={(v) => updateSettings({ selectedRiskTier: v as RiskTier })}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Select risk tier" />
             </SelectTrigger>
             <SelectContent>
@@ -115,7 +115,7 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
 
       {/* ── Warning Alert (when debts exceed limits) ── */}
       {isDebtOverLimit && (
-        <div className="p-5 border border-amber-500/20 bg-amber-500/5 text-amber-900 dark:text-amber-200 rounded-xl flex gap-4 items-start animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="p-3 sm:p-5 border border-amber-500/20 bg-amber-500/5 text-amber-900 dark:text-amber-200 rounded-xl flex gap-3 sm:gap-4 items-start animate-in fade-in slide-in-from-top-4 duration-300">
           <AlertTriangle className="w-6 h-6 shrink-0 text-amber-500 mt-0.5 animate-pulse" />
           <div className="flex-1 space-y-2">
             <h3 className="font-semibold text-lg leading-none">Monthly Debts Exceed DTI Limit</h3>
@@ -149,23 +149,23 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
 
       {/* ── Hero summary ── */}
       <Card className="bg-primary/5 border-primary/20">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
             <div className="space-y-1">
-              <p className="text-sm font-medium text-muted-foreground">Max Purchase Price</p>
-              <p className="text-4xl font-bold tracking-tighter text-primary">
+              <p className="text-xs sm:text-sm font-medium text-muted-foreground">Max Purchase Price</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter text-primary">
                 ${activeTier.maxPurchasePrice.toNumber().toLocaleString("en-US", { maximumFractionDigits: 0 })}
               </p>
             </div>
-            <div className="space-y-1 md:border-x border-primary/10">
-              <p className="text-sm font-medium text-muted-foreground">Monthly Payment (Total)</p>
-              <p className="text-4xl font-bold tracking-tighter">
+            <div className="space-y-1 sm:border-x border-primary/10">
+              <p className="text-xs sm:text-sm font-medium text-muted-foreground">Monthly Payment (Total)</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter">
                 ${activeTier.monthlyPayment.total.toNumber().toLocaleString("en-US", { maximumFractionDigits: 0 })}
               </p>
             </div>
             <div className="space-y-1">
-              <p className="text-sm font-medium text-muted-foreground">Cash to Close (Est.)</p>
-              <p className="text-4xl font-bold tracking-tighter text-muted-foreground">
+              <p className="text-xs sm:text-sm font-medium text-muted-foreground">Cash to Close (Est.)</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter text-muted-foreground">
                 ${cashToClose.toLocaleString("en-US", { maximumFractionDigits: 0 })}
               </p>
             </div>
@@ -316,7 +316,7 @@ export function DashboardLayout({ activeTab }: DashboardLayoutProps) {
                 educational exercise in learning about debt-to-income ratios.
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {results.theories.map((theory, idx) => (
                   <div key={idx} className="p-5 border rounded-xl bg-card hover:bg-muted/50 transition-colors flex flex-col">
                     <div className="text-center mb-3">
