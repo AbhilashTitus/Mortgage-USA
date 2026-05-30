@@ -14,7 +14,7 @@ export function AuthContainer() {
   return (
     <div className="min-h-screen w-full bg-slate-50 flex items-center justify-center p-4 sm:p-8">
       {/* Back button */}
-      <Link href="/" className="absolute top-4 left-4 sm:top-8 sm:left-8 flex items-center text-slate-500 hover:text-[#003087] transition-colors font-medium text-sm sm:text-base z-50">
+      <Link href="/" className="md:hidden absolute top-4 left-4 sm:top-8 sm:left-8 flex items-center text-slate-500 hover:text-[#003087] transition-colors font-medium text-sm sm:text-base z-50">
         <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
         <span className="hidden sm:inline">Back to Dashboard</span>
         <span className="sm:hidden">Back</span>
