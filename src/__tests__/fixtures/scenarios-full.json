@@ -1,0 +1,1449 @@
+[
+  {
+    "scenario": "1. The FHA First-Time Buyer",
+    "inputs": {
+      "yearlyGrossIncome": 75000,
+      "coBorrowerIncome": 0,
+      "borrowerDebts": [
+        400,
+        150
+      ],
+      "coBorrowerDebts": [],
+      "incomeTaxRate": 20,
+      "downPaymentPercent": 3.5,
+      "interestRate": 6.25,
+      "mortgageTermYears": 30,
+      "mortgageInsuranceType": "FHA",
+      "yearlyHOA": 0,
+      "propertyTaxRate": 1.2,
+      "insuranceRate": 0.42
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 1200,
+          "maxPurchasePrice": 155159.7853408817,
+          "downPayment": 5430.592486930859,
+          "monthlyPayment": {
+            "principalAndInterest": 921.9083944613789,
+            "propertyTaxes": 155.1597853408817,
+            "homeownersInsurance": 54.3059248693086,
+            "mortgageInsurance": 68.6258800580608,
+            "hoa": 0,
+            "total": 1199.99998472963
+          },
+          "percentOfNetIncome": 24
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 1700,
+          "maxPurchasePrice": 219809.69772003192,
+          "downPayment": 7693.339420201118,
+          "monthlyPayment": {
+            "principalAndInterest": 1306.0369029701321,
+            "propertyTaxes": 219.80969772003192,
+            "homeownersInsurance": 76.93339420201117,
+            "mortgageInsurance": 97.21999755408912,
+            "hoa": 0,
+            "total": 1699.9999924462645
+          },
+          "percentOfNetIncome": 34
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 2137.5,
+          "maxPurchasePrice": 276378.3699273931,
+          "downPayment": 9673.242947458759,
+          "monthlyPayment": {
+            "principalAndInterest": 1642.1493412345044,
+            "propertyTaxes": 276.37836992739307,
+            "homeownersInsurance": 96.73242947458758,
+            "mortgageInsurance": 122.23984986580324,
+            "hoa": 0,
+            "total": 2137.4999905022883
+          },
+          "percentOfNetIncome": 43
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 2512.5,
+          "maxPurchasePrice": 324865.8032479884,
+          "downPayment": 11370.303113679593,
+          "monthlyPayment": {
+            "principalAndInterest": 1930.2457168896806,
+            "propertyTaxes": 324.86580324798837,
+            "homeownersInsurance": 113.70303113679593,
+            "mortgageInsurance": 143.6854375615582,
+            "hoa": 0,
+            "total": 2512.499988836023
+          },
+          "percentOfNetIncome": 50
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 2875,
+          "maxPurchasePrice": 371736.9887912305,
+          "downPayment": 13010.794607693068,
+          "monthlyPayment": {
+            "principalAndInterest": 2208.738880023018,
+            "propertyTaxes": 371.7369887912305,
+            "homeownersInsurance": 130.10794607693066,
+            "mortgageInsurance": 164.4161723341213,
+            "hoa": 0,
+            "total": 2874.9999872253
+          },
+          "percentOfNetIncome": 57
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 131866.1947259879,
+          "monthlyPayment": 1249.999984292386,
+          "downPayment": 13186.619472598792,
+          "breakdown": {
+            "principalAndInterest": 1017.5858160878323,
+            "propertyTaxes": 131.8661947259879,
+            "homeownersInsurance": 46.153168154095766,
+            "mortgageInsurance": 54.39480532447001,
+            "hoa": 0,
+            "total": 1249.999984292386
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 266976.6772308079,
+          "monthlyPayment": 2687.499984836451,
+          "downPayment": 9344.183703078275,
+          "breakdown": {
+            "principalAndInterest": 2208.9999110413173,
+            "propertyTaxes": 266.97667723080787,
+            "homeownersInsurance": 93.44183703078276,
+            "mortgageInsurance": 118.08155953354273,
+            "hoa": 0,
+            "total": 2687.499984836451
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 195000,
+          "monthlyPayment": 1508.1227169023623,
+          "downPayment": 6825,
+          "breakdown": {
+            "principalAndInterest": 1158.6258419023623,
+            "propertyTaxes": 195,
+            "mortgageInsurance": 86.246875,
+            "homeownersInsurance": 68.25,
+            "hoa": 0,
+            "total": 1508.1227169023623
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 218632.1302988585,
+          "monthlyPayment": 1874.9999933054567,
+          "downPayment": 43726.4260597717,
+          "breakdown": {
+            "principalAndInterest": 1499.6815029590828,
+            "propertyTaxes": 218.6321302988585,
+            "homeownersInsurance": 76.52124560460047,
+            "mortgageInsurance": 80.16511444291478,
+            "hoa": 0,
+            "total": 1874.9999933054567
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 248740.53293465378,
+          "downPayment": 8705.918652712882,
+          "closingCosts": 6218.513323366345,
+          "mortgagePayment": 1923.7499914520595,
+          "maintenanceCost": 103.6418887227724,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 303.6418887227724,
+          "paymentDifference": -213.74999905022884
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 262559.4514310234,
+          "downPayment": 9189.58080008582,
+          "closingCosts": 6563.986285775586,
+          "mortgagePayment": 2030.6249909771739,
+          "maintenanceCost": 109.3997714295931,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 309.3997714295931,
+          "paymentDifference": -106.87499952511442
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 276378.3699273931,
+          "downPayment": 9673.242947458759,
+          "closingCosts": 6909.459248184828,
+          "mortgagePayment": 2137.4999905022883,
+          "maintenanceCost": 115.15765413641378,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 315.1576541364138,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 290197.2884237628,
+          "downPayment": 10156.905094831696,
+          "closingCosts": 7254.932210594068,
+          "mortgagePayment": 2244.374990027403,
+          "maintenanceCost": 120.91553684323448,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 320.91553684323446,
+          "paymentDifference": 106.87499952511442
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 304016.2069201324,
+          "downPayment": 10640.567242204634,
+          "closingCosts": 7600.40517300331,
+          "mortgagePayment": 2351.249989552517,
+          "maintenanceCost": 126.67341955005517,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 326.67341955005514,
+          "paymentDifference": 213.74999905022884
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 115.15765413641378,
+        "totalMonthlyCost": 2452.657644638702,
+        "warning": true,
+        "remainingIncome": 2547.342355361298,
+        "percentOfTakeHome": 49,
+        "netMonthlyIncome": 5000
+      }
+    }
+  },
+  {
+    "scenario": "2. The High-Income Conventional Buyer",
+    "inputs": {
+      "yearlyGrossIncome": 250000,
+      "coBorrowerIncome": 0,
+      "borrowerDebts": [],
+      "coBorrowerDebts": [],
+      "incomeTaxRate": 35,
+      "downPaymentPercent": 20,
+      "interestRate": 5.875,
+      "mortgageTermYears": 30,
+      "mortgageInsuranceType": "Conv - Good Credit",
+      "yearlyHOA": 3600,
+      "propertyTaxRate": 1.5,
+      "insuranceRate": 0.5
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 5208.333333333333,
+          "maxPurchasePrice": 767050.6759988244,
+          "downPayment": 153410.1351997649,
+          "monthlyPayment": {
+            "principalAndInterest": 3629.915528968172,
+            "propertyTaxes": 958.8133449985306,
+            "homeownersInsurance": 319.6044483328435,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 5208.333322299546
+          },
+          "percentOfNetIncome": 38
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 5833.333333333333,
+          "maxPurchasePrice": 864722.6636465179,
+          "downPayment": 172944.53272930358,
+          "monthlyPayment": {
+            "principalAndInterest": 4092.128881750738,
+            "propertyTaxes": 1080.9033295581473,
+            "homeownersInsurance": 360.3011098527158,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 5833.333321161601
+          },
+          "percentOfNetIncome": 43
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 7500,
+          "maxPurchasePrice": 1125181.2973737004,
+          "downPayment": 225036.2594747401,
+          "monthlyPayment": {
+            "principalAndInterest": 5324.697822504246,
+            "propertyTaxes": 1406.4766217171257,
+            "homeownersInsurance": 468.8255405723752,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 7499.999984793747
+          },
+          "percentOfNetIncome": 55
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 9375,
+          "maxPurchasePrice": 1418197.2622841203,
+          "downPayment": 283639.4524568241,
+          "monthlyPayment": {
+            "principalAndInterest": 6711.337890161987,
+            "propertyTaxes": 1772.7465778551505,
+            "homeownersInsurance": 590.9155259517169,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 9374.999993968855
+          },
+          "percentOfNetIncome": 69
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 9583.333333333334,
+          "maxPurchasePrice": 1450754.5915400954,
+          "downPayment": 290150.91830801906,
+          "monthlyPayment": {
+            "principalAndInterest": 6865.409007945833,
+            "propertyTaxes": 1813.4432394251194,
+            "homeownersInsurance": 604.4810798083731,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 9583.333327179325
+          },
+          "percentOfNetIncome": 71
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 319708.00774213235,
+          "monthlyPayment": 3385.416656818477,
+          "downPayment": 31970.800774213232,
+          "breakdown": {
+            "principalAndInterest": 2408.7013737642965,
+            "propertyTaxes": 399.63500967766544,
+            "homeownersInsurance": 133.21166989255514,
+            "mortgageInsurance": 143.86860348395956,
+            "hoa": 300,
+            "total": 3385.416656818477
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 1035238.1971022994,
+          "monthlyPayment": 8958.333319423069,
+          "downPayment": 207047.6394204599,
+          "breakdown": {
+            "principalAndInterest": 6932.93632425257,
+            "propertyTaxes": 1294.0477463778743,
+            "homeownersInsurance": 431.34924879262473,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 8958.333319423069
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 650000,
+          "monthlyPayment": 4459.329701835234,
+          "downPayment": 130000,
+          "breakdown": {
+            "principalAndInterest": 3075.9963685019006,
+            "propertyTaxes": 812.5,
+            "mortgageInsurance": 0,
+            "homeownersInsurance": 270.8333333333333,
+            "hoa": 300,
+            "total": 4459.329701835234
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 711414.8918681213,
+          "monthlyPayment": 6249.999989796389,
+          "downPayment": 142282.97837362427,
+          "breakdown": {
+            "principalAndInterest": 4764.308503349521,
+            "propertyTaxes": 889.2686148351517,
+            "homeownersInsurance": 296.4228716117172,
+            "mortgageInsurance": 0,
+            "hoa": 300,
+            "total": 6249.999989796389
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 1012663.1676363305,
+          "downPayment": 202532.6335272661,
+          "closingCosts": 25316.57919090826,
+          "mortgagePayment": 6749.999986314372,
+          "maintenanceCost": 421.9429865151377,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 621.9429865151377,
+          "paymentDifference": -749.9999984793747
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 1068922.2325050156,
+          "downPayment": 213784.44650100308,
+          "closingCosts": 26723.055812625385,
+          "mortgagePayment": 7124.999985554059,
+          "maintenanceCost": 445.38426354375645,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 645.3842635437564,
+          "paymentDifference": -374.9999992396873
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 1125181.2973737004,
+          "downPayment": 225036.2594747401,
+          "closingCosts": 28129.532434342513,
+          "mortgagePayment": 7499.999984793747,
+          "maintenanceCost": 468.8255405723752,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 668.8255405723752,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 1181440.3622423855,
+          "downPayment": 236288.07244847712,
+          "closingCosts": 29536.00905605964,
+          "mortgagePayment": 7874.999984033434,
+          "maintenanceCost": 492.266817600994,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 692.2668176009939,
+          "paymentDifference": 374.9999992396873
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 1237699.4271110706,
+          "downPayment": 247539.8854222141,
+          "closingCosts": 30942.485677776764,
+          "mortgagePayment": 8249.999983273121,
+          "maintenanceCost": 515.7080946296128,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 715.7080946296128,
+          "paymentDifference": 749.9999984793747
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 468.8255405723752,
+        "totalMonthlyCost": 8168.825525366122,
+        "warning": true,
+        "remainingIncome": 5372.841141300544,
+        "percentOfTakeHome": 60,
+        "netMonthlyIncome": 13541.666666666666
+      }
+    }
+  },
+  {
+    "scenario": "3. The Dual-Income DTI-Constrained Couple",
+    "inputs": {
+      "yearlyGrossIncome": 120000,
+      "coBorrowerIncome": 80000,
+      "borrowerDebts": [
+        1200
+      ],
+      "coBorrowerDebts": [
+        800
+      ],
+      "incomeTaxRate": 28,
+      "downPaymentPercent": 5,
+      "interestRate": 6.75,
+      "mortgageTermYears": 30,
+      "mortgageInsuranceType": "Conv - Fair Credit",
+      "yearlyHOA": 0,
+      "propertyTaxRate": 1.1,
+      "insuranceRate": 0.4
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 2666.6666666666665,
+          "maxPurchasePrice": 331468.1914777007,
+          "downPayment": 16573.409573885037,
+          "monthlyPayment": {
+            "principalAndInterest": 2042.4015616207812,
+            "propertyTaxes": 303.84584218789234,
+            "homeownersInsurance": 110.48939715923358,
+            "mortgageInsurance": 209.9298546025438,
+            "hoa": 0,
+            "total": 2666.666655570451
+          },
+          "percentOfNetIncome": 22
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 4000,
+          "maxPurchasePrice": 497202.2872165511,
+          "downPayment": 24860.114360827552,
+          "monthlyPayment": {
+            "principalAndInterest": 3063.6023424311716,
+            "propertyTaxes": 455.76876328183846,
+            "homeownersInsurance": 165.73409573885036,
+            "mortgageInsurance": 314.89478190381567,
+            "hoa": 0,
+            "total": 3999.9999833556762
+          },
+          "percentOfNetIncome": 33
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 5166.666666666667,
+          "maxPurchasePrice": 642219.6227326109,
+          "downPayment": 32110.981136630544,
+          "monthlyPayment": {
+            "principalAndInterest": 3957.1530363897227,
+            "propertyTaxes": 588.7013208382266,
+            "homeownersInsurance": 214.07320757753695,
+            "mortgageInsurance": 406.73909439732023,
+            "hoa": 0,
+            "total": 5166.666659202806
+          },
+          "percentOfNetIncome": 43
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 6166.666666666667,
+          "maxPurchasePrice": 766520.1948744066,
+          "downPayment": 38326.00974372033,
+          "monthlyPayment": {
+            "principalAndInterest": 4723.053624078056,
+            "propertyTaxes": 702.643511968206,
+            "homeownersInsurance": 255.50673162480217,
+            "mortgageInsurance": 485.4627900871241,
+            "hoa": 0,
+            "total": 6166.666657758188
+          },
+          "percentOfNetIncome": 51
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 7166.666666666667,
+          "maxPurchasePrice": 890820.7670162022,
+          "downPayment": 44541.03835081011,
+          "monthlyPayment": {
+            "principalAndInterest": 5488.95421176639,
+            "propertyTaxes": 816.5857030981854,
+            "homeownersInsurance": 296.9402556720674,
+            "mortgageInsurance": 564.1864857769281,
+            "hoa": 0,
+            "total": 7166.6666563135705
+          },
+          "percentOfNetIncome": 60
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 305679.986386957,
+          "monthlyPayment": 2999.9999861953584,
+          "downPayment": 30567.9986386957,
+          "breakdown": {
+            "principalAndInterest": 2434.492011379488,
+            "propertyTaxes": 280.2066541880439,
+            "homeownersInsurance": 101.89332879565234,
+            "mortgageInsurance": 183.4079918321742,
+            "hoa": 0,
+            "total": 2999.9999861953584
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 696470.8746914465,
+          "monthlyPayment": 7166.666652390784,
+          "downPayment": 34823.543734572326,
+          "breakdown": {
+            "principalAndInterest": 5854.97983838856,
+            "propertyTaxes": 638.4316351338259,
+            "homeownersInsurance": 232.15695823048216,
+            "mortgageInsurance": 441.0982206379161,
+            "hoa": 0,
+            "total": 7166.666652390784
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 520000,
+          "monthlyPayment": 4183.407930380316,
+          "downPayment": 26000,
+          "breakdown": {
+            "principalAndInterest": 3204.074597046983,
+            "propertyTaxes": 476.6666666666667,
+            "mortgageInsurance": 329.3333333333333,
+            "homeownersInsurance": 173.33333333333334,
+            "hoa": 0,
+            "total": 4183.407930380316
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 600292.2911731588,
+          "monthlyPayment": 4999.999992584642,
+          "downPayment": 120058.45823463175,
+          "breakdown": {
+            "principalAndInterest": 4249.634628618194,
+            "propertyTaxes": 550.2679335753955,
+            "homeownersInsurance": 200.0974303910529,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 4999.999992584642
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 577997.6604593497,
+          "downPayment": 28899.88302296749,
+          "closingCosts": 14449.941511483745,
+          "mortgagePayment": 4649.999993282526,
+          "maintenanceCost": 240.83235852472907,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 440.8323585247291,
+          "paymentDifference": -516.6666659202806
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 610108.6415959804,
+          "downPayment": 30505.432079799015,
+          "closingCosts": 15252.716039899507,
+          "mortgagePayment": 4908.333326242666,
+          "maintenanceCost": 254.21193399832515,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 454.21193399832515,
+          "paymentDifference": -258.3333329601403
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 642219.6227326109,
+          "downPayment": 32110.981136630544,
+          "closingCosts": 16055.490568315272,
+          "mortgagePayment": 5166.666659202806,
+          "maintenanceCost": 267.5915094719212,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 467.5915094719212,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 674330.6038692414,
+          "downPayment": 33716.53019346207,
+          "closingCosts": 16858.265096731036,
+          "mortgagePayment": 5424.999992162947,
+          "maintenanceCost": 280.97108494551725,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 480.97108494551725,
+          "paymentDifference": 258.3333329601403
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 706441.585005872,
+          "downPayment": 35322.079250293595,
+          "closingCosts": 17661.039625146797,
+          "mortgagePayment": 5683.333325123087,
+          "maintenanceCost": 294.3506604191133,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 494.3506604191133,
+          "paymentDifference": 516.6666659202806
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 267.5915094719212,
+        "totalMonthlyCost": 5634.258168674727,
+        "warning": true,
+        "remainingIncome": 6365.741831325273,
+        "percentOfTakeHome": 47,
+        "netMonthlyIncome": 12000
+      }
+    }
+  },
+  {
+    "scenario": "4. The Veteran (VA Loan)",
+    "inputs": {
+      "yearlyGrossIncome": 90000,
+      "coBorrowerIncome": 0,
+      "borrowerDebts": [
+        200
+      ],
+      "coBorrowerDebts": [],
+      "incomeTaxRate": 22,
+      "downPaymentPercent": 0,
+      "interestRate": 5.99,
+      "mortgageTermYears": 30,
+      "mortgageInsuranceType": "VA",
+      "yearlyHOA": 0,
+      "propertyTaxRate": 1,
+      "insuranceRate": 0.35
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 1875,
+          "maxPurchasePrice": 263561.92701076344,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 1578.4928261483574,
+            "propertyTaxes": 219.6349391756362,
+            "homeownersInsurance": 76.87222871147267,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 1874.9999940354664
+          },
+          "percentOfNetIncome": 32
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 2100,
+          "maxPurchasePrice": 295189.35825205507,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 1767.9119652861605,
+            "propertyTaxes": 245.99113187671253,
+            "homeownersInsurance": 86.09689615684938,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 2099.9999933197223
+          },
+          "percentOfNetIncome": 36
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 2700,
+          "maxPurchasePrice": 379529.17489549937,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 2273.0296696536348,
+            "propertyTaxes": 316.2743124129161,
+            "homeownersInsurance": 110.69600934452065,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 2699.9999914110717
+          },
+          "percentOfNetIncome": 46
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 3375,
+          "maxPurchasePrice": 474411.4686193742,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 2841.2870870670436,
+            "propertyTaxes": 395.34289051614513,
+            "homeownersInsurance": 138.3700116806508,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 3374.9999892638393
+          },
+          "percentOfNetIncome": 58
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 3450,
+          "maxPurchasePrice": 484953.9456998047,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 2904.4268001129776,
+            "propertyTaxes": 404.1282880831706,
+            "homeownersInsurance": 141.4449008291097,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 3449.999989025258
+          },
+          "percentOfNetIncome": 59
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 167817.00196775998,
+          "monthlyPayment": 1462.4999931726952,
+          "downPayment": 16781.700196775997,
+          "breakdown": {
+            "principalAndInterest": 1273.7058659589654,
+            "propertyTaxes": 139.8475016398,
+            "homeownersInsurance": 48.94662557392999,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 1462.4999931726952
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 337407.8021043908,
+          "monthlyPayment": 3224.9999927918984,
+          "downPayment": 0,
+          "breakdown": {
+            "principalAndInterest": 2845.4162154244586,
+            "propertyTaxes": 281.1731684203257,
+            "homeownersInsurance": 98.41060894711399,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 3224.9999927918984
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 234000,
+          "monthlyPayment": 1664.694152074481,
+          "downPayment": 0,
+          "breakdown": {
+            "principalAndInterest": 1401.444152074481,
+            "propertyTaxes": 195,
+            "mortgageInsurance": 0,
+            "homeownersInsurance": 68.25,
+            "hoa": 0,
+            "total": 1664.694152074481
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 285840.1159597875,
+          "monthlyPayment": 2249.9999910521137,
+          "downPayment": 57168.0231919575,
+          "breakdown": {
+            "principalAndInterest": 1928.429860597353,
+            "propertyTaxes": 238.20009663315625,
+            "homeownersInsurance": 83.3700338216047,
+            "mortgageInsurance": 0,
+            "hoa": 0,
+            "total": 2249.9999910521137
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 341576.2574059494,
+          "downPayment": 0,
+          "closingCosts": 8539.406435148736,
+          "mortgagePayment": 2429.9999922699644,
+          "maintenanceCost": 142.32344058581225,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 342.32344058581225,
+          "paymentDifference": -269.99999914110714
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 360552.7161507244,
+          "downPayment": 0,
+          "closingCosts": 9013.81790376811,
+          "mortgagePayment": 2564.999991840518,
+          "maintenanceCost": 150.23029839613517,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 350.23029839613514,
+          "paymentDifference": -134.99999957055357
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 379529.17489549937,
+          "downPayment": 0,
+          "closingCosts": 9488.229372387485,
+          "mortgagePayment": 2699.9999914110717,
+          "maintenanceCost": 158.13715620645806,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 358.1371562064581,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 398505.6336402743,
+          "downPayment": 0,
+          "closingCosts": 9962.640841006858,
+          "mortgagePayment": 2834.999990981625,
+          "maintenanceCost": 166.04401401678098,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 366.044014016781,
+          "paymentDifference": 134.99999957055357
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 417482.09238504927,
+          "downPayment": 0,
+          "closingCosts": 10437.052309626231,
+          "mortgagePayment": 2969.9999905521786,
+          "maintenanceCost": 173.95087182710387,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 373.95087182710387,
+          "paymentDifference": 269.99999914110714
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 158.13715620645806,
+        "totalMonthlyCost": 3058.1371476175295,
+        "warning": true,
+        "remainingIncome": 2791.8628523824705,
+        "percentOfTakeHome": 52,
+        "netMonthlyIncome": 5850
+      }
+    }
+  },
+  {
+    "scenario": "5. The Rural Buyer (USDA Loan)",
+    "inputs": {
+      "yearlyGrossIncome": 65000,
+      "coBorrowerIncome": 0,
+      "borrowerDebts": [
+        100
+      ],
+      "coBorrowerDebts": [],
+      "incomeTaxRate": 15,
+      "downPaymentPercent": 0,
+      "interestRate": 6.125,
+      "mortgageTermYears": 30,
+      "mortgageInsuranceType": "USDA",
+      "yearlyHOA": 0,
+      "propertyTaxRate": 0.8,
+      "insuranceRate": 0.3
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 1354.1666666666667,
+          "maxPurchasePrice": 185898.55822725286,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 1129.5392327173374,
+            "propertyTaxes": 123.9323721515019,
+            "homeownersInsurance": 46.47463955681321,
+            "mortgageInsurance": 54.22041281628208,
+            "hoa": 0,
+            "total": 1354.1666572419347
+          },
+          "percentOfNetIncome": 29
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 1516.6666666666667,
+          "maxPurchasePrice": 208206.38521452318,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 1265.083940643418,
+            "propertyTaxes": 138.80425680968213,
+            "homeownersInsurance": 52.051596303630795,
+            "mortgageInsurance": 60.72686235423593,
+            "hoa": 0,
+            "total": 1516.6666561109669
+          },
+          "percentOfNetIncome": 33
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 1950,
+          "maxPurchasePrice": 267693.92496404616,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 1626.536501898773,
+            "propertyTaxes": 178.46261664269744,
+            "homeownersInsurance": 66.92348124101154,
+            "mortgageInsurance": 78.07739478118013,
+            "hoa": 0,
+            "total": 1949.999994563662
+          },
+          "percentOfNetIncome": 42
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 2437.5,
+          "maxPurchasePrice": 334617.4062050577,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 2033.1706273734662,
+            "propertyTaxes": 223.0782708033718,
+            "homeownersInsurance": 83.65435155126443,
+            "mortgageInsurance": 97.59674347647515,
+            "hoa": 0,
+            "total": 2437.4999932045775
+          },
+          "percentOfNetIncome": 53
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 2491.6666666666665,
+          "maxPurchasePrice": 342053.3485651701,
+          "downPayment": 0,
+          "monthlyPayment": {
+            "principalAndInterest": 2078.3521968706546,
+            "propertyTaxes": 228.0355657101134,
+            "homeownersInsurance": 85.51333714129252,
+            "mortgageInsurance": 99.76555999817461,
+            "hoa": 0,
+            "total": 2491.6666597202347
+          },
+          "percentOfNetIncome": 54
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 130285.09561099212,
+          "monthlyPayment": 1151.041661536106,
+          "downPayment": 13028.509561099212,
+          "breakdown": {
+            "principalAndInterest": 997.4138196281444,
+            "propertyTaxes": 86.85673040732809,
+            "homeownersInsurance": 32.57127390274803,
+            "mortgageInsurance": 34.199837597885434,
+            "hoa": 0,
+            "total": 1151.041661536106
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 239759.81336343114,
+          "monthlyPayment": 2329.166655294283,
+          "downPayment": 0,
+          "breakdown": {
+            "principalAndInterest": 2039.4568808134704,
+            "propertyTaxes": 159.83987557562077,
+            "homeownersInsurance": 59.939953340857784,
+            "mortgageInsurance": 69.92994556433408,
+            "hoa": 0,
+            "total": 2329.166655294283
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 169000,
+          "monthlyPayment": 1231.0701452247024,
+          "downPayment": 0,
+          "breakdown": {
+            "principalAndInterest": 1026.8618118913691,
+            "propertyTaxes": 112.66666666666667,
+            "mortgageInsurance": 49.291666666666664,
+            "homeownersInsurance": 42.25,
+            "hoa": 0,
+            "total": 1231.0701452247024
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 204274.04339680105,
+          "monthlyPayment": 1624.99999367685,
+          "downPayment": 40854.80867936021,
+          "breakdown": {
+            "principalAndInterest": 1390.0848437705288,
+            "propertyTaxes": 136.18269559786737,
+            "homeownersInsurance": 51.068510849200266,
+            "mortgageInsurance": 47.66394345925358,
+            "hoa": 0,
+            "total": 1624.99999367685
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 240924.53246764155,
+          "downPayment": 0,
+          "closingCosts": 6023.113311691039,
+          "mortgagePayment": 1754.999995107296,
+          "maintenanceCost": 100.38522186151731,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 300.3852218615173,
+          "paymentDifference": -194.99999945636623
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 254309.22871584384,
+          "downPayment": 0,
+          "closingCosts": 6357.730717896096,
+          "mortgagePayment": 1852.4999948354791,
+          "maintenanceCost": 105.9621786316016,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 305.9621786316016,
+          "paymentDifference": -97.49999972818311
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 267693.92496404616,
+          "downPayment": 0,
+          "closingCosts": 6692.348124101154,
+          "mortgagePayment": 1949.999994563662,
+          "maintenanceCost": 111.5391354016859,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 311.5391354016859,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 281078.62121224846,
+          "downPayment": 0,
+          "closingCosts": 7026.965530306212,
+          "mortgagePayment": 2047.4999942918453,
+          "maintenanceCost": 117.11609217177019,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 317.1160921717702,
+          "paymentDifference": 97.49999972818311
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 294463.31746045075,
+          "downPayment": 0,
+          "closingCosts": 7361.5829365112695,
+          "mortgagePayment": 2144.999994020028,
+          "maintenanceCost": 122.69304894185449,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 322.6930489418545,
+          "paymentDifference": 194.99999945636623
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 111.5391354016859,
+        "totalMonthlyCost": 2261.539129965348,
+        "warning": true,
+        "remainingIncome": 2342.6275367013186,
+        "percentOfTakeHome": 49,
+        "netMonthlyIncome": 4604.166666666667
+      }
+    }
+  },
+  {
+    "scenario": "6. The High-Tax State Buyer (e.g. TX/NJ)",
+    "inputs": {
+      "yearlyGrossIncome": 140000,
+      "coBorrowerIncome": 0,
+      "borrowerDebts": [
+        600
+      ],
+      "coBorrowerDebts": [],
+      "incomeTaxRate": 24,
+      "downPaymentPercent": 10,
+      "interestRate": 6.5,
+      "mortgageTermYears": 20,
+      "mortgageInsuranceType": "Conv - Good Credit",
+      "yearlyHOA": 1200,
+      "propertyTaxRate": 2.75,
+      "insuranceRate": 0.45
+    },
+    "outputs": {
+      "tiers": [
+        {
+          "tier": "Safe",
+          "frontEndRatio": 0.25,
+          "backEndRatio": 0.28,
+          "maxHousingPayment": 2666.6666666666665,
+          "maxPurchasePrice": 261189.8221193398,
+          "downPayment": 26118.98221193398,
+          "monthlyPayment": {
+            "principalAndInterest": 1752.6250317793197,
+            "propertyTaxes": 598.560009023487,
+            "homeownersInsurance": 97.94618329475243,
+            "mortgageInsurance": 117.53541995370291,
+            "hoa": 100,
+            "total": 2666.666644051262
+          },
+          "percentOfNetIncome": 30
+        },
+        {
+          "tier": "Conservative",
+          "frontEndRatio": 0.28,
+          "backEndRatio": 0.36,
+          "maxHousingPayment": 3266.6666666666665,
+          "maxPurchasePrice": 322247.1831931086,
+          "downPayment": 32224.71831931086,
+          "monthlyPayment": {
+            "principalAndInterest": 2162.329585057745,
+            "propertyTaxes": 738.4831281508739,
+            "homeownersInsurance": 120.84269369741573,
+            "mortgageInsurance": 145.01123243689887,
+            "hoa": 100,
+            "total": 3266.666639342933
+          },
+          "percentOfNetIncome": 37
+        },
+        {
+          "tier": "Moderate",
+          "frontEndRatio": 0.36,
+          "backEndRatio": 0.43,
+          "maxHousingPayment": 4200,
+          "maxPurchasePrice": 417225.3030007136,
+          "downPayment": 41722.53030007136,
+          "monthlyPayment": {
+            "principalAndInterest": 2799.6477963703064,
+            "propertyTaxes": 956.1413193766354,
+            "homeownersInsurance": 156.4594886252676,
+            "mortgageInsurance": 187.75138635032113,
+            "hoa": 100,
+            "total": 4199.99999072253
+          },
+          "percentOfNetIncome": 47
+        },
+        {
+          "tier": "Aggressive",
+          "frontEndRatio": 0.45,
+          "backEndRatio": 0.49,
+          "maxHousingPayment": 5116.666666666667,
+          "maxPurchasePrice": 510507.38295497076,
+          "downPayment": 51050.738295497074,
+          "monthlyPayment": {
+            "principalAndInterest": 3425.585311920096,
+            "propertyTaxes": 1169.9127526051413,
+            "homeownersInsurance": 191.44026860811405,
+            "mortgageInsurance": 229.72832232973684,
+            "hoa": 100,
+            "total": 5116.666655463088
+          },
+          "percentOfNetIncome": 58
+        },
+        {
+          "tier": "Risky",
+          "frontEndRatio": 0.46,
+          "backEndRatio": 0.55,
+          "maxHousingPayment": 5366.666666666667,
+          "maxPurchasePrice": 535947.9502152228,
+          "downPayment": 53594.79502152227,
+          "monthlyPayment": {
+            "principalAndInterest": 3596.295543433675,
+            "propertyTaxes": 1228.2140525765521,
+            "homeownersInsurance": 200.98048133070853,
+            "mortgageInsurance": 241.17657759685022,
+            "hoa": 100,
+            "total": 5366.666654937786
+          },
+          "percentOfNetIncome": 61
+        }
+      ],
+      "theories": [
+        {
+          "name": "Dave Ramsey",
+          "description": "Financial personality Dave Ramsey suggests paying no more than 25% of your take home pay on a mortgage. He also suggests only a 15 year mortgage with minimum 10% down and no other debt.",
+          "purchasePrice": 193185.86793301153,
+          "monthlyPayment": 2216.6666469081733,
+          "downPayment": 19318.586793301154,
+          "breakdown": {
+            "principalAndInterest": 1514.5706918502874,
+            "propertyTaxes": 442.71761401315143,
+            "homeownersInsurance": 72.44470047487933,
+            "mortgageInsurance": 86.93364056985519,
+            "hoa": 100,
+            "total": 2216.6666469081733
+          }
+        },
+        {
+          "name": "Qualified Mortgage",
+          "description": "Evidence from studies of mortgage loans suggest that borrowers with a debt-to-income ratio higher than 43% are more likely to run into trouble making monthly payments.",
+          "purchasePrice": 448738.83011787623,
+          "monthlyPayment": 5016.666653962812,
+          "downPayment": 44873.88301178763,
+          "breakdown": {
+            "principalAndInterest": 3518.0973000954314,
+            "propertyTaxes": 1028.359819020133,
+            "homeownersInsurance": 168.2770612942036,
+            "mortgageInsurance": 201.9324735530443,
+            "hoa": 100,
+            "total": 5016.666653962812
+          }
+        },
+        {
+          "name": "2.6 Ratio",
+          "description": "Economists judge a market's affordability health based on a ratio of income to price. These experts believe a home price of 2.6 times income is healthy.",
+          "purchasePrice": 364000,
+          "monthlyPayment": 3676.964258614125,
+          "downPayment": 36400,
+          "breakdown": {
+            "principalAndInterest": 2442.497591947458,
+            "propertyTaxes": 834.1666666666666,
+            "mortgageInsurance": 163.8,
+            "homeownersInsurance": 136.5,
+            "hoa": 100,
+            "total": 3676.964258614125
+          }
+        },
+        {
+          "name": "30-30-3",
+          "description": "Loved by personal finance enthusiasts, this model suggests spending no more than 30% of your gross income, with at least 30% cash saved (20% down payment and 10% buffer), and the price should be no more than 3 times your annual income.",
+          "purchasePrice": 352860.874734999,
+          "monthlyPayment": 3499.999987882082,
+          "downPayment": 70572.1749469998,
+          "breakdown": {
+            "principalAndInterest": 2459.0376552554185,
+            "propertyTaxes": 808.6395046010393,
+            "homeownersInsurance": 132.32282802562463,
+            "mortgageInsurance": 0,
+            "hoa": 100,
+            "total": 3499.999987882082
+          }
+        }
+      ],
+      "priceComparisons": [
+        {
+          "scenarioName": "- 10% lower price",
+          "multiplier": 0.9,
+          "price": 375502.77270064224,
+          "downPayment": 37550.27727006422,
+          "closingCosts": 9387.569317516056,
+          "mortgagePayment": 3779.9999916502775,
+          "maintenanceCost": 156.4594886252676,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 356.4594886252676,
+          "paymentDifference": -419.99999907225305
+        },
+        {
+          "scenarioName": "- 5% lower price",
+          "multiplier": 0.95,
+          "price": 396364.0378506779,
+          "downPayment": 39636.40378506779,
+          "closingCosts": 9909.100946266948,
+          "mortgagePayment": 3989.999991186404,
+          "maintenanceCost": 165.15168243778245,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 365.1516824377825,
+          "paymentDifference": -209.99999953612652
+        },
+        {
+          "scenarioName": "Baseline Price",
+          "multiplier": 1,
+          "price": 417225.3030007136,
+          "downPayment": 41722.53030007136,
+          "closingCosts": 10430.63257501784,
+          "mortgagePayment": 4199.99999072253,
+          "maintenanceCost": 173.84387625029734,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 373.84387625029734,
+          "paymentDifference": 0
+        },
+        {
+          "scenarioName": "+ 5% higher price",
+          "multiplier": 1.05,
+          "price": 438086.56815074926,
+          "downPayment": 43808.65681507493,
+          "closingCosts": 10952.164203768732,
+          "mortgagePayment": 4409.999990258657,
+          "maintenanceCost": 182.5360700628122,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 382.5360700628122,
+          "paymentDifference": 209.99999953612652
+        },
+        {
+          "scenarioName": "+ 10% higher price",
+          "multiplier": 1.1,
+          "price": 458947.833300785,
+          "downPayment": 45894.7833300785,
+          "closingCosts": 11473.695832519625,
+          "mortgagePayment": 4619.999989794784,
+          "maintenanceCost": 191.22826387532706,
+          "utilityCost": 200,
+          "otherMonthlyCosts": 391.22826387532706,
+          "paymentDifference": 419.99999907225305
+        }
+      ],
+      "otherCosts": {
+        "monthlyUtilities": 200,
+        "monthlyMaintenance": 173.84387625029734,
+        "totalMonthlyCost": 4573.8438669728275,
+        "warning": true,
+        "remainingIncome": 4292.8227996938385,
+        "percentOfTakeHome": 52,
+        "netMonthlyIncome": 8866.666666666666
+      }
+    }
+  }
+]

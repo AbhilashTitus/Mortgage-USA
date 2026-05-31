@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description: "Calculate your maximum affordable home purchase price before you buy.",
 };
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,11 +29,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen font-sans bg-slate-50 touch-manipulation" suppressHydrationWarning>
-        <Header />
-        <div className="flex flex-col min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
-          {children}
-        </div>
-        <Footer />
+        <TooltipProvider>
+          <Header />
+          <div className="flex flex-col min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
+            {children}
+          </div>
+          <Footer />
+        </TooltipProvider>
       </body>
     </html>
   );

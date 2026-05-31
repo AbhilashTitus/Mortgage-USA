@@ -20,6 +20,7 @@ import { AmortizationTable } from "./AmortizationTable";
 import { CLOSING_COST_OPTIONS } from "@/lib/engine/constants";
 import { AlertTriangle, Star, ArrowRight, RotateCcw } from "lucide-react";
 import Decimal from "decimal.js";
+import { motion } from "framer-motion";
 
 if (typeof window !== "undefined") {
   const originalWarn = console.warn;
@@ -87,9 +88,21 @@ export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: 
   const conservativeTier = results.riskTiers.find(t => t.tier === "Conservative");
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 h-full pb-24 lg:pb-8">
+    <div className="flex flex-col gap-4 sm:gap-6 h-full pb-24 lg:pb-8 relative">
+      {/* ── Mobile Sticky Context Banner ── */}
+      <div className="sm:hidden sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/60 p-3 shadow-sm -mx-3 mb-2 flex justify-between items-center transition-all duration-300">
+        <div className="flex flex-col">
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Active Tier</span>
+          <span className="text-sm font-bold text-slate-800">{settings.selectedRiskTier}</span>
+        </div>
+        <div className="flex flex-col text-right">
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Max Price</span>
+          <span className="text-sm font-bold text-primary">{fmt(activeTier.maxPurchasePrice)}</span>
+        </div>
+      </div>
+
       {/* ── Header row ── */}
-      <div className="flex flex-col gap-3 sm:gap-4">
+      <div className="flex flex-col gap-3 sm:gap-4 mt-2 sm:mt-0">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Your Affordability Dashboard</h1>
           <p className="text-sm sm:text-base text-muted-foreground">Based on your inputs and current market rates.</p>
@@ -177,8 +190,14 @@ export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: 
 
       <Tabs value={activeTab} className="w-full">
         {/* Horizontal TabsList removed; Navigation is now handled by the sidebar */}
-        <TabsContent value="overview" className="space-y-6 animate-in fade-in duration-500 mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <TabsContent value="overview" className="mt-0 outline-none">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="space-y-6"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
                 <CardTitle>Payment Breakdown</CardTitle>
@@ -239,10 +258,17 @@ export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: 
               <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
+          </motion.div>
         </TabsContent>
         
-        <TabsContent value="scenarios" className="space-y-6 animate-in fade-in duration-500">
-          <Card>
+        <TabsContent value="scenarios" className="mt-0 outline-none">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="space-y-6"
+          >
+            <Card>
             <CardHeader>
               <CardTitle>Risk Tiers</CardTitle>
               <CardDescription>
@@ -292,10 +318,17 @@ export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: 
               <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
+          </motion.div>
         </TabsContent>
         
-        <TabsContent value="deep-dive" className="space-y-6 animate-in fade-in duration-500">
-          <Card>
+        <TabsContent value="deep-dive" className="mt-0 outline-none">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="space-y-6"
+          >
+            <Card>
             <CardContent className="p-6">
               <DtiExplanation activeTier={activeTier} />
             </CardContent>
@@ -391,6 +424,7 @@ export function DashboardLayout({ activeTab, onTabChange, onReturnToOverview }: 
               <span className="relative z-10 font-bold text-lg tracking-wide">Back to Overview</span>
             </button>
           </div>
+          </motion.div>
         </TabsContent>
       </Tabs>
 

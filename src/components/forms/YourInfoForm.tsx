@@ -9,12 +9,37 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { PlusCircle, Trash2, Banknote, Users, Home, Percent, Calculator, ArrowRight } from "lucide-react";
-import { useEffect } from "react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { PlusCircle, Trash2, Banknote, Users, Home, Percent, Calculator, ArrowRight, HelpCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface YourInfoFormProps {
   onNext?: () => void;
 }
+
+const LabelWithTooltip = ({ htmlFor, label, tooltip, className = "text-base font-semibold text-slate-700" }: { htmlFor?: string, label: string, tooltip: string, className?: string }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex items-center gap-1.5">
+      <Label htmlFor={htmlFor} className={className}>{label}</Label>
+      <Tooltip open={!!open} defaultOpen={false} onOpenChange={(isOpen) => setOpen(!!isOpen)}>
+        <TooltipTrigger 
+          type="button" 
+          className="text-slate-400 hover:text-slate-600 focus:outline-none shrink-0" 
+          onClick={(e) => {
+            e.preventDefault();
+            setOpen(!open);
+          }}
+        >
+          <HelpCircle className="w-4 h-4" />
+        </TooltipTrigger>
+        <TooltipContent side="top" className="max-w-[280px] text-sm leading-relaxed p-3">
+          <p>{tooltip}</p>
+        </TooltipContent>
+      </Tooltip>
+    </div>
+  );
+};
 
 export function YourInfoForm({ onNext }: YourInfoFormProps) {
   const { userInputs, updateUserInputs } = useAppStore();
@@ -91,7 +116,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                 render={({ field }) => (
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2">
-                      <Label htmlFor="yearlyGrossIncome" className="text-base font-semibold text-slate-700">Annual Gross Income</Label>
+                      <LabelWithTooltip htmlFor="yearlyGrossIncome" label="Annual Gross Income" tooltip="Your total income before any taxes or deductions are taken out. Lenders use this to calculate your Debt-to-Income ratio." />
                       <div className="relative w-full sm:w-48">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                         <Input 
@@ -120,7 +145,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
               />
 
               <div className="space-y-3">
-                <Label htmlFor="incomeTaxRate" className="text-base font-semibold text-slate-700">Estimated Income Tax Rate</Label>
+                <LabelWithTooltip htmlFor="incomeTaxRate" label="Estimated Income Tax Rate" tooltip="The percentage of your gross income taken by federal, state, and local taxes. This helps us estimate your actual take-home pay." />
                 <div className="relative w-full sm:w-1/3">
                   <Input 
                     id="incomeTaxRate" 
@@ -343,7 +368,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                   render={({ field }) => (
                     <div className="space-y-4">
                       <div className="flex justify-between items-end gap-2">
-                        <Label htmlFor="downPaymentPercent" className="text-base font-semibold text-slate-700">Down Payment</Label>
+                        <LabelWithTooltip htmlFor="downPaymentPercent" label="Down Payment" tooltip="The percentage of the home's purchase price you pay upfront. 20% avoids mortgage insurance (PMI), but many loans allow 3-5% down." />
                         <div className="relative w-24">
                           <Input 
                             id="downPaymentPercent"
@@ -395,7 +420,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="mortgageInsuranceType" className="text-base font-semibold text-slate-700">Loan Type (for PMI)</Label>
+                  <LabelWithTooltip htmlFor="mortgageInsuranceType" label="Loan Type (for PMI)" tooltip="The type of loan you expect to get. This determines your Mortgage Insurance rate if you put down less than 20%." />
                   <Controller
                     control={control}
                     name="mortgageInsuranceType"
@@ -436,7 +461,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-3">
-                <Label htmlFor="propertyTaxRate" className="text-base font-semibold text-slate-700">Property Tax</Label>
+                <LabelWithTooltip htmlFor="propertyTaxRate" label="Property Tax" tooltip="The annual tax rate applied to your property's value. This varies heavily by city and county. A common average is 1.0 - 1.5%." />
                 <Controller
                   control={control}
                   name="propertyTaxRate"
@@ -484,7 +509,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
               </div>
               
               <div className="space-y-3">
-                <Label htmlFor="yearlyHOA" className="text-base font-semibold text-slate-700">Annual HOA</Label>
+                <LabelWithTooltip htmlFor="yearlyHOA" label="Annual HOA" tooltip="Homeowners Association fees (if applicable). Lenders must include these in your monthly DTI limit, so they reduce your max purchase price." />
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                   <Input 

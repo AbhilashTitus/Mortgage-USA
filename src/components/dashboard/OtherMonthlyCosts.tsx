@@ -63,11 +63,11 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
           <h4 className="font-bold text-base">Other Costs Estimator</h4>
 
           <div className="space-y-4">
-            <div className="flex items-center justify-between gap-4">
-              <Label className="text-sm whitespace-nowrap">Estimated Square Footage</Label>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+              <Label className="text-sm">Estimated Square Footage</Label>
               <Input
                 type="number"
-                className="w-32 text-right"
+                className="w-32 text-left sm:text-right"
                 value={settings.estimatedSqFt}
                 onChange={(e) => {
                   const val = parseInt(e.target.value);
@@ -76,14 +76,14 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
               />
             </div>
 
-            <div className="flex items-center justify-between gap-4">
-              <Label className="text-sm whitespace-nowrap">Utility Cost Per Square Foot</Label>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+              <Label className="text-sm">Utility Cost Per Square Foot</Label>
               <div className="flex items-center gap-2">
                 <Select
                   value={settings.utilityLevel}
                   onValueChange={(v) => updateSettings({ utilityLevel: v as UtilityLevel })}
                 >
-                  <SelectTrigger className="w-28 h-8 text-xs">
+                  <SelectTrigger className="w-32 sm:w-28 h-8 text-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -92,18 +92,18 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
                     <SelectItem value="High">High</SelectItem>
                   </SelectContent>
                 </Select>
-                <span className="text-xs text-muted-foreground whitespace-nowrap">${utilityRateLabel}/SqFt</span>
+                <span className="text-xs text-muted-foreground">${utilityRateLabel}/SqFt</span>
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4">
-              <Label className="text-sm whitespace-nowrap">Maintenance Savings Per Year</Label>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+              <Label className="text-sm">Maintenance Savings Per Year</Label>
               <div className="flex items-center gap-2">
                 <Select
                   value={settings.maintenanceLevel}
                   onValueChange={(v) => updateSettings({ maintenanceLevel: v as MaintenanceLevel })}
                 >
-                  <SelectTrigger className="w-28 h-8 text-xs">
+                  <SelectTrigger className="w-32 sm:w-28 h-8 text-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -112,7 +112,7 @@ export function OtherMonthlyCosts({ activeTier, otherCosts }: OtherMonthlyCostsP
                     <SelectItem value="High">High</SelectItem>
                   </SelectContent>
                 </Select>
-                <span className="text-xs text-muted-foreground whitespace-nowrap">{maintenanceRateLabel}% of Purchase Price/Yr</span>
+                <span className="text-xs text-muted-foreground">{maintenanceRateLabel}% of Price/Yr</span>
               </div>
             </div>
 

@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronRight, ChevronLeft, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search, Calculator, Pencil } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, LayoutDashboard, PlayCircle, BarChart3, TrendingUp, Search, Calculator, Pencil, HelpCircle } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useState } from "react";
 import { DashboardTab } from "@/app/page";
 import { useAppStore } from "@/lib/store";
@@ -178,6 +179,7 @@ export function CompactLivePreview() {
         min={0} max={100000000}
         onChange={(v) => updateUserInputs({ yearlyGrossIncome: v })}
         prefix="$" suffix="/yr"
+        tooltip="Total annual income before taxes."
       />
       <CompactInput
         label="Down Payment"
@@ -185,6 +187,7 @@ export function CompactLivePreview() {
         min={0} max={100}
         onChange={(v) => updateUserInputs({ downPaymentPercent: v })}
         suffix="%"
+        tooltip="Percentage of home price paid upfront."
       />
       <CompactInput
         label="Interest Rate"
@@ -192,6 +195,7 @@ export function CompactLivePreview() {
         min={1} max={25}
         onChange={(v) => updateUserInputs({ interestRate: v })}
         suffix="%"
+        tooltip="Expected mortgage interest rate."
       />
       <CompactInput
         label="Loan Term"
@@ -206,6 +210,7 @@ export function CompactLivePreview() {
         min={0} max={20}
         onChange={(v) => updateUserInputs({ propertyTaxRate: Math.round(v * 100000) / 1000 })}
         suffix="%"
+        tooltip="Annual tax rate on property value."
       />
     </div>
   );
@@ -219,11 +224,13 @@ interface CompactInputProps {
   onChange: (val: number) => void;
   prefix?: string;
   suffix?: string;
+  tooltip?: string;
 }
 
-function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = "" }: CompactInputProps) {
+function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = "", tooltip }: CompactInputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [localVal, setLocalVal] = useState(value.toString());
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   // Sync local value when external value changes
   if (!isFocused && localVal !== value.toString()) {
@@ -253,7 +260,26 @@ function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = 
 
   return (
     <div className="group relative rounded transition-colors flex justify-between items-center text-xs py-1.5 border-b border-slate-100/50 last:border-0">
-      <span className="text-slate-500 font-medium">{label}</span>
+      <div className="flex items-center gap-1">
+        <span className="text-slate-500 font-medium">{label}</span>
+        {tooltip && (
+          <Tooltip open={!!tooltipOpen} defaultOpen={false} onOpenChange={(isOpen) => setTooltipOpen(!!isOpen)}>
+            <TooltipTrigger 
+              type="button" 
+              className="text-slate-300 hover:text-slate-500 focus:outline-none" 
+              onClick={(e) => {
+                e.preventDefault();
+                setTooltipOpen(!tooltipOpen);
+              }}
+            >
+              <HelpCircle className="w-3 h-3" />
+            </TooltipTrigger>
+            <TooltipContent side="right" className="max-w-[200px] text-xs leading-relaxed z-[100]">
+              <p>{tooltip}</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </div>
       
       {isFocused ? (
         <div className="flex items-center">
