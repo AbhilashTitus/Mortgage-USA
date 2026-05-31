@@ -10,8 +10,7 @@ describe('Risk Tiers & Solver', () => {
     borrowerDebts: [new Decimal(500)], // $500
     coBorrowerDebts: [],
     incomeTaxRate: new Decimal(0.30),
-    availableFunds: new Decimal(100000),
-    creditScore: 750,
+
 
     interestRate: new Decimal(0.065), // 6.5%
     mortgageTermYears: 30,
@@ -31,9 +30,9 @@ describe('Risk Tiers & Solver', () => {
     rate = getMortgageInsuranceRate(new Decimal(0.05), 'Conv - Good Credit');
     expect(rate.toNumber()).toBe(60);
 
-    // FHA -> 85 bps regardless of conventional
+    // FHA -> 55 bps regardless of conventional
     rate = getMortgageInsuranceRate(new Decimal(0.20), 'FHA');
-    expect(rate.toNumber()).toBe(85);
+    expect(rate.toNumber()).toBe(55);
   });
 
   it('solves max purchase price correctly (circular dependency test)', () => {

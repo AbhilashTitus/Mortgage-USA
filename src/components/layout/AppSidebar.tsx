@@ -204,7 +204,7 @@ export function CompactLivePreview() {
         label="Property Tax"
         value={(userInputs?.propertyTaxRate || 0) / 100}
         min={0} max={20}
-        onChange={(v) => updateUserInputs({ propertyTaxRate: Math.round(v * 100) })}
+        onChange={(v) => updateUserInputs({ propertyTaxRate: Math.round(v * 100000) / 1000 })}
         suffix="%"
       />
     </div>
@@ -249,7 +249,7 @@ function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = 
     }
   };
 
-  const formattedValue = `${prefix}${value.toLocaleString("en-US")}${suffix}`;
+  const formattedValue = `${prefix}${value.toLocaleString("en-US", { maximumFractionDigits: 4 })}${suffix}`;
 
   return (
     <div className="group relative rounded transition-colors flex justify-between items-center text-xs py-1.5 border-b border-slate-100/50 last:border-0">
@@ -260,6 +260,7 @@ function CompactInput({ label, value, min, max, onChange, prefix = "", suffix = 
           {prefix && <span className="text-slate-400 mr-0.5 text-xs">{prefix}</span>}
           <input
             type="number"
+            step="any"
             className="w-24 text-right bg-white border border-primary/30 rounded text-slate-700 font-semibold focus:outline-none focus:border-primary px-1 py-0.5 text-xs"
             value={localVal}
             onChange={(e) => setLocalVal(e.target.value)}

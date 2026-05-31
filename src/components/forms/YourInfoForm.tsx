@@ -97,17 +97,20 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                         <Input 
                           id="yearlyGrossIncome"
                           type="number" 
-                          step="1000"
+                          step="0.01"
                           className="pl-8 pr-4 h-12 rounded-xl border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-lg font-bold text-slate-900 transition-all text-right shadow-sm"
                           value={field.value}
-                          onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                          onChange={(e) => {
+                            const val = parseFloat(e.target.value);
+                            field.onChange(isNaN(val) ? 0 : Math.round(val * 100) / 100);
+                          }}
                         />
                       </div>
                     </div>
                     <Slider 
                       min={0} 
                       max={1000000} 
-                      step={5000} 
+                      step={1000} 
                       value={[field.value || 0]} 
                       onValueChange={(vals) => field.onChange(Array.isArray(vals) ? vals[0] : vals)} 
                       className="py-2"
@@ -122,9 +125,11 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                   <Input 
                     id="incomeTaxRate" 
                     type="number" 
-                    step="1"
+                    step="0.001"
                     className="pr-10 h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white text-lg font-bold text-slate-900 shadow-sm"
-                    {...register("incomeTaxRate", { valueAsNumber: true })} 
+                    {...register("incomeTaxRate", { 
+                      setValueAs: (v) => v === "" ? 0 : Math.round(parseFloat(v) * 1000) / 1000 
+                    })} 
                     value={Number.isNaN(incomeTaxRateWatch) || incomeTaxRateWatch === undefined ? "" : incomeTaxRateWatch}
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
@@ -151,9 +156,12 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                         <Input 
                           type="number" 
+                          step="0.01"
                           className="pl-7 h-10 rounded-lg border-slate-200 bg-white font-bold"
                           placeholder="0"
-                          {...register(`borrowerDebts.${index}.amount` as const, { valueAsNumber: true })}
+                          {...register(`borrowerDebts.${index}.amount` as const, { 
+                            setValueAs: (v) => v === "" ? 0 : Math.round(parseFloat(v) * 100) / 100 
+                          })}
                         />
                       </div>
                       <Button 
@@ -211,8 +219,11 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                   <Input 
                     id="coBorrowerIncome" 
                     type="number" 
+                    step="0.01"
                     className="pl-8 h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white text-lg font-bold text-slate-900 shadow-sm"
-                    {...register("coBorrowerIncome", { valueAsNumber: true })} 
+                    {...register("coBorrowerIncome", { 
+                      setValueAs: (v) => v === "" ? 0 : Math.round(parseFloat(v) * 100) / 100 
+                    })} 
                   />
                 </div>
               </div>
@@ -234,9 +245,12 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                         <Input 
                           type="number" 
+                          step="0.01"
                           className="pl-7 h-10 rounded-lg border-slate-200 bg-white font-bold"
                           placeholder="0"
-                          {...register(`coBorrowerDebts.${index}.amount` as const, { valueAsNumber: true })}
+                          {...register(`coBorrowerDebts.${index}.amount` as const, { 
+                            setValueAs: (v) => v === "" ? 0 : Math.round(parseFloat(v) * 100) / 100 
+                          })}
                         />
                       </div>
                       <Button 
@@ -299,10 +313,13 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                           <Input 
                             id="interestRate"
                             type="number" 
-                            step="0.125"
+                            step="0.001"
                             className="pr-8 h-12 rounded-xl border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-lg font-bold text-slate-900 transition-all text-right shadow-sm"
                             value={field.value}
-                            onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                            onChange={(e) => {
+                              const val = parseFloat(e.target.value);
+                              field.onChange(isNaN(val) ? 0 : Math.round(val * 1000) / 1000);
+                            }}
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
                         </div>
@@ -310,7 +327,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                       <Slider 
                         min={1} 
                         max={15} 
-                        step={0.125} 
+                        step={0.001} 
                         value={[field.value || 0]} 
                         onValueChange={(vals) => field.onChange(Array.isArray(vals) ? vals[0] : vals)} 
                         className="py-2"
@@ -331,10 +348,13 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                           <Input 
                             id="downPaymentPercent"
                             type="number" 
-                            step="1"
+                            step="0.001"
                             className="pr-8 h-12 rounded-xl border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-lg font-bold text-slate-900 transition-all text-right shadow-sm"
                             value={field.value}
-                            onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                            onChange={(e) => {
+                              const val = parseFloat(e.target.value);
+                              field.onChange(isNaN(val) ? 0 : Math.round(val * 1000) / 1000);
+                            }}
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
                         </div>
@@ -342,7 +362,7 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                       <Slider 
                         min={0} 
                         max={100} 
-                        step={1} 
+                        step={0.001} 
                         value={[field.value || 0]} 
                         onValueChange={(vals) => field.onChange(Array.isArray(vals) ? vals[0] : vals)} 
                         className="py-2"
@@ -425,12 +445,12 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                       <Input 
                         id="propertyTaxRate" 
                         type="number" 
-                        step="0.01"
+                        step="0.001"
                         className="pr-10 h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white text-lg font-bold text-slate-900 shadow-sm"
                         value={field.value ? (field.value / 100).toString() : ""}
                         onChange={(e) => {
                           const val = parseFloat(e.target.value);
-                          field.onChange(isNaN(val) ? 0 : Math.round(val * 100));
+                          field.onChange(isNaN(val) ? 0 : Math.round(val * 100000) / 1000);
                         }}
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
@@ -449,12 +469,12 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                       <Input 
                         id="insuranceRate" 
                         type="number" 
-                        step="0.01"
+                        step="0.001"
                         className="pr-10 h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white text-lg font-bold text-slate-900 shadow-sm"
                         value={field.value ? (field.value / 100).toString() : ""}
                         onChange={(e) => {
                           const val = parseFloat(e.target.value);
-                          field.onChange(isNaN(val) ? 0 : Math.round(val * 100));
+                          field.onChange(isNaN(val) ? 0 : Math.round(val * 100000) / 1000);
                         }}
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
@@ -470,8 +490,11 @@ export function YourInfoForm({ onNext }: YourInfoFormProps) {
                   <Input 
                     id="yearlyHOA" 
                     type="number" 
+                    step="0.01"
                     className="pl-8 h-12 rounded-xl border-slate-200 bg-slate-50/50 focus:bg-white text-lg font-bold text-slate-900 shadow-sm"
-                    {...register("yearlyHOA", { valueAsNumber: true })} 
+                    {...register("yearlyHOA", { 
+                      setValueAs: (v) => v === "" ? 0 : Math.round(parseFloat(v) * 100) / 100 
+                    })} 
                   />
                 </div>
               </div>
